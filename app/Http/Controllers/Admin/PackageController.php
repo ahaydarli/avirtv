@@ -45,7 +45,6 @@ class PackageController extends Controller
             'price' => 'required',
             'ministra_id' => 'required'
         ]);
-
         Package::create($request->all());
         return redirect()->route('package.index')
             ->with('success', 'Package added');

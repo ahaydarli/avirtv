@@ -48,7 +48,7 @@
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand" href="#">
-                <img alt="logo" class="img-fluid index-logo" src="img/iptvlogo2.png" /> </a>
+                <img alt="logo" class="img-fluid index-logo" src="/img/iptvlogo2.png" /> </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="navbar-toggler-icon"></span>
@@ -60,29 +60,29 @@
             <ul class="navbar-nav ml-auto">
                 <li class="dropdown nav-item">
                     <a href="{{ url('/') }}" class="nav-link" >
-                        <i class="material-icons">home</i>{{trans('site.home')}}
+                        <i class="material-icons">home</i> Home
                     </a>
 
                 </li>
                 <li class="dropdown nav-item">
                     <a href="about.html" class="nav-link">
-                        <i class="material-icons">information</i>{{trans('site.about us')}}
+                        <i class="material-icons">information</i> About us
                     </a>
 
                 </li>
                 <li class="dropdown nav-item">
                     <a href="pricing.html" class="nav-link">
-                        <i class="material-icons">stars</i> {{trans('site.pricing')}}
+                        <i class="material-icons">stars</i> Pricing
                     </a>
                 </li>
                 <li class="dropdown nav-item">
-                    <a href="faq.html" class="nav-link" >
-                        <i class="material-icons">question_answer</i> {{trans('site.faq')}}
+                    <a href="{{route('frontend.faq')}}" class="nav-link" >
+                        <i class="material-icons">question_answer</i> FAQ
                     </a>
                 </li>
                 <li class="dropdown nav-item">
-                    <a href="contact.html" class="nav-link">
-                        <i class="material-icons">contactless</i> {{trans('site.contact us')}}
+                    <a href="{{route('frontend.contact')}}" class="nav-link">
+                        <i class="material-icons">contactless</i> Contact us
                     </a>
                 </li>
                 <li class="dropdown nav-item">
@@ -142,26 +142,26 @@
                     <p>Probably the best UI Kit in the world! We know you've been waiting for it, so don't be shy!</p>
                 </div>
                 <div class="col-md-2">
-                    <h5>{{trans('site.about')}}</h5>
+                    <h5>About</h5>
                     <ul class="links-vertical">
                         <li>
                             <a href="#pablo">
-                                {{trans('site.blog')}}
+                                Blog
                             </a>
                         </li>
                         <li>
                             <a href="#pablo">
-                                {{trans('site.about us')}}
+                                About Us
                             </a>
                         </li>
                         <li>
                             <a href="#pablo">
-                               {{trans('site.presentation')}}
+                                Presentation
                             </a>
                         </li>
                         <li>
                             <a href="#pablo">
-                                {{trans('site.contact us')}}
+                                Contact Us
                             </a>
                         </li>
                     </ul>
@@ -171,33 +171,33 @@
                     <ul class="links-vertical">
                         <li>
                             <a href="#pablo">
-                               {{trans('site.sales faq')}}
+                                Sales FAQ
                             </a>
                         </li>
                         <li>
                             <a href="#pablo">
-                               {{trans('site.how to register')}}
+                                How to Register
                             </a>
                         </li>
                         <li>
                             <a href="#pablo">
-                                {{trans('site.sell goods')}}
+                                Sell Goods
                             </a>
                         </li>
                         <li>
                             <a href="#pablo">
-                               {{trans('site.receive payment')}}
+                                Receive Payment
                             </a>
                         </li>
                         <li>
                             <a href="#pablo">
-                               {{trans('site. Transactions Issues')}}
+                                Transactions Issues
                             </a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-2">
-                    <h5>{{trans('site.legal')}}</h5>
+                    <h5>Legal</h5>
                     <ul class="links-vertical">
                         <li>
                             <a href="#pablo">

@@ -66,6 +66,20 @@
                 <i class="fas fa-cubes"></i>
                 <span>Packages</span></a>
         </li>
+
+        <li class="nav-item">
+            <a href="{{route('faq.index')}}" class="nav-link">
+                <i class="fas fa-question"></i>
+                <span>Faq</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{{route('contact.index')}}" class="nav-link">
+                <i class="far fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </li>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 

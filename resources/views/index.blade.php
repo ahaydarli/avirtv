@@ -9,7 +9,7 @@
                     <h2 class="title">Watch the best of live streaming TV  and On Demand shows on your favorite devices</h2>
                     <h4></h4>
                     <br>
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn btn-danger btn-raised btn-lg">
+                    <a href="" target="_blank" class="btn btn-danger btn-raised btn-lg">
                         <i class="fa fa-play"></i> Watch video
                     </a>
                 </div>
@@ -118,7 +118,7 @@
                                 <li>
                                     <b>500</b> Messages</li>
                             </ul>
-                            <a href="#pablo" class="btn btn-danger btn-round">
+                            <a href="{{ route('order.subscribe', ['package_id' => $package->id]) }}" class="btn btn-danger btn-round">
                                 Get Started
                             </a>
                         </div>
