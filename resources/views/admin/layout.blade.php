@@ -80,6 +80,13 @@
                 <span>Contact</span>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a href="{{route('about.index')}}" class="nav-link">
+                <i class="far fa-address-card"></i>
+                <span>About us</span>
+            </a>
+        </li>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
@@ -360,6 +367,14 @@
 
 <!-- Page level custom scripts -->
 <script src="{{ asset('admin/js/demo/datatables-demo.js') }}"></script>
+
+
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+<script>
+    $('#textarea').ckeditor();
+    // $('.textarea').ckeditor(); // if class is prefered.
+</script>
 
 </body>
 

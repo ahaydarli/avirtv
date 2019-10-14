@@ -33,7 +33,7 @@ class HomeController extends Controller
 
     public function fag()
     {
-        $faqs=Faq::all();
+        $faqs = Faq::all();
         return view('fag')->with([
             'faqs' => $faqs,
         ]);
@@ -47,14 +47,26 @@ class HomeController extends Controller
     public function sendMessage(Request $request)
     {
         $this->validate($request, [
-           'name'=>'required',
-           'phone'=>'required',
-           'email'=>'required',
-           'message' => 'required'
+            'name' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'message' => 'required'
         ]);
-
-
         Contact::create($request->all());
         return redirect()->back();
+    }
+
+    public function about()
+    {
+        return view('about')->with([
+
+        ]);
+    }
+
+    public function pricing()
+    {
+        return view('pricing')->with([
+
+        ]);
     }
 }

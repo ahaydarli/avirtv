@@ -16,6 +16,9 @@ Route::get('/', 'Frontend\HomeController@index')->name('frontend.index');
 Route::get('/faq', 'Frontend\HomeController@fag')->name('frontend.faq');
 Route::get('/contact', 'Frontend\HomeController@contact')->name('frontend.contact');
 Route::get('/set-locale', 'Frontend\HomeController@setLocale')->name('set-locale');
+Route::get("/about-us", 'Frontend\HomeController@about')->name("about");
+Route::get("/pricing", 'Frontend\HomeController@pricing')->name("pricing");
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', 'Frontend\ProfileController@index');
     Route::get('/order/{package_id}', 'Frontend\OrderController@subscribe')->name('order.subscribe');
@@ -33,6 +36,7 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function() {
     Route::Resource('package', 'Admin\PackageController');
     Route::Resource('faq', 'Admin\FaqController');
     Route::Resource('contact', 'Admin\ContactController');
+    Route::Resource('about', 'Admin\AboutController');
 });
 
 Route::post("/send-message",'Frontend\HomeController@sendMessage')->name('frontend.sendMessage');
