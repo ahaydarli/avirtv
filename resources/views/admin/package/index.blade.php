@@ -16,6 +16,7 @@
                         <th>Name</th>
                         <th>Price</th>
                         <th>Is active</th>
+                        <th>Ministra id</th>
                         <th>Created at</th>
                         <th>Operations</th>
                     </tr>
@@ -25,6 +26,7 @@
                         <th>Name</th>
                         <th>Price</th>
                         <th>Is active</th>
+                        <th>Ministra id</th>
                         <th>Created at</th>
                         <th>Operations</th>
                     </tr>
@@ -35,6 +37,7 @@
                         <td>{{ $package->name }}</td>
                         <td>{{ $package->price }}</td>
                         <td>{{ $package->is_active }}</td>
+                        <td>{{ $package->ministra_id }}</td>
                         <td>{{ $package->created_at }}</td>
                         <td>
                             <form id="delete-form" action="{{ route('package.destroy', $package->id) }}" method="POST">

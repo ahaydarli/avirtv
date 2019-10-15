@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Language;
+use App\MinistraClient;
 use App\Package;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -28,7 +29,9 @@ class PackageController extends Controller
     public function create()
     {
         $locales = Language::all();
-        return view('admin.package.create', compact('locales'));
+        $ministra = new MinistraClient();
+        $packages = $ministra->getData('get-packages');
+        return view('admin.package.create', compact('locales', 'packages'));
     }
 
     /**
@@ -70,7 +73,9 @@ class PackageController extends Controller
     public function edit(Package $package)
     {
         $locales = Language::all();
-        return view('admin.package.edit', compact('package', 'locales'));
+        $ministra = new MinistraClient();
+        $packages = $ministra->getData('get-packages');
+        return view('admin.package.edit', compact('package', 'locales', 'packages'));
     }
 
     /**

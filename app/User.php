@@ -36,4 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // password and last insert_id from ministra
+    protected function ministraPassword($password, $user_id)
+    {
+        $password = md5(md5($password).$user_id);
+        return $password;
+    }
 }
