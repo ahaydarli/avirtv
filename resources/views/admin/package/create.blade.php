@@ -50,12 +50,9 @@
                     <div class="form-group">
                         <select name="ministra_id" class="form-control  @error('ministra_id') is-invalid @enderror">
                             <option>Select ministra package</option>
-                            <option value="1">Standart</option>
-                            <option value="2">HD</option>
-                            <option value="4">Documentary</option>
-                            <option value="5">Entertainment</option>
-                            <option value="6">Sports</option>
-                            <option value="7">Adult</option>
+                            @foreach($packages as $package)
+                                <option value="{{ $package->id }}">{{ $package->name }}</option>
+                            @endforeach
                         </select>
 
                         @error('ministra_id')
