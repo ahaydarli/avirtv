@@ -49,7 +49,7 @@
                                 <div class="card card-nav-tabs mar-t-10">
                                     <div class="card-body ">
                                         <h4 class="mb-3">{{ __('Checkout') }}</h4>
-                                        <form class="needs-validation" novalidate="">
+                                        <form class="needs-validation" novalidate="" method="POST" action="{{ route('order.order', $package->id) }}">
                                             @csrf
                                             <div class="row">
                                                 <div class="col-md-6 mb-3">

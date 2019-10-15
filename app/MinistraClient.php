@@ -12,7 +12,7 @@ class MinistraClient
     public function __construct()
     {
         $this->client = new Client([
-            'base_uri' => 'http://127.0.0.1:5050/ministra/api/',
+            'base_uri' => 'http://ministra.avirtel.az/stalker_portal/api/',
             'timeout' => '2.0'
         ]);
     }
@@ -22,6 +22,7 @@ class MinistraClient
         $data = $this->client->get($uri)->getBody();
         return json_decode($data);
     }
+
 
 }
 
