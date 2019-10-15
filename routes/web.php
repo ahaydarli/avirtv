@@ -11,6 +11,11 @@
 |
 */
 
+use App\Contact;
+
+View::composer('admin.layout', function ($view) {
+    $view->with('messages',  Contact::where('read',0)->get());
+});
 
 Route::get('/', 'Frontend\HomeController@index')->name('frontend.index');
 Route::get('/faq', 'Frontend\HomeController@fag')->name('frontend.faq');
@@ -40,4 +45,6 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function() {
 });
 
 Route::post("/send-message",'Frontend\HomeController@sendMessage')->name('frontend.sendMessage');
+Route::post('/readmessage','Admin\AdminController@readMessage');
+
 
