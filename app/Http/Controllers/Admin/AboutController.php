@@ -16,8 +16,13 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $about = About::find(1);
-        return view('admin.about.index', compact('about'));
+        $abouts = About::all();
+        if (isset($abouts[0])) {
+            return view('admin.about.index', compact('abouts'));
+        }
+        else{
+            return redirect()->route('about.create');
+        }
     }
 
     /**
@@ -27,7 +32,8 @@ class AboutController extends Controller
      */
     public function create()
     {
-        //
+        $locales = Language::all();
+        return view('admin.about.create', compact('locales'));
     }
 
     /**
@@ -38,7 +44,11 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'content' => 'required|array|min:1',
+        ]);
+        About::create($request->all());
+        return redirect()->route('about.index');
     }
 
     /**

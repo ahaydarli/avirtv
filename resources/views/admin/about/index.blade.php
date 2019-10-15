@@ -23,6 +23,7 @@
                     </tr>
                     </tfoot>
                     <tbody>
+                    @foreach($abouts as $about)
                         <tr>
                             <td>{{$about->id}}</td>
                             <td>{!! $about->content !!}</td>
@@ -32,11 +33,12 @@
                                     </a>
                             </td>
                         </tr>
-
+                    @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
+
     </div>
 
 @endsection()
