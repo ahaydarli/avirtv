@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\About;
 use App\Contact;
 use App\Faq;
 use App\Http\Controllers\Controller;
@@ -58,8 +59,9 @@ class HomeController extends Controller
 
     public function about()
     {
+        $about = About::find(1);
         return view('about')->with([
-
+            'about'=> $about,
         ]);
     }
 

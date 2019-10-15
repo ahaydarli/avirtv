@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\About;
+use App\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +16,8 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return view('admin.about.index');
+        $about = About::find(1);
+        return view('admin.about.index', compact('about'));
     }
 
     /**
@@ -55,9 +58,10 @@ class AboutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(About $about)
     {
-        //
+        $locales = Language::all();
+        return  view('admin.about.edit', compact('about','locales'));
     }
 
     /**
@@ -67,9 +71,11 @@ class AboutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, About $about)
     {
-        //
+        $about->update($request->all());
+        return redirect()->route('about.index')->with('success', 'Content successfully updated');
+
     }
 
     /**
