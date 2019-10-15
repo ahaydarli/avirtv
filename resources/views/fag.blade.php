@@ -1,5 +1,5 @@
 @extends("layout")
-@section('page', 'Fag-page')
+@section('page', 'about-us')
 @section('title', 'Avirnet Faq')
 @section('content')
 

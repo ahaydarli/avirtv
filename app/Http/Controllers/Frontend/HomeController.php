@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\About;
 use App\Contact;
 use App\Faq;
 use App\Http\Controllers\Controller;
@@ -33,7 +34,7 @@ class HomeController extends Controller
 
     public function fag()
     {
-        $faqs=Faq::all();
+        $faqs = Faq::all();
         return view('fag')->with([
             'faqs' => $faqs,
         ]);
@@ -47,14 +48,27 @@ class HomeController extends Controller
     public function sendMessage(Request $request)
     {
         $this->validate($request, [
-           'name'=>'required',
-           'phone'=>'required',
-           'email'=>'required',
-           'message' => 'required'
+            'name' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'message' => 'required'
         ]);
-
-
         Contact::create($request->all());
         return redirect()->back();
+    }
+
+    public function about()
+    {
+        $about = About::find(1);
+        return view('about')->with([
+            'about'=> $about,
+        ]);
+    }
+
+    public function pricing()
+    {
+        return view('pricing')->with([
+
+        ]);
     }
 }
