@@ -17,7 +17,7 @@ class AboutController extends Controller
     public function index()
     {
         $abouts = About::all();
-        if (is_array($abouts)) {
+        if (isset($abouts[0])) {
             return view('admin.about.index', compact('abouts'));
         }
         else{
