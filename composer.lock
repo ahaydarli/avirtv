@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "65a89d1d6299e34d065624c35ca2c015",
+=======
+    "content-hash": "ba7c4e7d7fc994548949f7935de0516d",
+>>>>>>> c439d8f93451a715a73e62200fc4597088d71f0b
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1360,6 +1364,7 @@
                 "storage"
             ],
             "time": "2019-10-12T13:05:59+00:00"
+<<<<<<< HEAD
         },
         {
             "name": "league/flysystem-aws-s3-v3",
@@ -1454,6 +1459,8 @@
             ],
             "description": "An adapter decorator to enable meta-data caching.",
             "time": "2018-07-09T20:51:04+00:00"
+=======
+>>>>>>> c439d8f93451a715a73e62200fc4597088d71f0b
         },
         {
             "name": "monolog/monolog",

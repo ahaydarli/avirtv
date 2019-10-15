@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Subscription;
 use phpDocumentor\Reflection\Types\Void_;
 
 class ProfileController extends Controller
