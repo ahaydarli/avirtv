@@ -60,9 +60,15 @@ class HomeController extends Controller
     public function about()
     {
         $about = About::find(1);
-        return view('about')->with([
-            'about'=> $about,
-        ]);
+        if (!is_array($about)) {
+            return view('about');
+        }
+        else{
+            return view('about')->with([
+                'about'=> $about,
+            ]);
+        }
+
     }
 
     public function pricing()
