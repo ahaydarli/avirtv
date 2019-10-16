@@ -13,7 +13,7 @@ class MinistraClient
     {
         $this->client = new Client([
             'base_uri' => 'http://ministra.avirtel.az/stalker_portal/api/',
-            'timeout' => '2.0'
+            'timeout' => '5.0'
         ]);
     }
 
@@ -23,6 +23,13 @@ class MinistraClient
         return json_decode($data);
     }
 
+    public function postData($uri, $payload)
+    {
+        $data = $this->client->post($uri, [
+            'form_params' => $payload
+        ])->getBody();
+        return json_decode($data);
+    }
 
 }
 

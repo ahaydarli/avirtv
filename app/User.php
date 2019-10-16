@@ -49,8 +49,8 @@ class User extends Authenticatable
         return mt_rand(10000000, 99999999);
     }
 
-    public function subscription()
+    public function orders()
     {
-        return $this->hasOne(Subscription::class);
+        return $this->hasMany(Subscription::class);
     }
 }

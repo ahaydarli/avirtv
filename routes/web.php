@@ -12,6 +12,7 @@
 */
 
 use App\Contact;
+use function foo\func;
 
 View::composer('admin.layout', function ($view) {
     $view->with('messages',  Contact::where('read',0)->get());
@@ -28,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', 'Frontend\ProfileController@index')->name('profile');
     Route::get('/order/{package_id}', 'Frontend\OrderController@subscribe')->name('order.subscribe');
     Route::post('/order/{package_id}', 'Frontend\OrderController@order')->name('order.order');
+    Route::get('/order-test', 'Frontend\OrderController@paymentResult');
 
 });
 
@@ -37,14 +39,16 @@ Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('adm
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 
 Route::middleware(['auth:admin'])->prefix('admin')->group(function() {
+    Route::get('/','Admin\AdminController@index')->name('admin.home');
     Route::get('/dashboard', 'Admin\AdminController@index')->name('admin.home');
     Route::Resource('language', 'Admin\LanguageController');
     Route::Resource('package', 'Admin\PackageController');
     Route::Resource('faq', 'Admin\FaqController');
     Route::Resource('contact', 'Admin\ContactController');
     Route::Resource('about', 'Admin\AboutController');
-});
+    Route::Resource('content', 'Admin\ContentController');
 
+});
 Route::post("/send-message",'Frontend\HomeController@sendMessage')->name('frontend.sendMessage');
 Route::post('/readmessage','Admin\AdminController@readMessage');
 
