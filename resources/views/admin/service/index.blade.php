@@ -1,5 +1,5 @@
 @extends("admin.layout")
-@section('title', 'Subscriptions')
+@section('title', 'Services')
 @section('content')
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -8,10 +8,8 @@
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>User</th>
-                        <th>Package id</th>
-                        <th>Payment status</th>
-                        <th>Status</th>
+                        <th>Login</th>
+                        <th>License</th>
                         <th>Account Number</th>
                         <th>Created at</th>
                         <th>Updated at</th>
@@ -21,10 +19,8 @@
                     <tfoot>
                     <tr>
                         <th>#</th>
-                        <th>User</th>
-                        <th>Package id</th>
-                        <th>Payment status</th>
-                        <th>Status</th>
+                        <th>Login</th>
+                        <th>License</th>
                         <th>Account Number</th>
                         <th>Created at</th>
                         <th>Updated at</th>
@@ -32,20 +28,18 @@
                     </tr>
                     </tfoot>
                     <tbody>
-                    @foreach ($subscriptions as $sub)
+                    @foreach ($services as $service)
                         <tr>
-                            <td>{{ $sub->id }}</td>
-                            <td>{{ $sub->user->name }}</td>
-                            <td>{{ $sub->package->name }}</td>
-                            <td>{{$sub->payment_status}}</td>
-                            <td>{{$sub->status}}</td>
-                            <td>{{$sub->account_number}}</td>
-                            <td>{{ $sub->created_at }}</td>
-                            <td>{{ $sub->updated_at }}</td>
+                            <td>{{ $service->id }}</td>
+                            <td>{{ $service->login }}</td>
+                            <td>{{ $service->license }}</td>
+                            <td>{{$service->account_number}}</td>
+                            <td>{{ $service->created_at }}</td>
+                            <td>{{ $service->updated_at }}</td>
 
                             <td>
 
-                                <form id="delete-form" action="{{ route('user.destroy', $sub->id) }}" method="POST">
+                                <form id="delete-form" action="{{ route('service.destroy', $service->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
 {{--                                    <a href="{{route('subscription.show',$sub->id)}}" class="btn btn-primary btn-circle btn-sm">--}}
