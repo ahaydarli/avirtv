@@ -376,8 +376,8 @@
 <script src="{{ asset('admin/js/demo/datatables-demo.js') }}"></script>
 
 
-<script src="/avirtv/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-<script src="/avirtv/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
 
 <script>
     $('.textarea').ckeditor();
