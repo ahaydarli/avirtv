@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h2 class="title">Watch the best of live streaming TV  and On Demand shows on your favorite devices</h2>
+                    <h2 class="title">{{__('site.watch')}}</h2>
                     <h4></h4>
                     <br>
                     <a href="" target="_blank" class="btn btn-danger btn-raised btn-lg">
@@ -21,8 +21,8 @@
             <div class="section text-center">
                 <div class="row">
                     <div class="col-md-8 ml-auto mr-auto">
-                        <h2 class="title">Why choose us</h2>
-                        <h4 class="description">Stream TV live and on demand — anytime, anywhere, all on your</h4>
+                        <h2 class="title">{{ __('site.why_choose') }}</h2>
+                        <h4 class="description">{{ __('site.live') }}</h4>
                     </div>
                 </div>
                 <div class="features">
@@ -49,8 +49,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 ml-auto mr-auto text-center">
-                    <h2 class="title">Pick the best plan for you</h2>
-                    <h5 class="description">You have Free Unlimited Updates and Premium Support on each package.</h5>
+                    <h2 class="title">{{__('site.plan')}}</h2>
+                    <h5 class="description">{{__('site.unlimited')}}</h5>
                     <div class="section-space"></div>
                 </div>
             </div>

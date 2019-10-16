@@ -51,15 +51,27 @@ return [
     'customer_service'=>'Müştəri Xidmətləri',
     'contact_number'=>'Əlaqə nömrəsi',
     'send_message'=>'Göndər',
+    'help'=>'Məhsullarımızla əlaqəli bütün suallarla bizimlə əlaqə saxlaya bilərsiniz. Ən qısa müddətdə sizinlə əlaqə saxlayacağıq.',
 
 
     //login sehifesi
     'login_email'=>'Email',
     'login_password'=>'Şifrə',
     'forgot_password'=>'Şifrəni unutmusan?',
-    'licences'=>'Lisanslar'
+    'licences'=>'Lisanslar',
 
 
+    //home sehifesi
+    'why_choose'=>'Nə üçün biz',
+    'live'=>'Stream Tv canlı yayım - hər zaman, hər yerdə, bütün kompyuterlərdə',
+    'watch'=>'Canlı yayımlanan TV və Sevimli şoularınıza mobil cihazlarınızda  baxın',
+    'plan'=>'Sizin üçün ən yaxşısını seçin',
+    'unlimited'=>'Hər paketdə pulsuz limitsiz yeniləmələr və mükafatlar var',
+
+
+
+    //footer
+    'subscribe'=>'Abunə olun'
 
 
 

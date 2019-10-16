@@ -9,7 +9,7 @@
                 <h2 class="title">@lang('site.send_us_message')</h2>
                 <div class="row">
                     <div class="col-md-6">
-                        <p class="description">You can contact us with anything related to our Products. We&apos;ll get in touch with you as soon as possible.
+                        <p class="description">{{ __('site.help') }}
                             <br>
                             <br>
                         </p>
