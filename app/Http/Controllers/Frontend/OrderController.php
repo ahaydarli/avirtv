@@ -22,6 +22,10 @@ class OrderController extends Controller
 
     public function order(Request $request, $package_id)
     {
+        $request->validate([
+            'device' => 'required',
+            'period' => 'required',
+        ]);
         $package_id = filter_var($package_id, FILTER_SANITIZE_NUMBER_INT);
         $package = Package::findOrFail($package_id);
         $payload = [
@@ -41,7 +45,10 @@ class OrderController extends Controller
 //        $card_type = 'v';
 //        $payment = GoldenpayUtils::pay($price, $card_type, $order->id);
 //        dd($payment);
-        return $this->paymentResult($order->id);
+        $order =  $this->paymentResult($order->id);
+        if ($order){
+            return redirect()->route('profile');
+        }
     }
 
     public function paymentResult($order_id)

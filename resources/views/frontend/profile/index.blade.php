@@ -75,7 +75,11 @@
                                                <tr>
                                                    <td>{{ $order->package->name }}</td>
                                                    <td>{{ $order->created_at }}</td>
-                                                   <td><span class="badge badge-pill badge-success">{{ $order->payment_status ? 'Payed' : 'Not payed' }}</span></td>
+                                                   <td>
+                                                       <span class="badge badge-pill {{ $order->payment_status ? 'badge-success' : 'badge-danger' }}">
+                                                           {{ $order->payment_status ? 'Payed' : 'Not payed' }}
+                                                       </span>
+                                                   </td>
                                                    <td class="text-right">{{ $order->package->price }} ₼</td>
                                                    <td class="td-actions text-right">
                                                        @if($order->payment_status)
