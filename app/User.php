@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'account_number',
     ];
 
     /**
@@ -42,5 +42,15 @@ class User extends Authenticatable
     {
         $password = md5(md5($password).$user_id);
         return $password;
+    }
+
+    public static function generateAccountNumber()
+    {
+        return mt_rand(10000000, 99999999);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Subscription::class);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\About;
 use App\Article;
 use App\Contact;
+use App\Content;
 use App\Faq;
 use App\Http\Controllers\Controller;
 use App\Language;
@@ -22,11 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         $packages = Package::all();
         $articles=Article::orderBy('id','desc')->get();
-
-        return view('index', compact('packages','articles'));
+        $contents = Content::orderby('id','desc')->get();
+        return view('index', compact('packages','contents', 'articles'));
     }
 
     public function setLocale(Request $request)
@@ -64,7 +64,7 @@ class HomeController extends Controller
     public function about()
     {
         $about = About::find(1);
-        if (!is_array($about)) {
+        if (!isset($about)) {
             return view('about');
         }
         else{

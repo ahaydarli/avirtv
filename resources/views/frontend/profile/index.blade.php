@@ -23,7 +23,7 @@
                                <div class="nav-tabs-wrapper">
                                    <ul class="nav nav-tabs" data-tabs="tabs">
                                        <li class="nav-item">
-                                           <a class="nav-link active show" href="#profile" data-toggle="tab">
+                                           <a class="nav-link" href="#profile" data-toggle="tab">
                                                <i class="material-icons">dashboard</i> Dashboard
                                                <div class="ripple-container"></div></a>
                                        </li>
@@ -33,7 +33,7 @@
                                                <div class="ripple-container"></div></a>
                                        </li>
                                        <li class="nav-item">
-                                           <a class="nav-link" href="#subscriptions" data-toggle="tab">
+                                           <a class="nav-link active show" href="#subscriptions" data-toggle="tab">
                                                <i class="material-icons">done_all</i> Subscriptions
                                                <div class="ripple-container"></div></a>
                                        </li>
@@ -48,14 +48,14 @@
                        </div>
                        <div class="card-body ">
                            <div class="tab-content text-center">
-                               <div class="tab-pane active show" id="profile">
+                               <div class="tab-pane" id="profile">
 
                                </div>
                                <div class="tab-pane" id="account">
                                    <p> I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>
                                </div>
-                               <div class="tab-pane" id="subscriptions">
-                                   <a href="" class="btn btn-success float-right">
+                               <div class="tab-pane active show" id="subscriptions">
+                                   <a href="{{ route('pricing') }}" class="btn btn-success float-right">
                                        <i class="material-icons">add</i>
                                        Add new service
                                    </a>
@@ -65,26 +65,41 @@
                                            <tr>
                                                <th>{{ __('Package') }}</th>
                                                <th>{{ __('Expiry date') }}</th>
-                                               <th>{{ __('Status') }}</th>
+                                               <th>{{ __('Payment status') }}</th>
                                                <th class="text-right">{{ __('Price') }}</th>
                                                <th class="text-right">{{ __('Actions') }}</th>
                                            </tr>
                                            </thead>
                                            <tbody>
-                                           <tr>
-                                               <td>Standart</td>
-                                               <td>14 october 2019</td>
-                                               <td><span class="badge badge-pill badge-success">Active</span></td>
-                                               <td class="text-right">10 ₼</td>
-                                               <td class="td-actions text-right">
-                                                   <button type="button" rel="tooltip" class="btn btn-info btn-sm"
-                                                           data-original-title="{{ __('View details') }}" title="{{ __('View details') }}">
-                                                       <i class="material-icons">visibility</i>
-                                                       {{ __('View details') }}
-                                                       <div class="ripple-container"></div>
-                                                   </button>
-                                               </td>
-                                           </tr>
+                                           @foreach($user->orders as $order)
+                                               <tr>
+                                                   <td>{{ $order->package->name }}</td>
+                                                   <td>{{ $order->created_at }}</td>
+                                                   <td>
+                                                       <span class="badge badge-pill {{ $order->payment_status ? 'badge-success' : 'badge-danger' }}">
+                                                           {{ $order->payment_status ? 'Payed' : 'Not payed' }}
+                                                       </span>
+                                                   </td>
+                                                   <td class="text-right">{{ $order->package->price }} ₼</td>
+                                                   <td class="td-actions text-right">
+                                                       @if($order->payment_status)
+                                                           <button type="button" rel="tooltip" class="btn btn-info btn-sm"
+                                                                   data-original-title="{{ __('View details') }}" title="{{ __('View details') }}">
+                                                               <i class="material-icons">visibility</i>
+                                                               {{ __('View details') }}
+                                                               <div class="ripple-container"></div>
+                                                           </button>
+                                                       @else
+                                                           <a href="#" class="btn btn-success btn-sm" rel="tooltip"
+                                                                   data-original-title="{{ __('Pay') }}" title="{{ __('Pay') }}">
+                                                               <i class="material-icons">payment</i>
+                                                               {{ __('Pay') }}
+                                                               <div class="ripple-container"></div>
+                                                           </a>
+                                                       @endif
+                                                   </td>
+                                               </tr>
+                                           @endforeach
                                            </tbody>
                                        </table>
                                    </div>
