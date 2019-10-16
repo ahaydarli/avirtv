@@ -326,6 +326,7 @@
 <script src="{{ asset('demo/demo.js') }}" type="text/javascript"></script>
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
 <script src="{{ asset('js/material-kit.min1036.js?v=2.1.1') }}" type="text/javascript"></script>
+<script src="{{ asset('js/custom.js?v=1') }}" type="text/javascript"></script>
 
 
 <script>

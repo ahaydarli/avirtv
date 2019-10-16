@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterSubscriptionTable extends Migration
+class AlterSubscription1Table extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,9 @@ class AlterSubscriptionTable extends Migration
     public function up()
     {
         Schema::table('subscription', function (Blueprint $table) {
-            $table->integer('account_number')->nullable();
-            $table->tinyInteger('payment_status')->default(0);
-            $table->integer('status')->default(0);
+            $table->tinyInteger('device')->nullable();
+            $table->integer('period')->nullable();
+            $table->string('mac_address')->nullable();
         });
     }
 
@@ -27,8 +27,6 @@ class AlterSubscriptionTable extends Migration
      */
     public function down()
     {
-        Schema::table('subscription', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }

@@ -11,7 +11,8 @@ class Subscription extends Model
     protected $table = 'subscription';
 
     protected $fillable = [
-        'user_id', 'package_id', 'account_number', 'payment_status', 'status'
+        'user_id', 'package_id', 'account_number', 'payment_status', 'status',
+        'device', 'period', 'mac_address'
     ];
 
     public static function generateAccountNumber()
