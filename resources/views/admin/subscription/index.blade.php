@@ -48,9 +48,9 @@
                                 <form id="delete-form" action="{{ route('service.destroy', $sub->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-{{--                                    <a href="{{route('subscription.show',$sub->id)}}" class="btn btn-primary btn-circle btn-sm">--}}
-{{--                                        <i class="far fa-eye"></i>--}}
-{{--                                    </a>--}}
+                                    <a href="{{route('subscription.show',$sub->id)}}" class="btn btn-primary btn-circle btn-sm">
+                                        <i class="far fa-eye"></i>
+                                    </a>
                                     <button class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
                                 </form>
                             </td>
