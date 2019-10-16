@@ -37,7 +37,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <textarea id="answer" rows="5" class="form-control @error('answer') is-invalid @enderror"
+                                    <textarea id="answer" rows="5" class="form-control @error('answer') is-invalid @enderror textarea"
                                               name="text[{{ $locale->code }}]"
                                               placeholder="{{ __('Text -').$locale->name }}">{{ $article->getTranslation('text', $locale->code) }}</textarea>
                                     @error('answer')

@@ -232,7 +232,7 @@
                     </ul>
                 </div>
                 <div class="col-md-3">
-                    <h5>Subscribe to Newsletter</h5>
+                    <h5>{{ __('site.subscribe') }}</h5>
                     <p>
                         Join our newsletter and get news in your inbox every week! We hate spam too, so no worries about
                         this.
