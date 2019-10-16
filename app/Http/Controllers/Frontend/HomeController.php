@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\About;
+use App\Article;
 use App\Contact;
 use App\Faq;
 use App\Http\Controllers\Controller;
@@ -23,7 +24,9 @@ class HomeController extends Controller
     {
 
         $packages = Package::all();
-        return view('index', compact('packages'));
+        $articles=Article::orderBy('id','desc')->get();
+
+        return view('index', compact('packages','articles'));
     }
 
     public function setLocale(Request $request)

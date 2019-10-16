@@ -157,60 +157,83 @@
         <div class="container">
             <h2 class="section-title">@lang('site.latest_articles')</h2>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card card-blog">
-                        <div class="card-header card-header-image">
-                            <a href="#pablo">
-                                <img src="assets/img/comparibility-1.jpg" alt="">
-                            </a>
-                            <div class="colored-shadow" style="background-image: url(assets/img/comparibility-1.jpg); opacity: 1;"></div>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#pablo">Set box is relased</a>
-                            </h4>
-                            <p class="card-description">
-                                Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-                            </p>
+                {{--<div class="col-md-4">--}}
+                    {{--<div class="card card-blog">--}}
+                        {{--<div class="card-header card-header-image">--}}
+                            {{--<a href="#pablo">--}}
+                                {{--<img src="assets/img/comparibility-1.jpg" alt="">--}}
+                            {{--</a>--}}
+                            {{--<div class="colored-shadow" style="background-image: url(assets/img/comparibility-1.jpg); opacity: 1;"></div>--}}
+                        {{--</div>--}}
+                        {{--<div class="card-body">--}}
+                            {{--<h4 class="card-title">--}}
+                                {{--<a href="#pablo">Set box is relased</a>--}}
+                            {{--</h4>--}}
+                            {{--<p class="card-description">--}}
+                                {{--Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...--}}
+                            {{--</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="col-md-4">--}}
+                    {{--<div class="card card-blog">--}}
+                        {{--<div class="card-header card-header-image">--}}
+                            {{--<a href="#pablo">--}}
+                                {{--<img src="assets/img/comparibility-1.jpg" alt="">--}}
+                            {{--</a>--}}
+                            {{--<div class="colored-shadow" style="background-image: url(&quot;../assets/img/dg10.jpg&quot;); opacity: 1;"></div>--}}
+                        {{--</div>--}}
+                        {{--<div class="card-body">--}}
+                            {{--<h4 class="card-title">--}}
+                                {{--<a href="#pablo">Set box is relased</a>--}}
+                            {{--</h4>--}}
+                            {{--<p class="card-description">--}}
+                                {{--Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...--}}
+                            {{--</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<div class="col-md-4">--}}
+                    {{--<div class="card card-blog">--}}
+                        {{--<div class="card-header card-header-image">--}}
+                            {{--<a href="#pablo">--}}
+                                {{--<img src="assets/img/comparibility-1.jpg" alt="">--}}
+                            {{--</a>--}}
+                            {{--<div class="colored-shadow" style="background-image: url(&quot;../assets/img/dg9.jpg&quot;); opacity: 1;"></div>--}}
+                        {{--</div>--}}
+                        {{--<div class="card-body">--}}
+                            {{--<h4 class="card-title">--}}
+                                {{--<a href="#pablo">Set box is relased</a>--}}
+                            {{--</h4>--}}
+                            {{--<p class="card-description">--}}
+                                {{--Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...--}}
+                            {{--</p>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+
+                @foreach($articles as $article)
+                    <div class="col-md-4">
+                        <div class="card card-blog">
+                            <div class="card-header card-header-image">
+                                <a href="#pablo">
+                                    <img src="assets/img/comparibility-1.jpg" alt="">
+                                </a>
+                                <div class="colored-shadow" style="background-image: url(&quot;../assets/img/dg9.jpg&quot;); opacity: 1;"></div>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="#pablo">{{$article->title}}</a>
+                                </h4>
+                                <p class="card-description">
+                                    {!! $article->text !!}
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card card-blog">
-                        <div class="card-header card-header-image">
-                            <a href="#pablo">
-                                <img src="assets/img/comparibility-1.jpg" alt="">
-                            </a>
-                            <div class="colored-shadow" style="background-image: url(&quot;../assets/img/dg10.jpg&quot;); opacity: 1;"></div>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#pablo">Set box is relased</a>
-                            </h4>
-                            <p class="card-description">
-                                Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card card-blog">
-                        <div class="card-header card-header-image">
-                            <a href="#pablo">
-                                <img src="assets/img/comparibility-1.jpg" alt="">
-                            </a>
-                            <div class="colored-shadow" style="background-image: url(&quot;../assets/img/dg9.jpg&quot;); opacity: 1;"></div>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#pablo">Set box is relased</a>
-                            </h4>
-                            <p class="card-description">
-                                Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+
+
             </div>
         </div>
     </div>

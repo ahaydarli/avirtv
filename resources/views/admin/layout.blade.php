@@ -75,6 +75,13 @@
         </li>
 
         <li class="nav-item">
+            <a href="{{route('article.index')}}" class="nav-link">
+                <i class="fas fa-newspaper"></i>
+                <span>Article</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a href="{{route('contact.index')}}" class="nav-link">
                 <i class="far fa-envelope"></i>
                 <span>Contact</span>
@@ -369,8 +376,9 @@
 <script src="{{ asset('admin/js/demo/datatables-demo.js') }}"></script>
 
 
-<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-<script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+<script src="/avirtv/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="/avirtv/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+
 <script>
     $('.textarea').ckeditor();
 </script>

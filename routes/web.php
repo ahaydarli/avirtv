@@ -37,6 +37,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function() {
     Route::Resource('faq', 'Admin\FaqController');
     Route::Resource('contact', 'Admin\ContactController');
     Route::Resource('about', 'Admin\AboutController');
+    Route::Resource('article', 'Admin\ArticleController');
+
 });
 
 Route::post("/send-message",'Frontend\HomeController@sendMessage')->name('frontend.sendMessage');
