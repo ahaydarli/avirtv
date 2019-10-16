@@ -57,7 +57,7 @@ class OrderController extends Controller
         $order = Subscription::findOrFail($order_id);
         $client = new MinistraClient();
         $payload = [
-                'password' => Subscription::generatePassword(),
+                'password' => $order->account_number,
                 'full_name' => Auth::user()->name,
                 'login' => $order->account_number,
                 'account_number' => $order->account_number,

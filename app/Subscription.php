@@ -20,11 +20,6 @@ class Subscription extends Model
         return mt_rand(10000000, 99999999);
     }
 
-    public static function generatePassword()
-    {
-        return mt_rand(10000000, 99999999);
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);

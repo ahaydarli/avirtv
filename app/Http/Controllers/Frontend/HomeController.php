@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
         $packages = Package::all();
         $articles=Article::orderBy('id','desc')->get();
-        $contents = Content::orderby('id','desc')->get();
+        $contents = Content::orderby('id','asc')->get();
         return view('index', compact('packages','contents', 'articles'));
     }
 
