@@ -5,12 +5,17 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+
+
+
                     <thead>
                     <tr>
                         <th>#</th>
                         <th>Login</th>
                         <th>License</th>
                         <th>Account Number</th>
+                        <th>Password</th>
                         <th>Created at</th>
                         <th>Updated at</th>
                         <th>Operations</th>
@@ -22,6 +27,7 @@
                         <th>Login</th>
                         <th>License</th>
                         <th>Account Number</th>
+                        <th>Password</th>
                         <th>Created at</th>
                         <th>Updated at</th>
                         <th>Operations</th>
@@ -34,6 +40,7 @@
                             <td>{{ $service->login }}</td>
                             <td>{{ $service->license }}</td>
                             <td>{{$service->account_number}}</td>
+                            <td>{{$service->password}}</td>
                             <td>{{ $service->created_at }}</td>
                             <td>{{ $service->updated_at }}</td>
 
@@ -42,9 +49,14 @@
                                 <form id="delete-form" action="{{ route('service.destroy', $service->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-{{--                                    <a href="{{route('subscription.show',$sub->id)}}" class="btn btn-primary btn-circle btn-sm">--}}
-{{--                                        <i class="far fa-eye"></i>--}}
-{{--                                    </a>--}}
+                                    {{--<a href="{{route('subscription.show',$sub->id)}}" class="btn btn-primary btn-circle btn-sm">--}}
+                                        {{--<i class="far fa-eye"></i>--}}
+                                    {{--</a>--}}
+
+                                    <a class="btn btn-primary btn-circle btn-sm" href="{{ route('service.edit', $service->id) }}">
+                                        <i class="far fa-edit"></i>
+                                    </a>
+
                                     <button class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
                                 </form>
                             </td>

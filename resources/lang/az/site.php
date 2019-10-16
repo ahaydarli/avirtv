@@ -3,7 +3,7 @@
 return [
     //header menu
 
-    'home'=>'Ana Səhifə',
+    'home'=>'Home',
     'about_us'=>'Haqqımızda',
     'pricing'=>'Paketlər',
     'faq'=>'FAQ',
