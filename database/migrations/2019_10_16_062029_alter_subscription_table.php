@@ -14,7 +14,9 @@ class AlterSubscriptionTable extends Migration
     public function up()
     {
         Schema::table('subscription', function (Blueprint $table) {
-            $table->integer('account_number')->nullable()->change();
+            $table->integer('account_number')->nullable();
+            $table->tinyInteger('payment_status')->default(0);
+            $table->integer('status')->default(0);
         });
     }
 
@@ -25,6 +27,8 @@ class AlterSubscriptionTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('subscription', function (Blueprint $table) {
+            //
+        });
     }
 }
