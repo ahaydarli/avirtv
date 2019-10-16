@@ -211,8 +211,7 @@
                                 Message Center
                             </h6>
                             @foreach($messages as $msg)
-                            <a class="dropdown-item d-flex align-items-center" onclick="readMessage(this)" id="msg-notification" href="#" data-id="{{$msg->id}}">
-{{--                                {{route('contact.show', $id = $msg->id)}}--}}
+                            <a class="dropdown-item d-flex align-items-center" onclick="readMessage(this)" id="msg-notification" href="{{route('contact.show', $id = $msg->id)}}" data-id="{{$msg->id}}">
                                 <div class="font-weight-bold">
                                     <div class="text-truncate">{!! $msg->message !!} </div>
                                     <div class="small text-gray-500">{{$msg->name}}</div>
