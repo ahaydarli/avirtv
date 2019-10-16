@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', 'Frontend\ProfileController@index')->name('profile');
     Route::get('/order/{package_id}', 'Frontend\OrderController@subscribe')->name('order.subscribe');
     Route::post('/order/{package_id}', 'Frontend\OrderController@order')->name('order.order');
+    Route::get('/order-test', 'Frontend\OrderController@paymentResult');
 
 });
 
