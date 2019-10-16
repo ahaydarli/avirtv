@@ -16,4 +16,9 @@ class AdminController extends Controller
     {
         return view('admin.admin-home');
     }
+
+    public function readMessage($id)
+    {
+        return 'ok';
+    }
 }

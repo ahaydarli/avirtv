@@ -11,6 +11,12 @@
 |
 */
 
+use App\Contact;
+use function foo\func;
+
+View::composer('admin.layout', function ($view) {
+    $view->with('messages',  Contact::where('read',0)->get());
+});
 
 Route::get('/', 'Frontend\HomeController@index')->name('frontend.index');
 Route::get('/faq', 'Frontend\HomeController@fag')->name('frontend.faq');
@@ -20,8 +26,10 @@ Route::get("/about-us", 'Frontend\HomeController@about')->name("about");
 Route::get("/pricing", 'Frontend\HomeController@pricing')->name("pricing");
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', 'Frontend\ProfileController@index');
+    Route::get('/profile', 'Frontend\ProfileController@index')->name('profile');
     Route::get('/order/{package_id}', 'Frontend\OrderController@subscribe')->name('order.subscribe');
+    Route::post('/order/{package_id}', 'Frontend\OrderController@order')->name('order.order');
+    Route::get('/order-test', 'Frontend\OrderController@paymentResult');
 
 });
 
@@ -31,6 +39,7 @@ Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('adm
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 
 Route::middleware(['auth:admin'])->prefix('admin')->group(function() {
+    Route::get('/','Admin\AdminController@index')->name('admin.home');
     Route::get('/dashboard', 'Admin\AdminController@index')->name('admin.home');
     Route::Resource('language', 'Admin\LanguageController');
     Route::Resource('package', 'Admin\PackageController');
@@ -38,8 +47,12 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function() {
     Route::Resource('contact', 'Admin\ContactController');
     Route::Resource('about', 'Admin\AboutController');
     Route::Resource('article', 'Admin\ArticleController');
-
+    Route::Resource('content', 'Admin\ContentController');
+    Route::Resource('user', 'Admin\UserController');
+    Route::Resource('subscription', 'Admin\SubscriptionController');
+    Route::Resource('service', 'Admin\ServiceController');
 });
-
 Route::post("/send-message",'Frontend\HomeController@sendMessage')->name('frontend.sendMessage');
+Route::post('/readmessage','Admin\AdminController@readMessage');
+
 
