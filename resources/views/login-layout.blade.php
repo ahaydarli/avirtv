@@ -60,29 +60,29 @@
             <ul class="navbar-nav ml-auto">
                 <li class="dropdown nav-item">
                     <a href="{{ url('/') }}" class="nav-link" >
-                        <i class="material-icons">home</i> Home
+                        <i class="material-icons">home</i> @lang('site.home')
                     </a>
 
                 </li>
                 <li class="dropdown nav-item">
-                    <a href="about.html" class="nav-link">
-                        <i class="material-icons">information</i> About us
+                    <a href="{{route('about')}}" class="nav-link">
+                        <i class="material-icons">information</i> @lang('site.about_us')
                     </a>
 
                 </li>
                 <li class="dropdown nav-item">
-                    <a href="pricing.html" class="nav-link">
-                        <i class="material-icons">stars</i> Pricing
+                    <a href="{{route('pricing')}}" class="nav-link">
+                        <i class="material-icons">stars</i>  @lang('site.pricing')
                     </a>
                 </li>
                 <li class="dropdown nav-item">
-                    <a href="faq.html" class="nav-link" >
-                        <i class="material-icons">question_answer</i> FAQ
+                    <a href="{{route('frontend.faq')}}" class="nav-link" >
+                        <i class="material-icons">question_answer</i> @lang('site.faq')
                     </a>
                 </li>
                 <li class="dropdown nav-item">
-                    <a href="contact.html" class="nav-link">
-                        <i class="material-icons">contactless</i> Contact us
+                    <a href="{{route('frontend.contact')}}" class="nav-link">
+                        <i class="material-icons">contactless</i> @lang('site.contact_us')
                     </a>
                 </li>
                 <li class="dropdown nav-item">
@@ -105,7 +105,7 @@
                     @endauth
                     @guest
                         <a href="{{ route('login') }}" class="btn  btn-danger btn-round btn-block">
-                            <i class="material-icons">fingerprint</i> Login
+                            <i class="material-icons">fingerprint</i> @lang('site.login')
                         </a>
                     @endguest
 

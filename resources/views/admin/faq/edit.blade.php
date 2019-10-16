@@ -13,6 +13,7 @@
                     @csrf
                     @method('PUT')
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
                         @foreach ($locales as $locale)
                             <li class="nav-item">
                                 <a class="nav-link {{ ($locale->code == 'az') ? 'active': '' }}" id="pills-tab-{{ $locale->code }}"

@@ -9,7 +9,7 @@
                         @csrf
                         <div class="card card-login card-hidden">
                             <div class="card-header card-header-danger text-center">
-                                <h4 class="card-title">Login</h4>
+                                <h4 class="card-title">@lang('site.login')</h4>
                             </div>
                             <div class="card-body ">
                                 <span class="bmd-form-group">
@@ -20,7 +20,7 @@
                                           </span>
                                         </div>
                                          <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                                name="email" value="{{ old('email') }}" required  autofocus placeholder="{{ __('Email') }}">
+                                                name="email" value="{{ old('email') }}" required  autofocus placeholder="@lang('site.login_email')">
 
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -37,7 +37,7 @@
                                           </span>
                                         </div>
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                                               name="password" required placeholder="{{ __('Password') }}">
+                                               name="password" required placeholder="@lang('site.login_password')">
 
                                             @error('password')
                                             <span class="invalid-feedback" role="alert">
@@ -48,13 +48,13 @@
                                 </span>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                         @lang('site.forgot_password')
                                     </a>
                                 @endif
                             </div>
                             <div class="card-footer justify-content-center">
                                 <button type="submit" class="btn btn-danger btn-lg">
-                                    {{ __('Login') }}
+                                     @lang('site.login')
                                 </button>
                             </div>
                         </div>
@@ -73,17 +73,19 @@
                         </li>
                         <li>
                             <a href="">
-                                About Us
+
+                                @lang('site.about_us')
+
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                Blog
+                                @lang('site.blog')
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                Licenses
+                               @lang('site.licences')
                             </a>
                         </li>
                     </ul>

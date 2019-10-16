@@ -4,12 +4,15 @@
 @section('content')
 
 
+
+
+
     <div class="page-header header-filter header-small" data-parallax="true" style="background-image: url('/img/faq.jpg');">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto text-center">
-                    <h1 class="title">FAQ</h1>
-                    <h4>Frequently asked questions</h4>
+                    <h1 class="title">@lang('site.faq')</h1>
+                    <h4>@lang('site.frequently_asked_question')</h4>
                 </div>
             </div>
         </div>
@@ -29,6 +32,7 @@
                         <div class="col-md-2"></div>
                         <div class="col-md-8 ">
                             <div id="accordion" role="tablist">
+
                                 @foreach($faqs as $faq)
                                 <div class="card card-collapse">
                                     <div class="card-header" role="tab" id="headingOne">
