@@ -6,6 +6,7 @@ use App\Subscription;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+
 class SubscriptionController extends Controller
 {
     /**
@@ -15,6 +16,7 @@ class SubscriptionController extends Controller
      */
     public function index()
     {
+
         $subscriptions = Subscription::orderby('id','desc')->get();
         return view('admin.subscription.index', compact('subscriptions'));
     }
@@ -46,10 +48,12 @@ class SubscriptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Subscription $subscription)
     {
-        //
+
+        return view('admin.subscription.show', compact('subscription'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
