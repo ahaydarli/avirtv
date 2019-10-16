@@ -33,7 +33,7 @@
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between">
                                                             <span>Total (₼)</span>
-                                                            <strong>{{ $package->price }} ₼</strong>
+                                                            <strong class="total_price">{{ $package->price }} ₼</strong>
                                             </li>
                                         </ul>
                                         <form class="card p-2">
@@ -51,11 +51,12 @@
                                         <h4 class="mb-3">{{ __('Checkout') }}</h4>
                                         <form class="needs-validation" novalidate="" method="POST" action="{{ route('order.order', $package->id) }}">
                                             @csrf
+                                            <input type="hidden" class="unit_price" value="{{ $package->price }}">
                                             <div class="row">
                                                 <div class="col-md-6 mb-3">
                                                     <div class="form-group has-default bmd-form-group">
-                                                        <select class="selectpicker device" name="device" data-style="select-with-transition" title="{{ __('Device type') }}" data-size="7">
-                                                            <option disabled>{{ __('Choose device') }}</option>
+                                                        <select class="form-control device" name="device" data-style="select-with-transition" title="{{ __('Device type') }}" data-size="7">
+                                                            <option>{{ __('Choose device') }}</option>
                                                             <option value="1">{{ __('MAG devices') }}</option>
                                                             <option value="2">{{ __('Other') }}</option>
                                                         </select>
@@ -63,8 +64,8 @@
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <div class="form-group has-default bmd-form-group">
-                                                        <select class="selectpicker" name="period" data-style="select-with-transition" title="{{ __('Subscribe period') }}" data-size="7">
-                                                            <option disabled>{{ __('Choose period') }}</option>
+                                                        <select class="form-control period" name="period" data-style="select-with-transition" title="{{ __('Subscribe period') }}" data-size="7">
+                                                            <option >{{ __('Choose period') }}</option>
                                                             <option value="1">1 {{ __('month') }}</option>
                                                             <option value="2">2 {{ __('month') }}</option>
                                                         </select>

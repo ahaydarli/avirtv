@@ -26,42 +26,13 @@
                     </div>
                 </div>
                 <div class="features">
-{{--                    <div class="row">--}}
-{{--                        <div class="col-md-4">--}}
-{{--                            <div class="info">--}}
-{{--                                <div class="icon icon-info">--}}
-{{--                                    <i class="material-icons">tv</i>--}}
-{{--                                </div>--}}
-{{--                                <h4 class="info-title">200+ channels</h4>--}}
-{{--                                <p> Ən çox baxılan 200-dən çox müxtəlif kanallar və radiolar</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-4">--}}
-{{--                            <div class="info">--}}
-{{--                                <div class="icon icon-warning">--}}
-{{--                                    <i class="material-icons">language</i>--}}
-{{--                                </div>--}}
-{{--                                <h4 class="info-title">İnternational channels</h4>--}}
-{{--                                <p> Rus, Türk, İngilis dilli və müxtəlif janrlarda olan geniş seçim imkanı</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-4">--}}
-{{--                            <div class="info">--}}
-{{--                                <div class="icon icon-danger">--}}
-{{--                                    <i class="material-icons">hd</i>--}}
-{{--                                </div>--}}
-{{--                                <h4 class="info-title">HD sports</h4>--}}
-{{--                                <p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
                     <div class="row">
                     <?php $i=1; ?>
                     @foreach($contents as $content)
                         <div class="col-md-4">
                             <div class="info">
-                                <div class="icon icon-success">
-                                    {{$content->icon}}
+                                <div class="icon icon-danger">
+                                    <i class="material-icons">{{ $content->icon }}</i>
                                 </div>
                                 <h4 class="info-title">{!! $content->title !!}</h4>
                                 <p>{!! $content->text !!}</p>
@@ -69,35 +40,6 @@
                         </div>
                     @endforeach
                     </div>
-{{--                    <div class="row">--}}
-{{--                        <div class="col-md-4">--}}
-{{--                            <div class="info">--}}
-{{--                                <div class="icon icon-success">--}}
-{{--                                    <i class="material-icons">extension</i>--}}
-{{--                                </div>--}}
-{{--                                <h4 class="info-title">Compatibility</h4>--}}
-{{--                                <p>MAG, Dreamlink T1, Avov, Android, WebTV (browser), and XBMC/KODI are the supported platforms.</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-4">--}}
-{{--                            <div class="info">--}}
-{{--                                <div class="icon icon-primary">--}}
-{{--                                    <i class="material-icons">subscriptions</i>--}}
-{{--                                </div>--}}
-{{--                                <h4 class="info-title">NO SATELLITE OR CABLE</h4>--}}
-{{--                                <p> Heç bir peyk anteninə və ya əlavə kabel çəkilişinə ehtiyac olmadan quraşdırılma </p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-4">--}}
-{{--                            <div class="info">--}}
-{{--                                <div class="icon icon-rose">--}}
-{{--                                    <i class="material-icons">contact_support</i>--}}
-{{--                                </div>--}}
-{{--                                <h4 class="info-title">Great support</h4>--}}
-{{--                                <p>Our live chat is accessible M-F 24/5, and support ticketing system is available 24/7 to assistance you when</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
                 </div>
             </div>
         </div>
@@ -114,30 +56,21 @@
             </div>
             <div class="row">
                 @foreach($packages as $package)
-                <div class="col-md-4 ml-auto">
-                    <div class="card card-pricing">
-                        <div class="card-body ">
-                            <h6 class="card-category">{{ $package->getTranslation('name', app()->getLocale()) }}</h6>
-                            <h1 class="card-title">
-                                <small>₼</small>{{ $package->price }}
-                                <small>/mo</small>
-                            </h1>
-                            <ul>
-                                <li>
-                                    <b>51</b> Channels</li>
-                                <li>
-                                    <b>10</b> Team Members</li>
-                                <li>
-                                    <b>50</b> Personal Contacts</li>
-                                <li>
-                                    <b>500</b> Messages</li>
-                            </ul>
-                            <a href="{{ route('order.subscribe', ['package_id' => $package->id]) }}" class="btn btn-danger btn-round">
-                                Get Started
-                            </a>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="card card-pricing">
+                            <div class="card-body ">
+                                <h4 class="card-title">{{ $package->getTranslation('name', app()->getLocale()) }}</h4>
+                                <div class="icon icon-danger">
+                                    <i class="material-icons">tv</i>
+                                </div>
+                                <h3 class="card-title">{{ $package->price }}<small> ₼</small></h3>
+                                <p class="card-description">
+                                    This is good if your company size is between 2 and 10 Persons.
+                                </p>
+                                <a href="{{ route('order.subscribe', ['package_id' => $package->id]) }}" class="btn btn-danger btn-round">{{ __('Chose plan') }}</a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
 {{--                <div class="col-md-4 mr-auto">--}}
 {{--                    <div class="card card-pricing card-raised bg-danger">--}}
