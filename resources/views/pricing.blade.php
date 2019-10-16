@@ -19,10 +19,10 @@
                     <div class="col-md-6 ml-auto mr-auto text-center">
                         <ul class="nav nav-pills nav-pills-danger">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#pill1" data-toggle="tab">Monthly</a>
+                                <a class="nav-link active" href="#pill1" data-toggle="tab">@lang('site.monthly')</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#pill2" data-toggle="tab">Yearly</a>
+                                <a class="nav-link" href="#pill2" data-toggle="tab">@lang('site.yearly')</a>
                             </li>
                         </ul>
                     </div>
@@ -105,7 +105,7 @@
             <hr>
             <div class="features-2">
                 <div class="text-center">
-                    <h3 class="title">Frequently Asked Questions</h3>
+                    <h3 class="title">@lang('site.frequently_asked_question')</h3>
                 </div>
                 <div class="row">
                     <div class="col-md-4 ml-auto">

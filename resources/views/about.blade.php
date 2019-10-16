@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto text-center">
-                    <h1 class="title">About Us</h1>
+                    <h1 class="title">@lang('site.about_us')</h1>
                     <h4>Meet the amazing team behind this project and find out more about how we work.</h4>
                 </div>
             </div>

@@ -10,7 +10,7 @@
                     <h4></h4>
                     <br>
                     <a href="" target="_blank" class="btn btn-danger btn-raised btn-lg">
-                        <i class="fa fa-play"></i> Watch video
+                        <i class="fa fa-play"></i> @lang('site.watch_video')
                     </a>
                 </div>
             </div>
@@ -155,7 +155,7 @@
     </div>
     <div class="section section-blog">
         <div class="container">
-            <h2 class="section-title">Latest Articles</h2>
+            <h2 class="section-title">@lang('site.latest_articles')</h2>
             <div class="row">
                 <div class="col-md-4">
                     <div class="card card-blog">

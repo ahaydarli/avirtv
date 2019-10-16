@@ -72,29 +72,29 @@
             <ul class="navbar-nav ml-auto">
                 <li class="dropdown nav-item">
                     <a href="{{ url('/') }}" class="nav-link">
-                        <i class="material-icons">home</i> Home
+                        <i class="material-icons">home</i> @lang('site.home')
                     </a>
 
                 </li>
                 <li class="dropdown nav-item">
                     <a href="{{route('about')}}" class="nav-link">
-                        <i class="material-icons">information</i> About us
+                        <i class="material-icons">information</i> @lang('site.about_us')
                     </a>
 
                 </li>
                 <li class="dropdown nav-item">
                     <a href="{{route('pricing')}}" class="nav-link">
-                        <i class="material-icons">stars</i> Pricing
+                        <i class="material-icons">stars</i> @lang('site.pricing')
                     </a>
                 </li>
                 <li class="dropdown nav-item">
                     <a href="{{route('frontend.faq')}}" class="nav-link">
-                        <i class="material-icons">question_answer</i> FAQ
+                        <i class="material-icons">question_answer</i> @lang('site.faq')
                     </a>
                 </li>
                 <li class="dropdown nav-item">
                     <a href="{{route('frontend.contact')}}" class="nav-link">
-                        <i class="material-icons">contactless</i> Contact us
+                        <i class="material-icons">contactless</i> @lang('site.contact_us')
                     </a>
                 </li>
                 <li class="dropdown nav-item">
@@ -135,7 +135,7 @@
                 @guest
                     <li class="button-container nav-item iframe-extern">
                         <a href="{{ route('login') }}" class="btn  btn-danger btn-round btn-block">
-                            <i class="material-icons">fingerprint</i> Login
+                            <i class="material-icons">fingerprint</i> @lang('site.login')
                         </a>
                     </li>
                 @endguest
@@ -157,26 +157,26 @@
                     <p>Probably the best UI Kit in the world! We know you've been waiting for it, so don't be shy!</p>
                 </div>
                 <div class="col-md-2">
-                    <h5>About</h5>
+                    <h5>@lang('site.about')</h5>
                     <ul class="links-vertical">
                         <li>
                             <a href="#pablo">
-                                Blog
+                                @lang('site.blog')
                             </a>
                         </li>
                         <li>
                             <a href="#pablo">
-                                About Us
+                                @lang('site.about_us')
                             </a>
                         </li>
                         <li>
                             <a href="#pablo">
-                                Presentation
+                               @lang('site.presentation')
                             </a>
                         </li>
                         <li>
                             <a href="#pablo">
-                                Contact Us
+                               @lang('site.contact_us')
                             </a>
                         </li>
                     </ul>
@@ -186,17 +186,17 @@
                     <ul class="links-vertical">
                         <li>
                             <a href="#pablo">
-                                Sales FAQ
+                               @lang('site.sales_faq')
                             </a>
                         </li>
                         <li>
                             <a href="#pablo">
-                                How to Register
+                                @lang('site.how_register')
                             </a>
                         </li>
                         <li>
                             <a href="#pablo">
-                                Sell Goods
+                               @lang('site.seel_goods')
                             </a>
                         </li>
                         <li>
@@ -239,7 +239,7 @@
                     </p>
                     <form class="form form-newsletter" method="" action="#">
                         <div class="form-group bmd-form-group">
-                            <input type="email" class="form-control" placeholder="Your Email...">
+                            <input type="email" class="form-control" placeholder="@lang('site.email')...">
                         </div>
                         <button type="button" class="btn btn-danger btn-just-icon" name="button">
                             <i class="material-icons">mail</i>
