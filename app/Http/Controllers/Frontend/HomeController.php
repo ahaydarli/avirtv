@@ -61,7 +61,7 @@ class HomeController extends Controller
     public function about()
     {
         $about = About::find(1);
-        if (!is_array($about)) {
+        if (!isset($about)) {
             return view('about');
         }
         else{

@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
 
-    <!--
+<!--
     <link href="{{ asset('css/material-kit.min1036.css?v=2.1.1') }}" rel="stylesheet"/>
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet"/>
     <link href="{{ asset('css/custom.css') }}demo/demo.css" rel="stylesheet"/>
@@ -298,7 +298,11 @@
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
 
 
+<<<<<<< HEAD
+<script src="{{ asset('js/plugins/nouislider.min.js') }}" type="text/javascript"></script>
+=======
  <script src="{{ asset('js/plugins/nouislider.min.js') }}" type="text/javascript"></script>
+>>>>>>> c439d8f93451a715a73e62200fc4597088d71f0b
 <!--  Google Maps Plugin    -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGat1sgDZ-3y6fFe6HD7QUziVC6jlJNog"></script>
 <!-- Place this tag in your head or just before your close body tag. -->

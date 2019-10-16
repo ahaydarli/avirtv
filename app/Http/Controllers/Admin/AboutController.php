@@ -83,6 +83,10 @@ class AboutController extends Controller
      */
     public function update(Request $request, About $about)
     {
+        $request->validate([
+            'content' => 'required|array|min:1',
+        ]);
+
         $about->update($request->all());
         return redirect()->route('about.index')->with('success', 'Content successfully updated');
 
