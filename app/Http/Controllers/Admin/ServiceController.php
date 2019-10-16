@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Language;
 use App\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -57,11 +58,11 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Service $service)
     {
-        //
+        $locales = Language::all();
+        return view('admin.service.edit', compact('service', 'locales'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -69,9 +70,16 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Service $service)
     {
-        //
+
+        $request->validate([
+            'license' => 'required|numeric',
+        ]);
+        $service->license = $request->license;
+        $service->save();
+        return redirect()->route('service.index')
+            ->with('success', 'Service successfully updated');
     }
 
     /**

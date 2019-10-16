@@ -15,6 +15,8 @@ class AlterContentTable extends Migration
     {
         Schema::table('content', function (Blueprint $table) {
             $table->string('icon')->change();
+            $table->boolean('is_active')->default(0);
+
         });
     }
 

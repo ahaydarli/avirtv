@@ -15,6 +15,9 @@ class AlterServicesTable extends Migration
     {
         Schema::table('services', function (Blueprint $table) {
             $table->integer('account_number')->change();
+            $table->integer('license')->nullable()->change();
+            $table->integer('license')->nullable()->change();
+
         });
     }
 
