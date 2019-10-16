@@ -67,6 +67,27 @@
         </div>
         <!-- Nav Item - Charts -->
         <li class="nav-item">
+            <a href="{{route('user.index')}}" class="nav-link">
+                <i class="fas fa-users"></i>
+                <span>Users</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{{route('subscription.index')}}" class="nav-link">
+                <i class="fas fa-cubes"></i>
+                <span>Subscriptions</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{{route('service.index')}}" class="nav-link">
+                <i class="fas fa-cubes"></i>
+                <span>Services</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('language.index') }}">
                 <i class="fas fa-globe-europe"></i>
                 <span>Languages</span></a>
