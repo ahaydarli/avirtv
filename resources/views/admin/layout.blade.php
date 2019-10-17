@@ -110,6 +110,14 @@
                 <span>Packages</span></a>
         </li>
 
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('period.index') }}">
+                <i class="fas fa-cubes"></i>
+                <span>Period</span></a>
+        </li>
+
         <li class="nav-item">
             <a href="{{route('faq.index')}}" class="nav-link">
                 <i class="fas fa-question"></i>

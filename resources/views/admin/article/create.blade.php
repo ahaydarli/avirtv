@@ -24,20 +24,21 @@
                             <div class="tab-pane fade show {{ ($locale->code == 'az') ? 'active': '' }}" id="pills-{{ $locale->code }}"
                                  role="tabpanel" aria-labelledby="pills-tab-{{ $locale->code }}">
                                 <div class="form-group">
-                                    <input id="question" type="text" class="form-control @error('question') is-invalid @enderror"
-                                           name="title[{{ $locale->code }}]" value="{{ old('name') }}"
+
+                                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror"
+                                           name="title[{{ $locale->code }}]" value="{{ old('') }}"
                                            placeholder="{{ __('Title -').$locale->name }}">
-                                    @error('question')
+                                    @error('title')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <textarea id="answer" rows="5" class="textarea form-control @error('answer') is-invalid @enderror"
+                                    <textarea id="text" rows="5" class="textarea form-control @error('text') is-invalid @enderror"
                                               name="text[{{ $locale->code }}]"
                                               placeholder="{{ __('Text -').$locale->name }}">{{ old('answer') }}</textarea>
-                                    @error('answer')
+                                    @error('text')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

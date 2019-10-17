@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Article;
 use App\Language;
+use App\Rules\ArrayValid;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -47,9 +48,13 @@ class ArticleController extends Controller
 
 
 
+        $array=array_filter($request->title);
+
+
+
         $request->validate([
-            'title' => 'required|array|min:1',
-            'text' => 'required|array|min:1',
+            'title' => new ArrayValid,
+            'text' => new ArrayValid,
             'image' => 'required',
         ]);
 

@@ -50,6 +50,7 @@ Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function(
     Route::Resource('user', 'Admin\UserController');
     Route::Resource('subscription', 'Admin\SubscriptionController');
     Route::Resource('service', 'Admin\ServiceController');
+    Route::Resource('period', 'Admin\PeriodController');
     Route::Resource('admin-be', 'Admin\AdminBeController');
     Route::post('/modal','Admin\UserController@modal')->name('admin.modal');
 });
