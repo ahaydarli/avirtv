@@ -38,6 +38,18 @@
                                 </div>
                             </div>
 
+
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Type</label>
+                                <div class="col-sm-9">
+                                    <select name="type" class="form-control  @error('type') is-invalid @enderror">
+                                        <option value="percent">Percent</option>
+                                        <option value="fixed">Fixed</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
                             <div class="form-group row">
 
                                 <label class="col-sm-3 col-form-label">Discount</label>
@@ -54,15 +66,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Type</label>
-                                <div class="col-sm-9">
-                                <select name="type" class="form-control  @error('type') is-invalid @enderror">
-                                    <option value="percent">Percent</option>
-                                    <option value="fixed">Fixed</option>
-                                </select>
-                                </div>
-                            </div>
+
 
 
                         </div>

@@ -36,17 +36,6 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Type</label>
-                                <div class="col-sm-9">
-                                    <select name="type" class="form-control  @error('type') is-invalid @enderror">
-                                        <option @if($period->type=='percent') selected @endif value="percent">Percent</option>
-                                        <option @if($period->type=='fixed') selected @endif value="fixed">Fixed</option>
-                                    </select>
-
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Discount</label>
                                 <div class="col-sm-9">
                                     <input id="discount" step="0.01" type="text" class="form-control @error('discount') is-invalid @enderror" name="discount" value="{{$period->discount}}" placeholder="{{ __('Discount') }}">
@@ -55,6 +44,17 @@
                                         <strong> {{ $message }} </strong>
                                     </span>
                                     @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Type</label>
+                                <div class="col-sm-9">
+                                    <select name="type" class="form-control  @error('type') is-invalid @enderror">
+                                        <option @if($period->type=='percent') selected @endif value="percent">Percent</option>
+                                        <option @if($period->type=='fixed') selected @endif value="fixed">Fixed</option>
+                                    </select>
+
                                 </div>
                             </div>
 
