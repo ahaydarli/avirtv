@@ -28,78 +28,23 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="card card-pricing card-plain">
-                            <div class="card-body">
-                                <h6 class="card-category text-info">Free</h6>
-                                <h1 class="card-title">
-                                    <small>$</small>0
-                                    <small>/mo</small>
-                                </h1>
-                                <ul>
-                                    <li>
-                                        <b>1</b> Project</li>
-                                    <li>
-                                        <b>5</b> Team Members</li>
-                                    <li>
-                                        <b>55</b> Personal Contacts</li>
-                                    <li>
-                                        <b>5.000</b> Messages</li>
-                                </ul>
-                                <a href="#pablo" class="btn btn-danger btn-raised btn-round">
-                                    Get Started
-                                </a>
+                    @foreach($packages as $package)
+                        <div class="col-lg-3 col-md-3">
+                            <div class="card card-pricing">
+                                <div class="card-body ">
+                                    <h4 class="card-title">{{ $package->getTranslation('name', app()->getLocale()) }}</h4>
+                                    <div class="icon icon-danger">
+                                        <i class="material-icons">tv</i>
+                                    </div>
+                                    <h3 class="card-title">{{ $package->price }}<small> ₼</small></h3>
+                                    <p class="card-description">
+                                        This is good if your company size is between 2 and 10 Persons.
+                                    </p>
+                                    <a href="{{ route('order.subscribe', ['package_id' => $package->id]) }}" class="btn btn-danger btn-round">{{ __('Chose plan') }}</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-pricing card-raised bg-danger">
-                            <div class="card-body">
-                                <h6 class="card-category text-info">Premium</h6>
-                                <h1 class="card-title">
-                                    <small>$</small>89
-                                    <small>/mo</small>
-                                </h1>
-                                <ul>
-                                    <li>
-                                        <b>500</b> Projects</li>
-                                    <li>
-                                        <b>50</b> Team Members</li>
-                                    <li>
-                                        <b>125</b> Personal Contacts</li>
-                                    <li>
-                                        <b>15.000</b> Messages</li>
-                                </ul>
-                                <a href="#pablo" class="btn btn-white btn-danger btn-round">
-                                    Get Started
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-pricing card-plain">
-                            <div class="card-body">
-                                <h6 class="card-category text-info">Platinum</h6>
-                                <h1 class="card-title">
-                                    <small>$</small>199
-                                    <small>/mo</small>
-                                </h1>
-                                <ul>
-                                    <li>
-                                        <b>1000</b> Projects</li>
-                                    <li>
-                                        <b>100</b> Team Members</li>
-                                    <li>
-                                        <b>550</b> Personal Contacts</li>
-                                    <li>
-                                        <b>50.000</b> Messages</li>
-                                </ul>
-                                <a href="#pablo" class="btn btn-danger btn-raised btn-round">
-                                    Get Started
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <hr>
