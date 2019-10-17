@@ -78,6 +78,13 @@
         </li>
 
         <li class="nav-item">
+            <a href="{{route('admin-be.index')}}" class="nav-link">
+                <i class="fas fa-users"></i>
+                <span>Admin Users</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a href="{{route('subscription.index')}}" class="nav-link">
                 <i class="fas fa-cubes"></i>
                 <span>Subscriptions</span>
@@ -284,7 +291,7 @@
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna {{Auth::id()}}</span>
                             <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                         </a>
                         <!-- Dropdown - User Information -->
@@ -452,9 +459,8 @@
     {{--}--}}
 {{--</script>--}}
 
-
-
 @stack('scripts')
+
 
 
 </body>
