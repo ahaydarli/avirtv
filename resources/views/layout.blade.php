@@ -58,7 +58,7 @@
 <nav class="navbar bg-dark  fixed-top navbar-expand-lg " id="sectionsNav">
     <div class="container">
         <div class="navbar-translate">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{route('frontend.index')}}">
                 <img alt="logo" class="img-fluid index-logo" src="/img/iptvlogo2.png"/> </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -298,11 +298,8 @@
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
 
 
-<<<<<<< HEAD
 <script src="{{ asset('js/plugins/nouislider.min.js') }}" type="text/javascript"></script>
-=======
  <script src="{{ asset('js/plugins/nouislider.min.js') }}" type="text/javascript"></script>
->>>>>>> c439d8f93451a715a73e62200fc4597088d71f0b
 <!--  Google Maps Plugin    -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGat1sgDZ-3y6fFe6HD7QUziVC6jlJNog"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
