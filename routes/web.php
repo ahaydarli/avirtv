@@ -51,6 +51,8 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function() {
     Route::Resource('user', 'Admin\UserController');
     Route::Resource('subscription', 'Admin\SubscriptionController');
     Route::Resource('service', 'Admin\ServiceController');
+    //men elave etdim
+    Route::post('/modal','Admin\UserController@modal')->name('admin.modal');
 });
 Route::post("/send-message",'Frontend\HomeController@sendMessage')->name('frontend.sendMessage');
 Route::post('/readmessage','Admin\AdminController@readMessage');

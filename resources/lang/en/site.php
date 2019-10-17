@@ -2,7 +2,7 @@
 
 return [
     //header menu
-    'home'=>'ana sehife',
+    'home'=>'Home',
     'about_us'=>'ABOUT US',
     'pricing'=>'pricing',
     'faq'=>'FAQ',

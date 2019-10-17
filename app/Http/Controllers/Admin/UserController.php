@@ -16,6 +16,10 @@ class UserController extends Controller
     public function index()
     {
         $users = User::orderby('id','desc')->get();
+        $users=$users->load('orders');
+
+
+
         return view('admin.user.index', compact('users'));
     }
 
@@ -84,5 +88,12 @@ class UserController extends Controller
     {
         $user->delete();
         return redirect()->route('user.index')->with('success', 'User successfully deleted');
+    }
+
+    public function modal(Request $request){
+        $user=User::find($request->id);
+        $orders=$user->orders;
+        return view('admin.ajax.user_modal',['orders'=>$orders])->render();
+
     }
 }
