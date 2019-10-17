@@ -2,7 +2,7 @@
 @section('page', 'landing-page')
 @section('title', 'Avinet Iptv')
 @section('content')
-    <div class="page-header header-filter" data-parallax="true" style="background-image: url('/img/bg9.jpg')">
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url('/img/ip_tv2.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -164,16 +164,16 @@
                         <div class="card card-blog">
                             <div class="card-header card-header-image">
                                 <a href="#pablo">
-                                    <img src="assets/img/comparibility-1.jpg" alt="">
+                                    <img src="/img/comparibility-1.jpg" alt="">
                                 </a>
-                                <div class="colored-shadow" style="background-image: url(&quot;../assets/img/dg9.jpg&quot;); opacity: 1;"></div>
+                                <div class="colored-shadow" style="background-image: url(/img/dg9.jpg); opacity: 1;"></div>
                             </div>
                             <div class="card-body">
                                 <h4 class="card-title">
                                     <a href="#pablo">{{$article->title}}</a>
                                 </h4>
                                 <p class="card-description">
-                                    {!! $article->text !!}
+                                    {!! Str::limit($article->text, 100, ' ...') !!}
                                 </p>
                             </div>
                         </div>

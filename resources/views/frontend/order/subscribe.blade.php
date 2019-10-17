@@ -49,31 +49,44 @@
                                 <div class="card card-nav-tabs mar-t-10">
                                     <div class="card-body ">
                                         <h4 class="mb-3">{{ __('Checkout') }}</h4>
-                                        <form class="needs-validation" novalidate="" method="POST" action="{{ route('order.order', $package->id) }}">
+                                        <form class="needs-validation" method="POST" action="{{ route('order.order', $package->id) }}">
                                             @csrf
                                             <input type="hidden" class="unit_price" value="{{ $package->price }}">
                                             <div class="row">
                                                 <div class="col-md-6 mb-3">
-                                                    <div class="form-group has-default bmd-form-group">
-                                                        <select class="form-control device" name="device" data-style="select-with-transition" title="{{ __('Device type') }}" data-size="7">
+                                                    <div class="form-group bmd-form-group">
+                                                        <select class="form-control device @error('device') is-invalid @enderror"
+                                                                name="device" data-style="select-with-transition" title="{{ __('Device type') }}" data-size="7">
                                                             <option>{{ __('Choose device') }}</option>
-                                                            <option value="1">{{ __('MAG devices') }}</option>
-                                                            <option value="2">{{ __('Other') }}</option>
+                                                            <option value="0">{{ __('MAG devices') }}</option>
+                                                            <option value="1">{{ __('Other') }}</option>
                                                         </select>
+                                                        @error('device')
+                                                            <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 mb-3">
-                                                    <div class="form-group has-default bmd-form-group">
-                                                        <select class="form-control period" name="period" data-style="select-with-transition" title="{{ __('Subscribe period') }}" data-size="7">
-                                                            <option >{{ __('Choose period') }}</option>
-                                                            <option value="1">1 {{ __('month') }}</option>
-                                                            <option value="2">2 {{ __('month') }}</option>
+                                                    <div class="form-group bmd-form-group">
+                                                        <select class="form-control period @error('period') is-invalid @enderror"
+                                                                name="period" data-style="select-with-transition" title="{{ __('Subscribe period') }}" data-size="7">
+                                                            <option>{{ __('Choose period') }}</option>
+                                                            @for($i=1; $i<=12; $i++)
+                                                                <option value="{{ $i }}">{{ $i }} {{ __('month') }}</option>
+                                                            @endfor
                                                         </select>
+                                                        @error('period')
+                                                        <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                        @enderror
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 mb-3 mac_address" style="display: none">
                                                     <div class="form-group has-default bmd-form-group">
-                                                        <input type="text" name="mac" class="form-control" placeholder="{{ __('Mac address of MAG device') }}">
+                                                        <input type="text" name="mac_address" class="form-control" placeholder="{{ __('Mac address of MAG device') }}">
                                                     </div>
                                                 </div>
                                             </div>

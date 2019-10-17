@@ -64,9 +64,11 @@
                                            <thead>
                                            <tr>
                                                <th>{{ __('Package') }}</th>
-                                               <th>{{ __('Expiry date') }}</th>
+                                               <th>{{ __('Payment date') }}</th>
                                                <th>{{ __('Payment status') }}</th>
                                                <th class="text-right">{{ __('Price') }}</th>
+                                               <th class="text-right">{{ __('Period') }}</th>
+                                               <th class="text-right">{{ __('Payed') }}</th>
                                                <th class="text-right">{{ __('Actions') }}</th>
                                            </tr>
                                            </thead>
@@ -81,6 +83,8 @@
                                                        </span>
                                                    </td>
                                                    <td class="text-right">{{ $order->package->price }} ₼</td>
+                                                   <td class="text-right">{{ $order->period }} {{ __('month') }}</td>
+                                                   <td class="text-right">{{ $order->package->price*$order->period }} ₼</td>
                                                    <td class="td-actions text-right">
                                                        @if($order->payment_status)
                                                            <button type="button" rel="tooltip" class="btn btn-info btn-sm"
