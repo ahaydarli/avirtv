@@ -15,6 +15,7 @@
                         <th>#</th>
                         <th>Title</th>
                         <th>Text</th>
+                        <th>Image</th>
                         <th>Is active</th>
                         <th>Created at</th>
                         <th>Updated at</th>
@@ -26,6 +27,7 @@
                         <th>#</th>
                         <th>Title</th>
                         <th>Text</th>
+                        <th>Image</th>
                         <th>Is active</th>
                         <th>Created at</th>
                         <th>Updated at</th>
@@ -37,7 +39,8 @@
                         <tr>
                             <td>{{ $article->id }}</td>
                             <td>{{ $article->title }}</td>
-                            <td>{{ $article->text }}</td>
+                            <td> {{ mb_substr( $article->text,100) }} @if(strlen($article->text)>100) ... @endif </td>
+                            <td><img style="width: 100px; height: 100px;" src="{{ asset('uploads/article').'/'.$article->image }}"></td>
                             <td>
                                 @if($article->is_active)
                                     Active

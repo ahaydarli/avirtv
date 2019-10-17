@@ -23,9 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $packages = Package::all();
-        $articles=Article::orderBy('id','desc')->get();
-        $contents = Content::orderby('id','asc')->get();
+        $packages = Package::limit(4)->get();
+        $articles=Article::orderBy('id','desc')->limit(3)->get();
+        $contents = Content::orderby('id','asc')->limit(6)->get();
         return view('index', compact('packages','contents', 'articles'));
     }
 
@@ -77,8 +77,8 @@ class HomeController extends Controller
 
     public function pricing()
     {
-        return view('pricing')->with([
-
-        ]);
+        $packages = Package::all();
+        $faqs = Faq::limit(4)->get();
+        return view('pricing', compact('packages', 'faqs'));
     }
 }

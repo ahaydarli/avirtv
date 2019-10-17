@@ -6,6 +6,7 @@ use App\Article;
 use App\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class ArticleController extends Controller
 {
@@ -43,11 +44,26 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
         $request->validate([
             'title' => 'required|array|min:1',
             'text' => 'required|array|min:1',
+            'image' => 'required',
         ]);
-        Article::create($request->all());
+
+        //image upload
+        $image=$request->file('image');
+        $image_name=uniqid().'.'.$image->getClientOriginalExtension();
+        $image->move('uploads/article',$image_name);
+
+        $article=new Article();
+        $article->title=$request->title;
+        $article->text=$request->text;
+        $article->image=$image_name;
+        $article->save();
+
         return redirect()->route('article.index')
             ->with('success', 'Article added');
     }
@@ -86,6 +102,26 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
+
+
+
+        $image_name=$article->image;
+
+        if($request->hasFile('image')){
+
+            $image=$request->file('image');
+            $image_name=uniqid().'.'.$image->getClientOriginalExtension();
+            $image->move('uploads/article',$image_name);
+
+            $old_image=$article->image;
+            if(File::exists('uploads/article/'.$old_image)){
+                File::delete('uploads/article/'.$old_image);
+            }
+        }
+
+
+
+
         $request->validate([
             'title' => 'required',
             'text' => 'required',
@@ -99,6 +135,7 @@ class ArticleController extends Controller
         }
         $article->text = $request->text;
         $article->title = $request->title;
+        $article->image=$image_name;
         $article->save();
 //        $faq->update($request->all());
 
@@ -114,7 +151,14 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        $image=$article->image;
+        if(File::exists('uploads/article/'.$image)){
+            File::delete('uploads/article/'.$image);
+        }
+
         $article->delete();
+
+
         return redirect()->route('article.index')
             ->with('success','Article deleted successfully');
     }

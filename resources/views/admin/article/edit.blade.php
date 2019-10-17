@@ -9,7 +9,7 @@
         </div>
         <div class="card-body">
             <div class="col-md-6 offset-md-3">
-                <form class="user" method="POST" action="{{ route('article.update', $article->id) }}">
+                <form class="user" method="POST" action="{{ route('article.update', $article->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -48,8 +48,23 @@
                                 </div>
                             </div>
                         @endforeach
-                    </div>
 
+
+                    </div>
+                    <div class="form-group">
+                       <img style="width: 100%;" src="{{ asset('uploads/article/'.$article->image) }}">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input id="question" type="file" class="form-control @error('image') is-invalid @enderror"
+                               name="image"
+                               placeholder="{{ __('Image -') }}">
+                        @error('image')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
 
                     <div class="form-group">
                         <div class="form-check">

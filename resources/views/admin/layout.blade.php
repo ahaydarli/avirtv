@@ -451,27 +451,8 @@
     {{--}--}}
 {{--</script>--}}
 
+@stack('scripts')
 
-<script>
-    $(function () {
-        $('body').on('click','.a_modal',function () {
-            var id=$(this).attr('id');
-
-            $("#modal_body").html('');
-            $.ajax({
-                'url':'{{route('admin.modal')}}',
-                'data':{'_token':'{{csrf_token()}}','id':id},
-                'type':'post',
-                'success':function (e) {
-
-                    $("#modal_body").html(e);
-
-                }
-            })
-
-        })
-    })
-</script>
 
 
 </body>

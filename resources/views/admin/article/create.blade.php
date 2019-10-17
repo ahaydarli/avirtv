@@ -8,7 +8,7 @@
         </div>
         <div class="card-body">
             <div class="col-md-6 offset-md-3">
-                <form class="user" method="POST" action="{{ route('article.store') }}">
+                <form class="user" method="POST" action="{{ route('article.store') }}" enctype="multipart/form-data">
                     @csrf
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         @foreach ($locales as $locale)
@@ -45,6 +45,17 @@
                                 </div>
                             </div>
                         @endforeach
+
+                            <div class="form-group">
+                                <input id="question" type="file" class="form-control @error('image') is-invalid @enderror"
+                                       name="image"
+                                       placeholder="{{ __('Image -') }}">
+                                @error('image')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
 
                             <div class="form-group">

@@ -146,146 +146,40 @@
 
 @yield('content')
 
-<footer class="footer footer-white footer-big">
+<footer class="footer">
     <div class="container">
-        <div class="content">
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="#pablo">
-                        <h5>Avirnet IpTv</h5>
+        <nav class="float-left">
+            <ul>
+                <li>
+                    <a href="{{ route('frontend.index') }}">
+                        {{ __('site.home') }}
                     </a>
-                    <p>Probably the best UI Kit in the world! We know you've been waiting for it, so don't be shy!</p>
-                </div>
-                <div class="col-md-2">
-                    <h5>@lang('site.about')</h5>
-                    <ul class="links-vertical">
-                        <li>
-                            <a href="#pablo">
-                                @lang('site.blog')
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#pablo">
-                                @lang('site.about_us')
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#pablo">
-                               @lang('site.presentation')
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#pablo">
-                               @lang('site.contact_us')
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-2">
-                    <h5>Market</h5>
-                    <ul class="links-vertical">
-                        <li>
-                            <a href="#pablo">
-                               @lang('site.sales_faq')
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#pablo">
-                                @lang('site.how_register')
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#pablo">
-                               @lang('site.seel_goods')
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#pablo">
-                                Receive Payment
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#pablo">
-                                Transactions Issues
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-2">
-                    <h5>Legal</h5>
-                    <ul class="links-vertical">
-                        <li>
-                            <a href="#pablo">
-                                Transactions FAQ
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#pablo">
-                                Terms &amp; Conditions
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#pablo">
-                                Licenses
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h5>{{ __('site.subscribe') }}</h5>
-                    <p>
-                        Join our newsletter and get news in your inbox every week! We hate spam too, so no worries about
-                        this.
-                    </p>
-                    <form class="form form-newsletter" method="" action="#">
-                        <div class="form-group bmd-form-group">
-                            <input type="email" class="form-control" placeholder="@lang('site.email')...">
-                        </div>
-                        <button type="button" class="btn btn-danger btn-just-icon" name="button">
-                            <i class="material-icons">mail</i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <ul class="social-buttons">
-            <li>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-twitter">
-                    <i class="fa fa-twitter"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-facebook">
-                    <i class="fa fa-facebook-square"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble">
-                    <i class="fa fa-dribbble"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-google">
-                    <i class="fa fa-google-plus"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#pablo" class="btn btn-just-icon btn-link btn-youtube">
-                    <i class="fa fa-youtube-play"></i>
-                </a>
-            </li>
-        </ul>
-        <div class="copyright pull-center">
-            Copyright ©
+                </li>
+                <li>
+                    <a href="{{ route('about') }}">
+                        {{ __('site.about_us') }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('pricing') }}">
+                        {{ __('site.pricing') }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('frontend.index') }}">
+                        {{ __('site.blog') }}
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="copyright float-right">
+            ©
             <script>
                 document.write(new Date().getFullYear())
-            </script>
-            2019 Avirnet IpTv Rights Reserved.
+            </script> Avirnet.az
         </div>
     </div>
 </footer>
-
 <script src="{{ asset('js/core/jquery.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/core/popper.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/core/bootstrap-material-design.min.js') }}" type="text/javascript"></script>

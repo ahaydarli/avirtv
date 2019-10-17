@@ -73,31 +73,15 @@
                         </div>
                     </div>
                 @endforeach
-{{--                <div class="col-md-4 mr-auto">--}}
-{{--                    <div class="card card-pricing card-raised bg-danger">--}}
-{{--                        <div class="card-body">--}}
-{{--                            <h6 class="card-category">HD</h6>--}}
-{{--                            <h1 class="card-title">--}}
-{{--                                <small>$</small>199--}}
-{{--                                <small>/mo</small>--}}
-{{--                            </h1>--}}
-{{--                            <ul>--}}
-{{--                                <li>--}}
-{{--                                    <b>47</b> Channels</li>--}}
-{{--                                <li>--}}
-{{--                                    <b>100</b> Team Members</li>--}}
-{{--                                <li>--}}
-{{--                                    <b>550</b> Personal Contacts</li>--}}
-{{--                                <li>--}}
-{{--                                    <b>50.000</b> Messages</li>--}}
-{{--                            </ul>--}}
-{{--                            <a href="#pablo" class="btn btn-white btn-round">--}}
-{{--                                Get Started--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
+            </div>
+            <div class="row">
+                <div class="col-md-12 mx-auto ml-auto text-center">
+                    <a class="btn btn-danger btn-round" href="{{ route('pricing') }}">
+                        {{ __('All packages') }}
+                        <i class="material-icons">keyboard_arrow_right</i>
+                        <div class="ripple-container"></div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -105,61 +89,6 @@
         <div class="container">
             <h2 class="section-title">@lang('site.latest_articles')</h2>
             <div class="row">
-                {{--<div class="col-md-4">--}}
-                    {{--<div class="card card-blog">--}}
-                        {{--<div class="card-header card-header-image">--}}
-                            {{--<a href="#pablo">--}}
-                                {{--<img src="assets/img/comparibility-1.jpg" alt="">--}}
-                            {{--</a>--}}
-                            {{--<div class="colored-shadow" style="background-image: url(assets/img/comparibility-1.jpg); opacity: 1;"></div>--}}
-                        {{--</div>--}}
-                        {{--<div class="card-body">--}}
-                            {{--<h4 class="card-title">--}}
-                                {{--<a href="#pablo">Set box is relased</a>--}}
-                            {{--</h4>--}}
-                            {{--<p class="card-description">--}}
-                                {{--Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...--}}
-                            {{--</p>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="col-md-4">--}}
-                    {{--<div class="card card-blog">--}}
-                        {{--<div class="card-header card-header-image">--}}
-                            {{--<a href="#pablo">--}}
-                                {{--<img src="assets/img/comparibility-1.jpg" alt="">--}}
-                            {{--</a>--}}
-                            {{--<div class="colored-shadow" style="background-image: url(&quot;../assets/img/dg10.jpg&quot;); opacity: 1;"></div>--}}
-                        {{--</div>--}}
-                        {{--<div class="card-body">--}}
-                            {{--<h4 class="card-title">--}}
-                                {{--<a href="#pablo">Set box is relased</a>--}}
-                            {{--</h4>--}}
-                            {{--<p class="card-description">--}}
-                                {{--Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...--}}
-                            {{--</p>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="col-md-4">--}}
-                    {{--<div class="card card-blog">--}}
-                        {{--<div class="card-header card-header-image">--}}
-                            {{--<a href="#pablo">--}}
-                                {{--<img src="assets/img/comparibility-1.jpg" alt="">--}}
-                            {{--</a>--}}
-                            {{--<div class="colored-shadow" style="background-image: url(&quot;../assets/img/dg9.jpg&quot;); opacity: 1;"></div>--}}
-                        {{--</div>--}}
-                        {{--<div class="card-body">--}}
-                            {{--<h4 class="card-title">--}}
-                                {{--<a href="#pablo">Set box is relased</a>--}}
-                            {{--</h4>--}}
-                            {{--<p class="card-description">--}}
-                                {{--Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...--}}
-                            {{--</p>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-
                 @foreach($articles as $article)
                     <div class="col-md-4">
                         <div class="card card-blog">
