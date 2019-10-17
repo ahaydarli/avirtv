@@ -27,6 +27,11 @@
                         <th>Title</th>
                         <td>{{$article->title}}</td>
                     </tr>
+
+                    <tr>
+                        <th>Image</th>
+                        <td><img style="width: 100%;" src="{{ asset('uploads/article').'/'.$article->image }}" ></td>
+                    </tr>
                     <tr>
                         <th>Text</th>
                         <td>{!! $article->text !!}</td>
