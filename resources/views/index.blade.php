@@ -32,7 +32,7 @@
                         <div class="col-md-4">
                             <div class="info">
                                 <div class="icon icon-danger">
-                                    <i class="material-icons">{{ $content->icon }}</i>
+                                    <i class="">{{ $content->icon }}</i>
                                 </div>
                                 <h4 class="info-title">{!! $content->title !!}</h4>
                                 <p>{!! $content->text !!}</p>
@@ -41,6 +41,7 @@
                     @endforeach
                     </div>
                 </div>
+
             </div>
         </div>
 
