@@ -94,7 +94,7 @@
                         <div class="card card-blog">
                             <div class="card-header card-header-image">
                                 <a href="#pablo">
-                                    <img src="/img/comparibility-1.jpg" alt="">
+                                    <img src="{{asset('uploads/article/'.$article->image)}}" alt="">
                                 </a>
                                 <div class="colored-shadow" style="background-image: url(/img/dg9.jpg); opacity: 1;"></div>
                             </div>
