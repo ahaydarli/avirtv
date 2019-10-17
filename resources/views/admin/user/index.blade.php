@@ -1,6 +1,7 @@
 @extends("admin.layout")
 @section('title', 'Users')
 @section('content')
+
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
@@ -29,7 +30,7 @@
                     @foreach ($users as $user)
                         <tr>
                             <td>{{ $user->id }}</td>
-                            <td>{{ $user->name }}</td>
+                            <td><a id="{{ $user->id }}" class="a_modal" href="#" data-toggle="modal" data-target="#exampleModal">{{ $user->name }}</a></td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->account_number}}</td>
                             <td>{{ $user->created_at }}</td>
@@ -52,5 +53,28 @@
             </div>
         </div>
     </div>
+
+
+
+    {{--modal user ucun scriptionslari cixartmaq ucun--}}
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Subscriptions</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal_body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 @endsection
