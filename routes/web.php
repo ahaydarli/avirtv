@@ -39,6 +39,7 @@ Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.logi
 
 Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function() {
     Route::get('/','Admin\AdminController@index')->name('admin.home');
+    Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('/dashboard', 'Admin\AdminController@index')->name('admin.home');
     Route::Resource('language', 'Admin\LanguageController');
     Route::Resource('package', 'Admin\PackageController');
@@ -57,13 +58,9 @@ Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function(
 
 // Baku electronics panel
 Route::middleware(['auth:admin','checkBe'])->prefix('be')->group(function() {
-    Route::get("/", function () {
-        return view('be-panel.index');
-    })->name('be.home');
+    Route::get("/", 'Be\HomeController@index')->name('be.home');
 
 });
 
 Route::post("/send-message",'Frontend\HomeController@sendMessage')->name('frontend.sendMessage');
 Route::post('/readmessage','Admin\AdminController@readMessage');
-
-

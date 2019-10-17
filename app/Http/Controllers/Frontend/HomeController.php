@@ -26,6 +26,7 @@ class HomeController extends Controller
         $packages = Package::limit(4)->get();
         $articles=Article::orderBy('id','desc')->limit(3)->get();
         $contents = Content::orderby('id','asc')->limit(6)->get();
+
         return view('index', compact('packages','contents', 'articles'));
     }
 
@@ -33,12 +34,14 @@ class HomeController extends Controller
     {
         Session::put(['locale' => $request->get('locale')]);
         App::setLocale(Session::get('locale'));
+
         return redirect()->back();
     }
 
     public function fag()
     {
         $faqs = Faq::all();
+
         return view('fag')->with([
             'faqs' => $faqs,
         ]);
@@ -58,6 +61,7 @@ class HomeController extends Controller
             'message' => 'required'
         ]);
         Contact::create($request->all());
+
         return redirect()->back();
     }
 
@@ -79,6 +83,7 @@ class HomeController extends Controller
     {
         $packages = Package::all();
         $faqs = Faq::limit(4)->get();
+
         return view('pricing', compact('packages', 'faqs'));
     }
 }
