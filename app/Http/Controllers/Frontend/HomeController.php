@@ -77,8 +77,8 @@ class HomeController extends Controller
 
     public function pricing()
     {
-        return view('pricing')->with([
-
-        ]);
+        $packages = Package::all();
+        $faqs = Faq::limit(4)->get();
+        return view('pricing', compact('packages', 'faqs'));
     }
 }
