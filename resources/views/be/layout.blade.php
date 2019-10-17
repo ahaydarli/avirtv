@@ -42,99 +42,23 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="{{ route('admin.home') }}">
+            <a class="nav-link" href="{{ route('be.home') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Settings
-        </div>
-        <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a href="{{route('user.index')}}" class="nav-link">
-                <i class="fas fa-users"></i>
-                <span>Users</span>
+            <a href="#" class="nav-link">
+                <i class="far fa-user"></i>
+                <span>Customers</span>
             </a>
         </li>
-
         <li class="nav-item">
-            <a href="{{route('admin-be.index')}}" class="nav-link">
-                <i class="fas fa-users"></i>
-                <span>Admin Users</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a href="{{route('subscription.index')}}" class="nav-link">
-                <i class="fas fa-cubes"></i>
-                <span>Subscriptions</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a href="{{route('service.index')}}" class="nav-link">
-                <i class="fas fa-cubes"></i>
-                <span>Services</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('language.index') }}">
-                <i class="fas fa-globe-europe"></i>
-                <span>Languages</span></a>
-        </li>
-        <!-- Nav Item - Tables -->
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('package.index') }}">
-                <i class="fas fa-cubes"></i>
-                <span>Packages</span></a>
-        </li>
-
-
-
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('period.index') }}">
-                <i class="fas fa-cubes"></i>
-                <span>Period</span></a>
-        </li>
-
-        <li class="nav-item">
-            <a href="{{route('faq.index')}}" class="nav-link">
-                <i class="fas fa-question"></i>
-                <span>Faq</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a href="{{route('article.index')}}" class="nav-link">
-                <i class="fas fa-newspaper"></i>
-                <span>Article</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a href="{{route('contact.index')}}" class="nav-link">
-                <i class="far fa-envelope"></i>
-                <span>Contact</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a href="{{route('about.index')}}" class="nav-link">
-                <i class="far fa-address-card"></i>
-                <span>About us</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a href="{{route('content.index')}}" class="nav-link">
+            <a href="#" class="nav-link">
                 <i class="far fa-newspaper"></i>
-                <span>Content</span>
+                <span>License keys</span>
             </a>
         </li>
         <!-- Divider -->
@@ -247,29 +171,29 @@
                     </li>
 
                     <!-- Nav Item - Messages -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-envelope fa-fw"></i>
-                            <!-- Counter - Messages -->
-                            <span class="badge badge-danger badge-counter">{{$messages->count()}}</span>
-                        </a>
-                        <!-- Dropdown - Messages -->
-                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown" style="max-height: 300px; overflow: auto">
-                            <h6 class="dropdown-header">
-                                Message Center
-                            </h6>
-                            @foreach($messages as $msg)
-                            <a class="dropdown-item d-flex align-items-center" onclick="readMessage(this)" id="msg-notification" href="{{route('contact.show', $id = $msg->id)}}" data-id="{{$msg->id}}">
-                                <div class="font-weight-bold">
-                                    <div class="text-truncate">{!! $msg->message !!} </div>
-                                    <div class="small text-gray-500">{{$msg->name}}</div>
-                                </div>
-                            </a>
-                            @endforeach
+{{--                    <li class="nav-item dropdown no-arrow mx-1">--}}
+{{--                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                            <i class="fas fa-envelope fa-fw"></i>--}}
+{{--                            <!-- Counter - Messages -->--}}
+{{--                            <span class="badge badge-danger badge-counter">{{$messages->count()}}</span>--}}
+{{--                        </a>--}}
+{{--                        <!-- Dropdown - Messages -->--}}
+{{--                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown" style="max-height: 300px; overflow: auto">--}}
+{{--                            <h6 class="dropdown-header">--}}
+{{--                                Message Center--}}
+{{--                            </h6>--}}
+{{--                            @foreach($messages as $msg)--}}
+{{--                                <a class="dropdown-item d-flex align-items-center" onclick="readMessage(this)" id="msg-notification" href="{{route('contact.show', $id = $msg->id)}}" data-id="{{$msg->id}}">--}}
+{{--                                    <div class="font-weight-bold">--}}
+{{--                                        <div class="text-truncate">{!! $msg->message !!} </div>--}}
+{{--                                        <div class="small text-gray-500">{{$msg->name}}</div>--}}
+{{--                                    </div>--}}
+{{--                                </a>--}}
+{{--                            @endforeach--}}
 
-                            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                        </div>
-                    </li>
+{{--                            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
 
                     <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -396,24 +320,24 @@
 
 
 {{--<script type="text/javascript">--}}
-    {{--function readMessage(id){--}}
-        {{--var id = id.getAttribute('data-id');--}}
-        {{--$.ajaxSetup({--}}
-            {{--headers: {--}}
-                {{--'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-            {{--}--}}
-        {{--});--}}
-        {{--$.ajax({--}}
-            {{--type:"POST",--}}
-            {{--url:'/readmessage',--}}
-            {{--data:{--}}
-                {{--id:id--}}
-            {{--},--}}
-                    {{--success:function(){--}}
-                        {{--alert('yes');--}}
-                    {{--}--}}
-        {{--})--}}
-    {{--}--}}
+{{--function readMessage(id){--}}
+{{--var id = id.getAttribute('data-id');--}}
+{{--$.ajaxSetup({--}}
+{{--headers: {--}}
+{{--'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+{{--}--}}
+{{--});--}}
+{{--$.ajax({--}}
+{{--type:"POST",--}}
+{{--url:'/readmessage',--}}
+{{--data:{--}}
+{{--id:id--}}
+{{--},--}}
+{{--success:function(){--}}
+{{--alert('yes');--}}
+{{--}--}}
+{{--})--}}
+{{--}--}}
 {{--</script>--}}
 
 @stack('scripts')

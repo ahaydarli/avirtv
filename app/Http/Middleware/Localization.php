@@ -15,10 +15,13 @@ class Localization
      */
     public function handle($request, Closure $next)
     {
-        if(Session::get('locale'))
-        {
+        if(Session::get('locale')) {
             $lang = Session::get('locale');
             App::setLocale($lang);
+        }
+        // Configden gelmelidi TODO
+        else {
+            App::setLocale('az');
         }
         return $next($request);
     }
