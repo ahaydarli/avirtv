@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\User;
+use App\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 
-class UserController extends Controller
+class AdminBeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderby('id','desc')->get();
-        $users=$users->load('orders');
-
-
-
-        return view('admin.user.index', compact('users'));
+        $users = Admin::orderby('id','desc')->get();
+        return view('admin.admin-be.index', compact('users'));
     }
 
     /**
@@ -30,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.admin-be.create');
     }
 
     /**
@@ -41,7 +39,28 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+           'email' => 'required',
+           'password' => 'required',
+           'confirm' => 'required'
+        ]);
+
+        if ($request->password == $request->confirm) {
+            $password = Hash::make($request->password);
+            $user = new Admin();
+            $user->password = $password;
+            $user->email = $request->email;
+            $user->status = 1;
+            if ($user->save()) {
+                return redirect()->route('admin-be.index')->with('success','User successfully created');
+            }
+            else{
+                return redirect()->back()->with('error', 'Error');
+            }
+        }
+        else {
+            return redirect()->back()->withInput()->with('error', 'Passwords don"t match');
+        }
     }
 
     /**
@@ -84,16 +103,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        $user->delete();
-        return redirect()->route('user.index')->with('success', 'User successfully deleted');
-    }
-
-    public function modal(Request $request){
-        $user=User::find($request->id);
-        $orders=$user->orders;
-        return view('admin.ajax.user_modal',['orders'=>$orders])->render();
-
+        $user = Admin::find($id);
+        if ($user->status == 0 ) {
+            $user->delete();
+            return redirect()->route('admin-be.index')->with('success','User successfully deleted');
+        }
+        else {
+            return redirect()->back()->with('error', 'Error');
+        }
     }
 }

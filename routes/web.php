@@ -38,7 +38,7 @@ Auth::routes();
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 
-Route::middleware(['auth:admin'])->prefix('admin')->group(function() {
+Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function() {
     Route::get('/','Admin\AdminController@index')->name('admin.home');
     Route::get('/dashboard', 'Admin\AdminController@index')->name('admin.home');
     Route::Resource('language', 'Admin\LanguageController');
@@ -51,7 +51,18 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function() {
     Route::Resource('user', 'Admin\UserController');
     Route::Resource('subscription', 'Admin\SubscriptionController');
     Route::Resource('service', 'Admin\ServiceController');
+    Route::Resource('admin-be', 'Admin\AdminBeController');
+    Route::post('/modal','Admin\UserController@modal')->name('admin.modal');
 });
+
+// Baku electronics panel
+Route::middleware(['auth:admin','checkBe'])->prefix('be')->group(function() {
+    Route::get("/", function () {
+        return view('be-panel.index');
+    })->name('be.home');
+
+});
+
 Route::post("/send-message",'Frontend\HomeController@sendMessage')->name('frontend.sendMessage');
 Route::post('/readmessage','Admin\AdminController@readMessage');
 
