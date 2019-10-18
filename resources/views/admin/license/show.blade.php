@@ -36,9 +36,9 @@
                         <th>Status</th>
                         <td>
                             @if($license->status)
-                                Active
+                                Unavailable
                             @else
-                                Deactive
+                                Available
                             @endif
                         </td>
                     </tr>
