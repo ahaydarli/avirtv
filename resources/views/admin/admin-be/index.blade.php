@@ -34,7 +34,7 @@
                             <td>{{$user->email}}</td>
                             <td>{{ $user->created_at }}</td>
                             <td>
-                            @if($user->status == 0)
+                            @if($user->status == 1)
                                 <form id="delete-form" action="{{ route('admin-be.destroy', $user->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
