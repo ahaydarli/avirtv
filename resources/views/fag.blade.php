@@ -3,10 +3,6 @@
 @section('title', 'Avirnet Faq')
 @section('content')
 
-
-
-
-
     <div class="page-header header-filter header-small" data-parallax="true" style="background-image: url('/img/faq.jpg');">
         <div class="container">
             <div class="row">

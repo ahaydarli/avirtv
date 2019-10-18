@@ -58,9 +58,9 @@
                             </td>
                             <td>
                                 @if($license->status)
-                                    Active
+                                    Unavailable
                                 @else
-                                    Deactive
+                                    Available
                                 @endif
                             </td>
                             <td>{{ $license->created_at }}</td>
