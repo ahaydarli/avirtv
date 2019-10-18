@@ -27,7 +27,7 @@
                                             <li class="list-group-item d-flex justify-content-between lh-condensed">
                                                             <div>
                                                                 <h6 class="my-0">{{ $package->name }}</h6>
-                                                                <small class="text-muted">Brief description</small>
+                                                                <small class="text-muted">{{ __('Base package') }}</small>
                                                             </div>
                                                             <span class="text-muted">{{ $package->price }} ₼</span>
                                             </li>

@@ -62,7 +62,6 @@ Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function(
 Route::middleware(['auth:admin','checkBe'])->prefix('be')->group(function() {
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('be.logout');
     Route::get("/", 'Be\HomeController@index')->name('be.home');
-
 });
 
 Route::post("/send-message",'Frontend\HomeController@sendMessage')->name('frontend.sendMessage');
