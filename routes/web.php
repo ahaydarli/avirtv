@@ -24,6 +24,8 @@ Route::get('/contact', 'Frontend\HomeController@contact')->name('frontend.contac
 Route::get('/set-locale', 'Frontend\HomeController@setLocale')->name('set-locale');
 Route::get("/about-us", 'Frontend\HomeController@about')->name("about");
 Route::get("/pricing", 'Frontend\HomeController@pricing')->name("pricing");
+Route::get("/channels", 'Frontend\HomeController@channels')->name("channels");
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', 'Frontend\ProfileController@index')->name('profile');
@@ -62,6 +64,7 @@ Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function(
 Route::middleware(['auth:admin','checkBe'])->prefix('be')->group(function() {
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('be.logout');
     Route::get("/", 'Be\HomeController@index')->name('be.home');
+    Route::get('/license-keys', 'Be\HomeController@licenseKeys')->name('license.keys');
 
 });
 
