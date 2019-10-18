@@ -15,6 +15,7 @@
                         <th>#</th>
                         <th>License</th>
                         <th>User</th>
+                        <th>Created by</th>
                         <th>Is active</th>
                         <th>Status</th>
                         <th>Created at</th>
@@ -27,6 +28,7 @@
                         <th>#</th>
                         <th>License</th>
                         <th>User</th>
+                        <th>Created by</th>
                         <th>Is active</th>
                         <th>Status</th>
                         <th>Created at</th>
@@ -39,7 +41,14 @@
                         <tr>
                             <td>{{ $license->id }}</td>
                             <td>{{ $license->license }}</td>
-                            <td>{{$license->user->name}}</td>
+                            <td>
+                                @if($license->user_id !=0)
+                                {{$license->user->name}}
+                                @endif
+                            </td>
+                            <td>
+                                {{$license->created_by}}
+                            </td>
                             <td>
                                 @if($license->is_active)
                                     Active
@@ -61,9 +70,6 @@
                                 <form id="delete-form" action="{{ route('license.destroy', $license->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <a class="btn btn-primary btn-circle btn-sm" href="{{ route('license.edit', $license->id) }}">
-                                        <i class="far fa-edit"></i>
-                                    </a>
                                     <a href="{{route('license.show',$license->id)}}" class="btn btn-primary btn-circle btn-sm">
                                         <i class="far fa-eye"></i>
                                     </a>

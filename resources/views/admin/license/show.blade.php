@@ -16,12 +16,20 @@
 
                     <tr>
                         <th>User</th>
-                        <td>{{$license->user->id}} - {{$license->user->name}}</td>
+                        <td>
+                            @if($license->user_id !==0)
+                                {{$license->user->id}} - {{$license->user->name}}
+                                @endif
+                        </td>
                     </tr>
 
                     <tr>
                         <th>License</th>
                         <td>{{$license->license}}</td>
+                    </tr>
+                    <tr>
+                        <th>Created by</th>
+                        <td>{{$license->created_by}}</td>
                     </tr>
 
                     <tr>
@@ -59,10 +67,6 @@
                             <form id="delete-form" action="{{ route('license.destroy', $license->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <a class="btn btn-primary btn-circle btn-sm" href="{{ route('license.edit', $license->id) }}">
-                                    <i class="far fa-edit"></i>
-                                </a>
-
                                 <button class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
                             </form>
                         </td>

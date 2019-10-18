@@ -41,10 +41,18 @@ class LicenseController extends Controller
     {
         $request->validate([
             'license' => 'required',
-            'user_id' => 'required',
-            'status' => 'required'
         ]);
-        License::create($request->all());
+        $license = new License();
+        $license->created_by = 'Admin';
+        $license->license =$request->license;
+        if($request->is_active){
+            $license->is_active =1;
+        }
+        else{
+            $license->is_active =0;
+        }
+        $license->save();
+
         return redirect()->route('license.index')
             ->with('success', 'License added');
     }
@@ -68,8 +76,6 @@ class LicenseController extends Controller
      */
     public function edit(License $license)
     {
-        $users = User::all();
-        return view('admin.license.edit', compact('license', 'users'));
     }
 
     /**
@@ -81,23 +87,6 @@ class LicenseController extends Controller
      */
     public function update(Request $request, License $license)
     {
-        $request->validate([
-            'license' => 'required',
-            'user_id' => 'required',
-            'status' => 'required'
-        ]);
-        if($request->is_active){
-            $license->is_active =1;
-        }
-        else{
-            $license->is_active =0;
-        }
-        $license->status = $request->status;
-        $license->user_id = $request->user_id;
-        $license->license = $request->license;
-        $license->save();
-        return redirect()->route('license.index')
-            ->with('success', 'License successfully updated');
     }
 
     /**
