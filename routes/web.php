@@ -67,5 +67,8 @@ Route::middleware(['auth:admin','checkBe'])->prefix('be')->group(function() {
     Route::get('/license-keys', 'Be\HomeController@licenseKeys')->name('license.keys');
 });
 
+Route::get('/be/register','Be\HomeController@register')->name('be.register');
+
 Route::post("/send-message",'Frontend\HomeController@sendMessage')->name('frontend.sendMessage');
+Route::post("/be/register-user",'Be\HomeController@registerUser')->name('be.register-user');
 Route::post('/readmessage','Admin\AdminController@readMessage');
