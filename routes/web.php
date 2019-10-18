@@ -58,6 +58,7 @@ Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function(
 
 // Baku electronics panel
 Route::middleware(['auth:admin','checkBe'])->prefix('be')->group(function() {
+    Route::post('/logout', 'Auth\AdminLoginController@logout')->name('be.logout');
     Route::get("/", 'Be\HomeController@index')->name('be.home');
 
 });
