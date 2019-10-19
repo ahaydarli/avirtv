@@ -7,6 +7,8 @@ return [
     'pricing'=>'pricing',
     'faq'=>'FAQ',
     'contact_us'=>'Contact Us',
+    'channels' => 'Channels',
+
 
     //buttonlar
     'login'=>'Login',

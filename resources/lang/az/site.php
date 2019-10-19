@@ -8,6 +8,7 @@ return [
     'pricing'=>'Paketlər',
     'faq'=>'FAQ',
     'contact_us'=>'Bizimlə Əlaqə',
+    'channels' => 'Kanallar',
 
     //buttonlar
 

@@ -7,6 +7,7 @@ return [
     'pricing'=>'ценообразование',
     'faq'=>'фaг',
     'contact_us'=>'свяжитесь с нами',
+    'channels' => 'каналы',
 
     //buttonlar
     'login'=>'Войти',
