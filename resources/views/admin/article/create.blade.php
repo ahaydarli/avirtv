@@ -2,6 +2,9 @@
 @section('title', 'Create Article')
 
 @section('content')
+
+
+
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
             <h6 class="m-0 font-weight-bold text-primary">Create Article</h6>
@@ -13,18 +16,44 @@
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         @foreach ($locales as $locale)
                             <li class="nav-item">
-                                <a class="nav-link {{ ($locale->code == 'az') ? 'active': '' }}" id="pills-tab-{{ $locale->code }}"
+                                <a class="nav-link {{ ($locale->code == 'az') ? 'active': '' }}"
+                                   id="pills-tab-{{ $locale->code }}"
                                    data-toggle="pill" href="#pills-{{ $locale->code }}" role="tab"
-                                   aria-controls="pills-{{ $locale->code }}" aria-selected="true">{{ $locale->name }}</a>
+                                   aria-controls="pills-{{ $locale->code }}"
+                                   aria-selected="true">{{ $locale->name }}</a>
                             </li>
                         @endforeach
                     </ul>
                     <div class="tab-content pt-2 pl-1" id="pills-tabContent">
+
+
                         @foreach ($locales as $locale)
-                            <div class="tab-pane fade show {{ ($locale->code == 'az') ? 'active': '' }}" id="pills-{{ $locale->code }}"
+                            <div class="tab-pane fade show {{ ($locale->code == 'az') ? 'active': '' }}"
+                                 id="pills-{{ $locale->code }}"
                                  role="tabpanel" aria-labelledby="pills-tab-{{ $locale->code }}">
+
                                 <div class="form-group">
+
+                                    <input id="slug" type="text"
+                                           class="form-control @error('slug') is-invalid @enderror"
+                                           name="slug[{{ $locale->code }}]" value="{{ old('') }}"
+                                           placeholder="{{ __('Slug -').$locale->name }}">
+                                    @error('slug')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+
+
+                                <div class="form-group">
+<<<<<<< HEAD
                                     <input id="title" type="text" class="form-control @error('title') is-invalid @enderror"
+=======
+
+                                    <input id="title" type="text"
+                                           class="form-control @error('title') is-invalid @enderror"
+>>>>>>> 7d442fb00ff58b4a479eacf8f0f056ade3693ad5
                                            name="title[{{ $locale->code }}]" value="{{ old('') }}"
                                            placeholder="{{ __('Title -').$locale->name }}">
                                     @error('title')
@@ -33,8 +62,24 @@
                                     </span>
                                     @enderror
                                 </div>
+
                                 <div class="form-group">
-                                    <textarea id="text" rows="5" class="textarea form-control @error('text') is-invalid @enderror"
+
+                                    <input id="subtitle" type="text"
+                                           class="form-control @error('subtitle') is-invalid @enderror"
+                                           name="subtitle[{{ $locale->code }}]" value="{{ old('') }}"
+                                           placeholder="{{ __('Subtitle -').$locale->name }}">
+                                    @error('subtitle')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+
+
+                                <div class="form-group">
+                                    <textarea id="text" rows="5"
+                                              class="textarea form-control @error('text') is-invalid @enderror"
                                               name="text[{{ $locale->code }}]"
                                               placeholder="{{ __('Text -').$locale->name }}">{{ old('answer') }}</textarea>
                                     @error('text')
@@ -46,24 +91,26 @@
                             </div>
                         @endforeach
 
-                            <div class="form-group">
-                                <input id="question" type="file" class="form-control @error('image') is-invalid @enderror"
-                                       name="image"
-                                       placeholder="{{ __('Image -') }}">
-                                @error('image')
-                                <span class="invalid-feedback" role="alert">
+
+                        <div class="form-group">
+                            <input id="question" type="file" class="form-control @error('image') is-invalid @enderror"
+                                   name="image"
+                                   placeholder="{{ __('Image -') }}">
+                            @error('image')
+                            <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
-                            </div>
+                            @enderror
+                        </div>
 
 
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <input type="checkbox" value="1" name="is_active" class="form-check-input" id="exampleCheck1" {{ old('is_active') ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="exampleCheck1">{{ __('Active') }}</label>
-                                </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" value="1" name="is_active" class="form-check-input"
+                                       id="exampleCheck1" {{ old('is_active') ? 'checked' : '' }}>
+                                <label class="form-check-label" for="exampleCheck1">{{ __('Active') }}</label>
                             </div>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">
                         {{ __('Save') }}
@@ -78,3 +125,18 @@
 
 
 @endsection
+@push('scripts')
+
+    <script>
+
+            var options = {
+                filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+                filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+            };
+            $('.textarea').ckeditor(options);
+
+
+    </script>
+@endpush

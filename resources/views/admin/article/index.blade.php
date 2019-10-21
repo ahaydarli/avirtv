@@ -14,6 +14,8 @@
                     <tr>
                         <th>#</th>
                         <th>Title</th>
+                        <th>Slug</th>
+                        <th>Subtitle</th>
                         <th>Text</th>
                         <th>Image</th>
                         <th>Is active</th>
@@ -26,6 +28,8 @@
                     <tr>
                         <th>#</th>
                         <th>Title</th>
+                        <th>Slug</th>
+                        <th>Subtitle</th>
                         <th>Text</th>
                         <th>Image</th>
                         <th>Is active</th>
@@ -39,7 +43,9 @@
                         <tr>
                             <td>{{ $article->id }}</td>
                             <td>{{ $article->title }}</td>
-                            <td> {{ mb_substr( $article->text,100) }} @if(strlen($article->text)>100) ... @endif </td>
+                            <td>{{ $article->slug }}</td>
+                            <td>{{ $article->subtitle }}</td>
+                            <td> {{ mb_substr( $article->text,0,100,'utf-8') }} @if(strlen($article->text)>100) ... @endif </td>
                             <td><img style="width: 100px; height: 100px;" src="{{ asset('uploads/article').'/'.$article->image }}"></td>
                             <td>
                                 @if($article->is_active)

@@ -8,9 +8,9 @@ class Article extends Model
 {
     use HasTranslations;
     protected $fillable = [
-        'title','text','is_active'
+        'title','text','is_active','slug','subtitle'
     ];
     protected $table = 'articles';
-    public $translatable = ['title','text'];
+    public $translatable = ['title','text','slug','subtitle'];
     public $timestamps = true;
 }
