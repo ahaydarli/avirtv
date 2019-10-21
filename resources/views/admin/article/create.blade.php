@@ -24,7 +24,6 @@
                             <div class="tab-pane fade show {{ ($locale->code == 'az') ? 'active': '' }}" id="pills-{{ $locale->code }}"
                                  role="tabpanel" aria-labelledby="pills-tab-{{ $locale->code }}">
                                 <div class="form-group">
-
                                     <input id="title" type="text" class="form-control @error('title') is-invalid @enderror"
                                            name="title[{{ $locale->code }}]" value="{{ old('') }}"
                                            placeholder="{{ __('Title -').$locale->name }}">

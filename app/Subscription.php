@@ -12,7 +12,7 @@ class Subscription extends Model
 
     protected $fillable = [
         'user_id', 'package_id', 'account_number', 'payment_status', 'status',
-        'device', 'period', 'mac_address'
+        'device', 'period', 'mac_address', 'amount'
     ];
 
     public static function generateAccountNumber()
@@ -33,6 +33,11 @@ class Subscription extends Model
     public function service()
     {
         return $this->hasOne(Service::class, 'account_number', 'account_number');
+    }
+
+    public function month()
+    {
+        return $this->hasOne(Period::class, 'id', 'period');
     }
 
 }

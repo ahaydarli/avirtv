@@ -32,12 +32,28 @@
                     </div>
 
                     <div class="form-group">
+                        <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
+                               name='phone'
+                               placeholder="Phone number">
+                        @error('phone')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
                         <select name="package_id" id="" class="form-control">
-                            <option value="">Select package</option>
+                            <option>Select package</option>
                             @foreach($packages as $package)
                                 <option value="{{ $package->id }}">{{ $package->name }}</option>
                             @endforeach
                         </select>
+                        @error('package_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <select name="device" id="" class="form-control device">
