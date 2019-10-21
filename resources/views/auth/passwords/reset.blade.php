@@ -1,4 +1,5 @@
-@extends('layout')
+@extends('login-layout')
+@section('page', 'login-page')
 @section('content')
 <div class="container" style="margin-top:7%">
     <div class="row justify-content-center">
@@ -9,9 +10,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
-
                         <input type="hidden" name="token" value="{{ $token }}">
-
                         <div class="form-group row">
                             <label for="email" class="col-md-12 col-form-label text-center">{{ __('E-Mail Address') }}</label>
 

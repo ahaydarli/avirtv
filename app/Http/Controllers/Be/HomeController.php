@@ -6,6 +6,7 @@ use App\Admin;
 use App\Http\Controllers\Controller;
 use App\License;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -20,7 +21,7 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::where('type', 1)->limit(10)->get();
-        return view('be.index', compact('users'));
+        return view('be.index', compact('users', 'today_users'));
     }
 
     public function licenseKeys()

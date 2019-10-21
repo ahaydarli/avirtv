@@ -13139,8 +13139,8 @@ textarea {
 }
 
 .page-header.header-small {
-	height: 65vh;
-	min-height: 65vh
+	height: 50vh;
+	min-height: 50vh;
 }
 
 .page-header .iframe-container iframe {
@@ -19278,7 +19278,7 @@ select.selectpicker {
 }
 
 .about-us .about-description {
-	padding: 70px 0 0
+	padding: 50px 0 50px;
 }
 
 .about-us .about-services {
@@ -19306,7 +19306,7 @@ select.selectpicker {
 }
 
 .profile-page .page-header {
-	height: 380px;
+	height: 50vh;
 	background-position: top
 }
 
