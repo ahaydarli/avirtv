@@ -39,6 +39,7 @@ class HomeController extends Controller
        }
 
 
+
     }
 
     public function registerUser(Request $request)
