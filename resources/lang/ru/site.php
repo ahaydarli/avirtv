@@ -4,9 +4,9 @@ return [
     //header menyular
     'home'=>'домашняя страница',
     'about_us'=>'о нас',
-    'pricing'=>'ценообразование',
+    'pricing'=>'Пакеты',
     'faq'=>'фaг',
-    'contact_us'=>'свяжитесь с нами',
+    'contact_us'=>'контакт',
     'channels' => 'каналы',
 
     //buttonlar
@@ -68,5 +68,25 @@ return [
     'all_packages'=>'Все пакеты',
 
 
+    //profile sehifesi
+    'dashboard'=>'приборная доска',
+    'account'=>'Профиль',
+    'subscriptions'=>'подписка',
+    'settings'=>'Hастройки',
+    'add'=>'Добавить новый сервис',
+    'package'=>'пакет',
+    'payment_status'=>'дата платежа',
+    'price'=>'цена',
+    'period'=>'период',
+    'payed'=>'оплаченный',
+    'actions'=>'действия',
+
+    'change_password'=>'сменить пароль',
+    'current_password'=>'текущий пароль',
+    "new_password"=>'новый пароль',
+    "confirm_new_password"=>"подтвердите новый пароль",
+    "change"=>"Изменить",
+    'profile'=>'Профиль',
+    'logout'=>'Bыйти',
 
 ];

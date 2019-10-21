@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 ml-auto mr-auto text-center">
-                <h1 class="title">Profile</h1>
+                <h1 class="title">{{ __("site.profile") }}</h1>
             </div>
         </div>
     </div>
@@ -24,22 +24,22 @@
                                    <ul class="nav nav-tabs" data-tabs="tabs">
                                        <li class="nav-item">
                                            <a class="nav-link" href="#profile" data-toggle="tab">
-                                               <i class="material-icons">dashboard</i> Dashboard
+                                               <i class="material-icons">dashboard</i> {{ __('site.dashboard') }}
                                                <div class="ripple-container"></div></a>
                                        </li>
                                        <li class="nav-item">
                                            <a class="nav-link" href="#account" data-toggle="tab">
-                                               <i class="material-icons">account_box</i> Account
+                                               <i class="material-icons">account_box</i> {{ __('site.account') }}
                                                <div class="ripple-container"></div></a>
                                        </li>
                                        <li class="nav-item">
                                            <a class="nav-link active show" href="#subscriptions" data-toggle="tab">
-                                               <i class="material-icons">done_all</i> Subscriptions
+                                               <i class="material-icons">done_all</i> {{ __('site.subscriptions') }}
                                                <div class="ripple-container"></div></a>
                                        </li>
                                        <li class="nav-item">
                                            <a class="nav-link" href="#settings" data-toggle="tab">
-                                               <i class="material-icons">build</i> Settings
+                                               <i class="material-icons">build</i> {{ __('site.settings') }}
                                                <div class="ripple-container"></div></a>
                                        </li>
                                    </ul>
@@ -57,19 +57,19 @@
                                <div class="tab-pane active show" id="subscriptions">
                                    <a href="{{ route('pricing') }}" class="btn btn-success float-right">
                                        <i class="material-icons">add</i>
-                                       Add new service
+                                       {{ __('site.add') }}
                                    </a>
                                    <div class="table-responsive">
                                        <table class="table">
                                            <thead>
                                            <tr>
-                                               <th>{{ __('Package') }}</th>
-                                               <th>{{ __('Payment date') }}</th>
-                                               <th>{{ __('Payment status') }}</th>
-                                               <th class="text-right">{{ __('Price') }}</th>
-                                               <th class="text-right">{{ __('Period') }}</th>
-                                               <th class="text-right">{{ __('Payed') }}</th>
-                                               <th class="text-right">{{ __('Actions') }}</th>
+                                               <th>{{ __('site.package') }}</th>
+                                               <th>{{ __('site.payment_date') }}</th>
+                                               <th>{{ __('site.payment_status') }}</th>
+                                               <th class="text-right">{{ __('site.price') }}</th>
+                                               <th class="text-right">{{ __('site.period') }}</th>
+                                               <th class="text-right">{{ __('site.payed') }}</th>
+                                               <th class="text-right">{{ __('site.actions') }}</th>
                                            </tr>
                                            </thead>
                                            <tbody>
@@ -109,7 +109,67 @@
                                    </div>
                                </div>
                                <div class="tab-pane" id="settings">
-                                   <p>I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
+                                   <h3>{{ __('site.change_password') }}</h3>
+
+                                   <form action="{{url('change-pass')}}" method="post" class="form">
+                                       {{csrf_field()}}
+                                       <div class="form-group">
+                                           <div class="input-group">
+                                               <div class="input-group-prepend">
+                                                      <span class="input-group-text">
+                                                        <i class="material-icons">lock_outline</i>
+                                                      </span>
+                                               </div>
+                                               <input id="current" type="password" class="form-control @error('current') is-invalid @enderror" name="current" required placeholder="{{ __('site.current_password') }}">
+
+                                               @error('current')
+                                               <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                               @enderror
+                                           </div>
+                                       </div>
+
+                                       <div class="form-group">
+                                           <div class="input-group">
+                                               <div class="input-group-prepend">
+                                                      <span class="input-group-text">
+                                                        <i class="material-icons">lock_outline</i>
+                                                      </span>
+                                               </div>
+                                               <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required  placeholder="{{ __('site.new_password') }}">
+
+                                               @error('password')
+                                               <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                               @enderror
+                                           </div>
+                                       </div>
+
+                                       <div class="form-group">
+                                           <div class="input-group">
+                                               <div class="input-group-prepend">
+                                                      <span class="input-group-text">
+                                                        <i class="material-icons">lock_outline</i>
+                                                      </span>
+                                               </div>
+                                               <input type="password" class="form-control @error('confirm') is-invalid @enderror" name="confirm" required  placeholder=" {{ __('site.confirm_new_password') }}">
+
+                                               @error('confirm')
+                                               <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                               @enderror
+                                           </div>
+                                       </div>
+
+                                       <button type="submit" class="btn btn-danger btn-round">
+                                           {{ __('site.change') }}
+                                       </button>
+                                   </form>
+
+
                                </div>
                            </div>
                        </div>

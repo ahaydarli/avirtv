@@ -120,18 +120,18 @@
                     <li class="button-container dropdown nav-item iframe-extern">
                         <a href="#" class="dropdown-toggle btn btn-danger btn-round btn-block" data-toggle="dropdown"
                            aria-expanded="true">
-                            <i class="material-icons">account_box</i> Account
+                            <i class="material-icons">account_box</i> {{ __('site.account') }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end">
-                            <a href="#pablo" class="dropdown-item">Profile</a>
-                            <a href="#pablo" class="dropdown-item">Subscription</a>
+                            <a href="#pablo" class="dropdown-item">{{ __('site.profile') }}</a>
+                            <a href="#pablo" class="dropdown-item">{{ __('site.subscriptions') }}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                <i class="material-icons">logout</i>
-                                {{ __('Logout') }}
+                                <i class="material-icons"></i>
+                                {{ __('site.logout') }}
                             </a>
                         </div>
                     </li>
@@ -188,14 +188,9 @@
 <script src="{{ asset('js/core/popper.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/core/bootstrap-material-design.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/plugins/moment.min.js') }}"></script>
-
 <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-
-
 <script src="{{ asset('js/plugins/bootstrap-datetimepicker.js') }}" type="text/javascript"></script>
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-
-
 <script src="{{ asset('js/plugins/nouislider.min.js') }}" type="text/javascript"></script>
  <script src="{{ asset('js/plugins/nouislider.min.js') }}" type="text/javascript"></script>
 <!--  Google Maps Plugin    -->
@@ -223,7 +218,7 @@
 <script src="{{ asset('js/material-kit.min1036.js?v=2.1.1') }}" type="text/javascript"></script>
 <script src="{{ asset('js/custom.js?v=1') }}" type="text/javascript"></script>
 
-
+{{--<script async defer src="https://buttons.github.io/buttons.js"></script>--}}
 <script>
     $(document).ready(function () {
         //init DateTimePickers
@@ -233,4 +228,5 @@
         materialKit.initSliders();
     });
 </script>
+    @stack('scripts')
 </body>
