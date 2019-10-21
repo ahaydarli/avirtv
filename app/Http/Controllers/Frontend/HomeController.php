@@ -96,6 +96,7 @@ class HomeController extends Controller
         return view('channels', compact('channels'));
     }
 
+
     public function article_show($slug){
 
         $article=Article::where('slug','like','%'.$slug.'%')->first();

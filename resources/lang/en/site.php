@@ -7,6 +7,8 @@ return [
     'pricing'=>'pricing',
     'faq'=>'FAQ',
     'contact_us'=>'Contact Us',
+    'channels' => 'Channels',
+
 
     //buttonlar
     'login'=>'Login',
@@ -34,6 +36,8 @@ return [
     'watch'=>'Watch the best of live streaming TV and On Demand shows on your favorite devices',
     'plan'=>'Pick the best plan for you',
     'unlimited'=>'You have Free Unlimited Updates and Premium Support on each package.',
+    'choose_plan'=>'Choose Plan',
+    'all_packages'=>'All Packages',
 
 
 

@@ -70,11 +70,15 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
+{{--                <li class="dropdown nav-item">--}}
+{{--                    <a href="{{ url('/') }}" class="nav-link">--}}
+{{--                        <i class="material-icons">home</i> @lang('site.home')--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="dropdown nav-item">
-                    <a href="{{ url('/') }}" class="nav-link">
-                        <i class="material-icons">home</i> @lang('site.home')
+                    <a href="{{route('channels')}}" class="nav-link">
+                        <i class="material-icons">tv</i> @lang('site.channels')
                     </a>
-
                 </li>
                 <li class="dropdown nav-item">
                     <a href="{{route('about')}}" class="nav-link">

@@ -25,6 +25,8 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
 
+
+
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -421,30 +423,7 @@
 @stack('scripts')
 
 
-<?php
-//kcfinder
-session_start();
-unset( $_SESSION['KCFINDER']);
-$_SESSION['KCFINDER'] = array(
-    'disabled' => false
-);
-?>
 
-<script>
-    $(function () {
-
-        $('.textarea').ckeditor(
-            {
-                filebrowserBrowseUrl : '{{asset('kcfinder/browse.php?opener=ckeditor&type=files')}}',
-                filebrowserImageBrowseUrl : '{{asset('kcfinder/browse.php?opener=ckeditor&type=images')}}',
-                filebrowserFlashBrowseUrl : '{{asset('kcfinder/browse.php?opener=ckeditor&type=flash')}}',
-                filebrowserUploadUrl : '{{asset('kcfinder/upload.php?opener=ckeditor&type=files')}}',
-                filebrowserImageUploadUrl : '{{asset('kcfinder/upload.php?opener=ckeditor&type=images')}}',
-                filebrowserFlashUploadUrl : '{{asset('kcfinder/upload.php?opener=ckeditor&type=flash')}}',
-            });
-    })
-
-</script>
 
 
 </body>

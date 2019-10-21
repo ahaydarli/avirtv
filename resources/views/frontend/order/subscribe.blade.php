@@ -74,8 +74,8 @@
                                                         <select class="form-control device @error('device') is-invalid @enderror"
                                                                 name="device" data-style="select-with-transition" title="{{ __('Device type') }}" data-size="7">
                                                             <option>{{ __('Choose device') }}</option>
-                                                            <option value="0">{{ __('MAG devices') }}</option>
-                                                            <option value="1">{{ __('Other') }}</option>
+                                                            <option value="1">{{ __('MAG devices') }}</option>
+                                                            <option value="0">{{ __('Other') }}</option>
                                                         </select>
                                                         @error('device')
                                                             <span class="invalid-feedback" role="alert">
