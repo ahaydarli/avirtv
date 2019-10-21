@@ -1,7 +1,8 @@
 @extends('login-layout')
 @section('page', 'login-page')
 @section('content')
-    <div class="page-header header-filter" style="background-image: url('img/login.jpg'); background-size: cover; background-position: top center;">
+    <div class="page-header header-filter" style="background-image: url('https://images.unsplash.com/photo-1565335020653-1d1c4fc20bbc');
+     background-size: cover; background-position: center;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">

@@ -8,6 +8,16 @@
         </div>
         <div class="card-body">
             <div class="col-md-6 offset-md-3">
+                @if(session('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{session('error')}}
+                    </div>
+                @endif
+                @if(session('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{session('success')}}
+                    </div>
+                @endif
                 <form class="user" method="POST" action="{{ route('be.customers.store') }}">
                     @csrf
                     <div class="form-group">

@@ -47,8 +47,8 @@
 <nav class="navbar bg-dark  fixed-top navbar-expand-lg "  id="sectionsNav">
     <div class="container">
         <div class="navbar-translate">
-            <a class="navbar-brand" href="#">
-                <img alt="logo" class="img-fluid index-logo" src="img/iptvlogo2.png" /> </a>
+            <a class="navbar-brand" href="{{ route('frontend.index') }}">
+                <img alt="logo" class="img-fluid index-logo" src="/img/iptvlogo2.png" /> </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="navbar-toggler-icon"></span>
@@ -58,12 +58,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li class="dropdown nav-item">
-                    <a href="{{ url('/') }}" class="nav-link" >
-                        <i class="material-icons">home</i> @lang('site.home')
-                    </a>
 
-                </li>
                 <li class="dropdown nav-item">
                     <a href="{{route('about')}}" class="nav-link">
                         <i class="material-icons">information</i> @lang('site.about_us')
@@ -73,6 +68,11 @@
                 <li class="dropdown nav-item">
                     <a href="{{route('pricing')}}" class="nav-link">
                         <i class="material-icons">stars</i>  @lang('site.pricing')
+                    </a>
+                </li>
+                <li class="dropdown nav-item">
+                    <a href="{{route('channels')}}" class="nav-link">
+                        <i class="material-icons">tv</i> @lang('site.channels')
                     </a>
                 </li>
                 <li class="dropdown nav-item">

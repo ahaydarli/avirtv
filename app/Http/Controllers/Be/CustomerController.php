@@ -12,6 +12,7 @@ use App\Subscription;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
@@ -55,60 +56,77 @@ class CustomerController extends Controller
             'package_id' => 'required',
             'period' => 'required'
         ]);
-
-        $account_number = User::generateAccountNumber();
-        $userPayload = [
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($account_number),
-            'phone' => $request->input('phone'),
-            'account_number' => $account_number,
-            'type' => 1,
-        ];
-        $user = User::create($userPayload);
-
-        $package = Package::findOrFail($request->input('package_id'));
-        $period = Period::findorFail($request->input('period'));
-        $amount = GoldenpayUtils::calculatePrice($package, $period);
-
-        $subscriptionPayload = [
-            'user_id' => $user->id,
-            'package_id' => $request->input('package_id'),
-            'account_number' => $account_number,
-            'device' => $request->input('device'),
-            'period' => $request->input('period'),
-            'mac_address' => $request->input('mac_address') ?? $request->input('mac_address'),
-            'amount' => $amount,
-            'payment_status' => 1,
-            'status' => 1,
-        ];
-        $subscription = Subscription::create($subscriptionPayload);
-
-        if ($subscription->device == 0) {
-            $license = License::free()->get()->first();
-            $license->status = 1;
-            $license->user_id = $user->id;
-            $license->save();
+        Db::beginTransaction();
+        try {
+            $account_number = User::generateAccountNumber();
+            $userPayload = [
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'password' => Hash::make($account_number),
+                'phone' => $request->input('phone'),
+                'account_number' => $account_number,
+                'type' => 1,
+            ];
+            $user = User::create($userPayload);
         }
-        $servicePayload = [
-            'password' => $subscription->account_number,
-            'full_name' => $user->name,
-            'user_id' => $user->id,
-            'login' => $subscription->account_number,
-            'account_number' => $subscription->account_number,
-            'tariff_plan' => $package->ministra_id,
-            'stb_mac' => $subscription->mac_address,
-            'status' => 1,
-            'license' => $subscription->device == 0 ? $license->license : '',
-        ];
-        $client = new MinistraClient();
-        $result = $client->postData('accounts', $servicePayload);
-        if ($result->status == 'OK') {
+        catch (\Exception $e){
+            DB::rollBack();
+
+            return redirect()->route('be.customers.create')->with('error', $e->getMessage());
+        }
+        try {
+            $package = Package::findOrFail($request->input('package_id'));
+            $period = Period::findorFail($request->input('period'));
+            $amount = GoldenpayUtils::calculatePrice($package, $period);
+
+            $subscriptionPayload = [
+                'user_id' => $user->id,
+                'package_id' => $request->input('package_id'),
+                'account_number' => $account_number,
+                'device' => $request->input('device'),
+                'period' => $request->input('period'),
+                'mac_address' => $request->input('mac_address') ?? $request->input('mac_address'),
+                'amount' => $amount,
+                'payment_status' => 1,
+                'status' => 1,
+            ];
+            $subscription = Subscription::create($subscriptionPayload);
+        }
+        catch (\Exception $e){
+            DB::rollBack();
+
+            return redirect()->route('be.customers.create')->with('error', $e->getMessage());
+        }
+        try{
+            if ($subscription->device == 0) {
+                $license = License::free()->get()->first();
+                $license->status = 1;
+                $license->user_id = $user->id;
+                $license->save();
+            }
+            $servicePayload = [
+                'password' => $subscription->account_number,
+                'full_name' => $user->name,
+                'user_id' => $user->id,
+                'login' => $subscription->account_number,
+                'account_number' => $subscription->account_number,
+                'tariff_plan' => $package->ministra_id,
+                'stb_mac' => $subscription->mac_address,
+                'status' => 1,
+                'license' => $subscription->device == 0 ? $license->license : '',
+            ];
+            $client = new MinistraClient();
+            $result = $client->postData('accounts', $servicePayload);
             $service = Service::create($servicePayload);
-            return redirect()->route('be.customers.index')->with('success', 'Customer created successfully');
+        }
+        catch (\Exception $e){
+            DB::rollBack();
+
+            return redirect()->route('be.customers.create')->with('error', $e->getMessage());
         }
 
-        return redirect()->route('be.customers.index')->with('error', 'Customer not created');
+        DB::commit();
+        return redirect()->route('be.customers.index')->with('success', 'Customer created successfully');
     }
 
     /**

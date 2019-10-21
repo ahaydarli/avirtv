@@ -39,11 +39,7 @@
                                        </li>
                                        <li class="nav-item">
                                            <a class="nav-link" href="#settings" data-toggle="tab">
-<<<<<<< HEAD
                                                <i class="material-icons">build</i> {{ __('site.settings') }}
-=======
-                                               <i class="material-icons">build</i> {{ __('Change password') }}
->>>>>>> 3317e1b13ee3aa8f309355fab0853ca6080126d1
                                                <div class="ripple-container"></div></a>
                                        </li>
                                    </ul>

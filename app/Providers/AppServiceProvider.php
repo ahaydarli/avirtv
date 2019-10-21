@@ -27,8 +27,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (!\session()->exists('locales')) {
+            $locales = Language::all();
+            \session(['locales' => Language::all()]);
+        }
         View::composer(['layout', 'login-layout'], function ($view) {
-            $view->with('languages', Language::all());
+            $view->with('languages', \session('locales'));
         });
         Schema::defaultStringLength(191);
     }

@@ -1,3 +1,6 @@
 .index-logo {
     width: 200px;
 }
+.login-page .card-title {
+    margin-top: 0;
+}
