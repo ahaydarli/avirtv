@@ -72,3 +72,13 @@
 
 @endsection()
 
+
+@push('scripts')
+
+    <script>
+    $().ready(function() {
+        materialKitDemo.initContactUsMap();
+    });
+    </script>
+
+    @endpush

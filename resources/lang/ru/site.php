@@ -4,9 +4,9 @@ return [
     //header menyular
     'home'=>'домашняя страница',
     'about_us'=>'о нас',
-    'pricing'=>'ценообразование',
+    'pricing'=>'Пакеты',
     'faq'=>'фaг',
-    'contact_us'=>'свяжитесь с нами',
+    'contact_us'=>'контакт',
     'channels' => 'каналы',
 
     //buttonlar
