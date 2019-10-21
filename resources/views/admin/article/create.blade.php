@@ -2,9 +2,6 @@
 @section('title', 'Create Article')
 
 @section('content')
-
-
-
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
             <h6 class="m-0 font-weight-bold text-primary">Create Article</h6>
