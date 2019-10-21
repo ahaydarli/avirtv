@@ -67,18 +67,13 @@
             </div>
         </div>
     </div>
-
-
-
 @endsection()
 
-
 @push('scripts')
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6q83jcEbxloW8tYOXLgagBGJ1xrDowHc&language=az-AZ" async></script>
     <script>
     $().ready(function() {
         materialKitDemo.initContactUsMap();
     });
     </script>
-
-    @endpush
+@endpush

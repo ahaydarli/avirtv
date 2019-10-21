@@ -197,8 +197,7 @@
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
 <script src="{{ asset('js/plugins/nouislider.min.js') }}" type="text/javascript"></script>
  <script src="{{ asset('js/plugins/nouislider.min.js') }}" type="text/javascript"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGat1sgDZ-3y6fFe6HD7QUziVC6jlJNog"></script>
+
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="{{ asset('https://buttons.github.io/buttons.js') }}"></script>
 <!--	Plugin for Sharrre btn -->
