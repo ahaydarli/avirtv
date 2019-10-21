@@ -30,13 +30,14 @@ class HomeController extends Controller
 
     public function register()
     {
-       if (Auth::guest()) {
+       if (Auth::guard('admin'))  {
+           return redirect()->route('be.home');
+       }
+       else {
            return view('be.register');
 
        }
-       else {
-           return redirect()->route('be.home');
-       }
+
 
     }
 
