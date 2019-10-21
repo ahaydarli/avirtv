@@ -109,7 +109,67 @@
                                    </div>
                                </div>
                                <div class="tab-pane" id="settings">
-                                   <p>I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it’s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
+                                   <h3>Change password</h3>
+
+                                   <form action="{{url('change-pass')}}" method="post" class="form">
+                                       {{csrf_field()}}
+                                       <div class="form-group">
+                                           <div class="input-group">
+                                               <div class="input-group-prepend">
+                                                      <span class="input-group-text">
+                                                        <i class="material-icons">lock_outline</i>
+                                                      </span>
+                                               </div>
+                                               <input id="current" type="password" class="form-control @error('current') is-invalid @enderror" name="current" required placeholder="Current password">
+
+                                               @error('current')
+                                               <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                               @enderror
+                                           </div>
+                                       </div>
+
+                                       <div class="form-group">
+                                           <div class="input-group">
+                                               <div class="input-group-prepend">
+                                                      <span class="input-group-text">
+                                                        <i class="material-icons">lock_outline</i>
+                                                      </span>
+                                               </div>
+                                               <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required  placeholder="New password">
+
+                                               @error('password')
+                                               <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                               @enderror
+                                           </div>
+                                       </div>
+
+                                       <div class="form-group">
+                                           <div class="input-group">
+                                               <div class="input-group-prepend">
+                                                      <span class="input-group-text">
+                                                        <i class="material-icons">lock_outline</i>
+                                                      </span>
+                                               </div>
+                                               <input type="password" class="form-control @error('confirm') is-invalid @enderror" name="confirm" required  placeholder="Confirm new password">
+
+                                               @error('confirm')
+                                               <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                               @enderror
+                                           </div>
+                                       </div>
+
+                                       <button type="submit" class="btn btn-danger btn-round">
+                                           {{ __('Change') }}
+                                       </button>
+                                   </form>
+
+
                                </div>
                            </div>
                        </div>

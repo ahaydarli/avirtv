@@ -13,6 +13,7 @@ use App\MinistraClient;
 use App\Package;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -94,6 +95,12 @@ class HomeController extends Controller
         $channels = $client->getData('itv');
         $channels = $channels->results;
         return view('channels', compact('channels'));
+    }
+
+    public function profile()
+    {
+        $user = Auth::user();
+        return view('profile', compact('user'));
     }
 
 

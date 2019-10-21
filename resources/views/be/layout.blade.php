@@ -50,15 +50,15 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
         <li class="nav-item">
-            <a href="{{ route('be.customers.index') }}" class="nav-link">
+            <a href="#" class="nav-link">
                 <i class="far fa-user"></i>
                 <span>Customers</span>
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('be.license-keys') }}" class="nav-link">
+            <a href="{{route('be.license-keys')}}" class="nav-link">
                 <i class="far fa-newspaper"></i>
-                <span>{{ __('License keys') }}</span>
+                <span>License keys</span>
             </a>
         </li>
         <!-- Divider -->
@@ -200,8 +200,8 @@
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                            <i class="fas fa-2x fa-user-circle"></i>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna {{Auth::id()}}</span>
+                            <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -311,7 +311,6 @@
 
 <!-- Page level custom scripts -->
 <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
-<script src="{{ asset('backend/js/custom.js') }}"></script>
 
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
