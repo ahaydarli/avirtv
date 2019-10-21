@@ -72,6 +72,30 @@ return [
     'all_packages'=>'Bütün Paketlər',
 
 
+    //profile sehifesi
+    'dashboard'=>'Panelim',
+    'account'=>'Hesab',
+    'subscriptions'=>'Abunələr',
+    'settings'=>'Ayarlar',
+    'add'=>'Yeni Servis Əlavə Et',
+    'package'=>'Paket',
+    'payment_date'=>'Ödəniş vaxtı',
+    'payment_status'=>'Ödəniş Tarixi',
+    'price'=>'Qiymət',
+    'period'=>'Period',
+    'payed'=>'Ödənildi',
+    'actions'=>'Əməliyyatlar',
+    'change_password'=>'Şifrəni Dəyiş',
+    'current_password'=>'Əvvəlki şifrə',
+    "new_password"=>'Yeni Şifrə',
+    "confirm_new_password"=>"Yeni Şifrənin Təsdiqi",
+    "change"=>"Dəyiş",
+     'profile'=>'Profil',
+    'logout'=>'Çıxış',
+
+
+
+
 
     //footer
     'subscribe'=>'Abunə olun',

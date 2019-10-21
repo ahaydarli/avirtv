@@ -73,9 +73,28 @@ return [
 
 
     //footer
-    'subscribe'=>'Subscribe to Newsletter'
+    'subscribe'=>'Subscribe to Newsletter',
 
 
-
+    //profile sehifesi
+    'dashboard'=>'Dashboard',
+    'account'=>'Account',
+    'subscriptions'=>'Subscriptions',
+    'settings'=>'Settings',
+    'add'=>'Add New Service',
+    'package'=>'Package',
+    'payment_date'=>'Payment Date',
+    'payment_status'=>'Payment Status',
+    'price'=>'Price',
+    'period'=>'Period',
+    'payed'=>'Payed',
+    'actions'=>'Actions',
+    'change_password'=>'Change Password',
+    'current_password'=>'Current Password',
+    "new_password"=>'New Password',
+    "confirm_new_password"=>"Confirm New Password",
+    "change"=>"Change",
+    'profile'=>'Profile',
+    'logout'=>'Logout',
 
 ];
