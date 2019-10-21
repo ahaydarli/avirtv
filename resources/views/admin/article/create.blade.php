@@ -47,13 +47,8 @@
 
 
                                 <div class="form-group">
-<<<<<<< HEAD
-                                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror"
-=======
-
                                     <input id="title" type="text"
                                            class="form-control @error('title') is-invalid @enderror"
->>>>>>> 7d442fb00ff58b4a479eacf8f0f056ade3693ad5
                                            name="title[{{ $locale->code }}]" value="{{ old('') }}"
                                            placeholder="{{ __('Title -').$locale->name }}">
                                     @error('title')
