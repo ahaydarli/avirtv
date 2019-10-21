@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     protected $fillable = [
-        'login', 'account_number', 'password', 'license'
+        'login', 'account_number', 'password', 'license', 'user_id'
     ];
 
     public function order()

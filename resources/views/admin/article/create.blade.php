@@ -47,6 +47,7 @@
 
 
                                 <div class="form-group">
+                                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror"
 
                                     <input id="title" type="text"
                                            class="form-control @error('title') is-invalid @enderror"

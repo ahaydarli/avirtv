@@ -60,6 +60,7 @@ class OrderController extends Controller
         $order = Subscription::findOrFail($order_id);
         $client = new MinistraClient();
         $payload = [
+                'user_id' => $order->user_id,
                 'password' => $order->account_number,
                 'full_name' => Auth::user()->name,
                 'login' => $order->account_number,

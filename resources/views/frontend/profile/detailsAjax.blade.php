@@ -1,30 +1,4 @@
 <div class="col-md-12">
-    <h5 style="color: red">{{ __('Site details') }}</h5>
-    <div class="row">
-        <div class="col-md-6">
-            <label>{{ __('Name') }}</label>
-        </div>
-        <div class="col-md-6">
-            <p>{{ $user->name }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <label>{{ __('Email') }}</label>
-        </div>
-        <div class="col-md-6">
-            <p>{{ $user->email }}</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <label>{{ __('Password') }}</label>
-        </div>
-        <div class="col-md-6">
-            <p>{{ $user->account_number }}</p>
-        </div>
-    </div>
-
     <h5 style="color: red">{{ __('Ministra details') }}</h5>
     <div class="row">
         <div class="col-md-6">
@@ -39,7 +13,7 @@
             <label>{{ __('Ministra Login') }}</label>
         </div>
         <div class="col-md-6">
-            <p>{{ $service->login }}</p>
+            <p>{{ $subscription->service->login }}</p>
         </div>
     </div>
     <div class="row">
@@ -47,7 +21,7 @@
             <label>{{ __('Ministra password') }}</label>
         </div>
         <div class="col-md-6">
-            <p>{{ $service->password }}</p>
+            <p>{{ $subscription->service->password }}</p>
         </div>
     </div>
     <div class="row">
@@ -55,7 +29,7 @@
             <label>{{ __('License key') }}</label>
         </div>
         <div class="col-md-6">
-            <p>{{ $service->license }}</p>
+            <p>{{ $subscription->service->license }}</p>
         </div>
     </div>
 </div>

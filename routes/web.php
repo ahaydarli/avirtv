@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/order/{package_id}', 'Frontend\OrderController@order')->name('order.order');
     Route::post('/change-pass', 'Frontend\ProfileController@changepass')->name('change-pass');
     Route::get('/order-test', 'Frontend\OrderController@paymentResult');
+    Route::post('/service/detail', 'Frontend\ProfileController@serviceDetail')->name('service.detail');
 });
 
 Auth::routes();

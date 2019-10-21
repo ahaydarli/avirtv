@@ -9,6 +9,8 @@
 namespace App\Components;
 
 
+use App\Package;
+use App\Period;
 use Illuminate\Support\Facades\App;
 
 class GoldenpayUtils
@@ -34,5 +36,18 @@ class GoldenpayUtils
         else{
             return redirect()->route('profile');
         }
+    }
+
+    public static function calculatePrice(Package $package, Period $period)
+    {
+        $price = ($package->price * $period->month);
+        if ($period->type == Period::PERCENT){
+            $discount = ($price * $period->discount / 100);
+        }
+        else {
+            $discount = $period->discount;
+        }
+        $total = $price - $discount;
+        return $total;
     }
 }
