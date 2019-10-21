@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class License extends Model
 {
+    use \App\Traits\Status;
+
     protected $table= 'license' ;
     protected $fillable = [
         'license','user_id','is_active', 'status'

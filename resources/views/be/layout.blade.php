@@ -56,7 +56,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{route('license.keys')}}" class="nav-link">
+            <a href="{{route('license.key')}}" class="nav-link">
                 <i class="far fa-newspaper"></i>
                 <span>License keys</span>
             </a>
