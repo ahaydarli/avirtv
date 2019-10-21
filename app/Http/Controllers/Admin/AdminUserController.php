@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 
-class AdminBeController extends Controller
+class AdminUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,7 +42,8 @@ class AdminBeController extends Controller
         $this->validate($request,[
            'email' => 'required',
            'password' => 'required',
-           'confirm' => 'required'
+           'confirm' => 'required',
+            'status' => 'required'
         ]);
 
         if ($request->password == $request->confirm) {
@@ -50,7 +51,7 @@ class AdminBeController extends Controller
             $user = new Admin();
             $user->password = $password;
             $user->email = $request->email;
-            $user->status = 1;
+            $user->status = $request->status;
             if ($user->save()) {
                 return redirect()->route('admin-be.index')->with('success','User successfully created');
             }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Be;
 
 use App\Http\Controllers\Controller;
+use App\License;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,5 +16,11 @@ class HomeController extends Controller
     public function index()
     {
         return view('be.index');
+    }
+
+    public function licenseKeys()
+    {
+        $licenses = License::all();
+        return view('be.license-keys', compact('licenses'));
     }
 }

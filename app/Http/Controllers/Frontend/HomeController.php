@@ -9,6 +9,7 @@ use App\Content;
 use App\Faq;
 use App\Http\Controllers\Controller;
 use App\Language;
+use App\MinistraClient;
 use App\Package;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -86,4 +87,20 @@ class HomeController extends Controller
 
         return view('pricing', compact('packages', 'faqs'));
     }
+
+    public function channels()
+    {
+        $client = new MinistraClient();
+        $channels = $client->getData('itv');
+        $channels = $channels->results;
+        return view('channels', compact('channels'));
+    }
+
+    public function article_show($slug){
+
+        $article=Article::where('slug','like','%'.$slug.'%')->first();
+        return view('article',compact('article'));
+
+    }
+
 }

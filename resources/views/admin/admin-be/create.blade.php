@@ -39,7 +39,13 @@
                                placeholder="Confirm Password">
                     </div>
 
-
+                    <div class="form-group">
+                        <select name="status" id="" class="form-control">
+                            <option value="">Select status</option>
+                            <option value="0">Admin</option>
+                            <option value="1">Baku Electronics User</option>
+                        </select>
+                    </div>
 
                     <button type="submit" class="btn btn-primary btn-block">
                         {{ __('Save') }}

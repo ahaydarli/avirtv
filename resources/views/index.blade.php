@@ -96,19 +96,20 @@
                                 <a href="#pablo">
                                     <img src="{{asset('uploads/article/'.$article->image)}}" alt="">
                                 </a>
-                                <div class="colored-shadow" style="background-image: url(/img/dg9.jpg); opacity: 1;"></div>
+                                <div class="colored-shadow"
+                                     style="background-image: url(/img/dg9.jpg); opacity: 1;"></div>
                             </div>
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <a href="#pablo">{{$article->title}}</a>
+                                    <a href="{{ route('front.article.show',[$article->slug]) }}">{{$article->title}}</a>
                                 </h4>
                                 <p class="card-description">
-                                    {!! Str::limit($article->text, 100, ' ...') !!}
+                                    {!! Str::limit($article->subtitle, 100, ' ...') !!}
                                 </p>
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                @endforeach
 
 
             </div>
