@@ -123,8 +123,12 @@
                             <i class="material-icons">account_box</i> {{ __('site.account') }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end">
+<<<<<<< HEAD
                             <a href="#pablo" class="dropdown-item">{{ __('site.profile') }}</a>
                             <a href="#pablo" class="dropdown-item">{{ __('site.subscriptions') }}</a>
+=======
+                            <a href="{{ route('profile') }}" class="dropdown-item">Profile</a>
+>>>>>>> 3317e1b13ee3aa8f309355fab0853ca6080126d1
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>

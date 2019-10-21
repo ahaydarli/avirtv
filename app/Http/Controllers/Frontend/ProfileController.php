@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Service;
 use App\Subscription;
 use App\User;
 use Illuminate\Http\Request;
@@ -49,5 +50,11 @@ class ProfileController extends Controller
         else {
             return redirect()->back()->withInput()->with('error', 'Password is not correct');
         }
+    }
+
+    public function serviceDetail(Request $request)
+    {
+        $subscription = Subscription::findOrFail($request->id);
+        return view('frontend.profile.detailsAjax', compact('subscription'))->render();
     }
 }

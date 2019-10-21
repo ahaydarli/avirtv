@@ -39,7 +39,11 @@
                                        </li>
                                        <li class="nav-item">
                                            <a class="nav-link" href="#settings" data-toggle="tab">
+<<<<<<< HEAD
                                                <i class="material-icons">build</i> {{ __('site.settings') }}
+=======
+                                               <i class="material-icons">build</i> {{ __('Change password') }}
+>>>>>>> 3317e1b13ee3aa8f309355fab0853ca6080126d1
                                                <div class="ripple-container"></div></a>
                                        </li>
                                    </ul>
@@ -83,12 +87,13 @@
                                                        </span>
                                                    </td>
                                                    <td class="text-right">{{ $order->package->price }} ₼</td>
-                                                   <td class="text-right">{{ $order->period }} {{ __('month') }}</td>
-                                                   <td class="text-right">{{ $order->package->price*$order->period }} ₼</td>
+                                                   <td class="text-right">{{ $order->month->month }} {{ __('month') }}</td>
+                                                   <td class="text-right">{{ $order->amount }} ₼</td>
                                                    <td class="td-actions text-right">
                                                        @if($order->payment_status)
-                                                           <button type="button" rel="tooltip" class="btn btn-info btn-sm"
-                                                                   data-original-title="{{ __('View details') }}" title="{{ __('View details') }}">
+                                                           <button type="button" data-id="{{ $order->id }}" rel="tooltip" class="btn btn-info btn-sm service-detail"
+                                                                   data-original-title="{{ __('View details') }}" title="{{ __('View details') }}"
+                                                                   data-toggle="modal" data-target="#customerDetailModal">
                                                                <i class="material-icons">visibility</i>
                                                                {{ __('View details') }}
                                                                <div class="ripple-container"></div>
@@ -168,8 +173,6 @@
                                            {{ __('site.change') }}
                                        </button>
                                    </form>
-
-
                                </div>
                            </div>
                        </div>
@@ -179,4 +182,45 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="customerDetailModal" tabindex="-1" role="dialog" aria-labelledby="customerDetailModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal_body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
+@push('scripts')
+    <script>
+        $(function () {
+            $('.service-detail').click(function () {
+                var id=$(this).data('id');
+
+                $("#modal_body").html('');
+                $.ajax({
+                    'url':'{{route('service.detail')}}',
+                    'data':{'_token':'{{ csrf_token() }}', 'id':id},
+                    'type':'post',
+                    'success':function (e) {
+
+                        $("#modal_body").html(e);
+
+                    }
+                })
+
+            })
+        })
+    </script>
+@endpush
+
