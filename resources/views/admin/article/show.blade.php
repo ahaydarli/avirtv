@@ -29,6 +29,11 @@
                     </tr>
 
                     <tr>
+                        <th>Subtitle</th>
+                        <td>{{$article->subtitle}}</td>
+                    </tr>
+
+                    <tr>
                         <th>Image</th>
                         <td><img style="width: 100%;" src="{{ asset('uploads/article').'/'.$article->image }}" ></td>
                     </tr>

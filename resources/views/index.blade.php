@@ -68,7 +68,7 @@
                                 <p class="card-description">
                                     This is good if your company size is between 2 and 10 Persons.
                                 </p>
-                                <a href="{{ route('order.subscribe', ['package_id' => $package->id]) }}" class="btn btn-danger btn-round">{{ __('Chose plan') }}</a>
+                                <a href="{{ route('order.subscribe', ['package_id' => $package->id]) }}" class="btn btn-danger btn-round">{{ __('site.choose_plan') }}</a>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
             <div class="row">
                 <div class="col-md-12 mx-auto ml-auto text-center">
                     <a class="btn btn-danger btn-round" href="{{ route('pricing') }}">
-                        {{ __('All packages') }}
+                        {{ __("site.all_packages") }}
                         <i class="material-icons">keyboard_arrow_right</i>
                         <div class="ripple-container"></div>
                     </a>
@@ -93,22 +93,23 @@
                     <div class="col-md-4">
                         <div class="card card-blog">
                             <div class="card-header card-header-image">
-                                <a href="#pablo">
+                                <a href="{{ route('front.article.show',[$article->slug]) }}">
                                     <img src="{{asset('uploads/article/'.$article->image)}}" alt="">
                                 </a>
-                                <div class="colored-shadow" style="background-image: url(/img/dg9.jpg); opacity: 1;"></div>
+                                <div class="colored-shadow"
+                                     style="background-image: url(/img/dg9.jpg); opacity: 1;"></div>
                             </div>
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <a href="#pablo">{{$article->title}}</a>
+                                    <a href="{{ route('front.article.show',[$article->slug]) }}">{{$article->title}}</a>
                                 </h4>
                                 <p class="card-description">
-                                    {!! Str::limit($article->text, 100, ' ...') !!}
+                                    {!! Str::limit($article->subtitle, 100, ' ...') !!}
                                 </p>
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                @endforeach
 
 
             </div>
