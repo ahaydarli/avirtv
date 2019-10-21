@@ -104,4 +104,11 @@ class HomeController extends Controller
     }
 
 
+    public function article_show($slug){
+
+        $article=Article::where('slug','like','%'.$slug.'%')->first();
+        return view('article',compact('article'));
+
+    }
+
 }

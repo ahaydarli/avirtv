@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Article;
 use App\Language;
 use App\Rules\ArrayValid;
+use App\Rules\UniqueUpdateValid;
+use App\Rules\UniqueValid;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -18,6 +20,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
+
         $articles = Article::all();
         return view('admin.article.index')->with([
             'articles' => $articles,
@@ -48,7 +51,6 @@ class ArticleController extends Controller
 
 
 
-        $array=array_filter($request->title);
 
 
 
@@ -56,18 +58,25 @@ class ArticleController extends Controller
             'title' => new ArrayValid,
             'text' => new ArrayValid,
             'image' => 'required',
+            'slug'=> [new UniqueValid,new ArrayValid],
+            'subtitle'=>new ArrayValid,
         ]);
 
-        //image upload
+//image upload
         $image=$request->file('image');
         $image_name=uniqid().'.'.$image->getClientOriginalExtension();
         $image->move('uploads/article',$image_name);
+
+
 
         $article=new Article();
         $article->title=$request->title;
         $article->text=$request->text;
         $article->image=$image_name;
+        $article->slug=$request->slug;
+        $article->subtitle=$request->subtitle;
         $article->save();
+
 
         return redirect()->route('article.index')
             ->with('success', 'Article added');
@@ -110,6 +119,15 @@ class ArticleController extends Controller
 
 
 
+        $request->validate([
+            'title' => new ArrayValid,
+            'text' => new ArrayValid,
+            'slug'=>[new ArrayValid, new UniqueUpdateValid($article->id)],
+            'subtitle' => new ArrayValid,
+        ]);
+
+
+
         $image_name=$article->image;
 
         if($request->hasFile('image')){
@@ -125,13 +143,6 @@ class ArticleController extends Controller
         }
 
 
-
-
-        $request->validate([
-            'title' => 'required',
-            'text' => 'required',
-
-        ]);
         if($request->is_active){
             $article->is_active =1;
         }
@@ -140,6 +151,8 @@ class ArticleController extends Controller
         }
         $article->text = $request->text;
         $article->title = $request->title;
+        $article->subtitle = $request->subtitle;
+        $article->slug = $request->slug;
         $article->image=$image_name;
         $article->save();
 //        $faq->update($request->all());

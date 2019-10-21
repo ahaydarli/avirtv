@@ -23,24 +23,49 @@
                         @endforeach
                     </ul>
                     <div class="tab-content pt-2 pl-1" id="pills-tabContent">
+
                         @foreach ($locales as $locale)
                             <div class="tab-pane fade show {{ ($locale->code == 'az') ? 'active': '' }}" id="pills-{{ $locale->code }}"
                                  role="tabpanel" aria-labelledby="pills-tab-{{ $locale->code }}">
                                 <div class="form-group">
-                                    <input id="question" type="text" class="form-control @error('question') is-invalid @enderror"
-                                           name="title[{{ $locale->code }}]" value="{{ $article->getTranslation('title', $locale->code) }}"
+                                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror"
+                                           name="title[{{ $locale->code }}]" value="{{ $article->getTranslationWithoutFallback('title', $locale->code) }}"
                                            placeholder="{{ __('Title -').$locale->code}}">
-                                    @error('question')
+                                    @error('title')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </div>
+
                                 <div class="form-group">
-                                    <textarea id="answer" rows="5" class="form-control @error('answer') is-invalid @enderror textarea"
+                                    <input id="slug" type="text" class="form-control @error('slug') is-invalid @enderror"
+                                           name="slug[{{ $locale->code }}]" value="{{ $article->getTranslationWithoutFallback('slug', $locale->code) }}"
+                                           placeholder="{{ __('Slug -').$locale->code}}">
+                                    @error('slug')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <input id="subtitle" type="text" class="form-control @error('subtitle') is-invalid @enderror"
+                                           name="subtitle[{{ $locale->code }}]" value="{{ $article->getTranslationWithoutFallback('subtitle', $locale->code) }}"
+                                           placeholder="{{ __('Subtitle -').$locale->code}}">
+                                    @error('subtitle')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+
+
+                                <div class="form-group">
+                                    <textarea id="answer" rows="5" class="form-control @error('text') is-invalid @enderror textarea"
                                               name="text[{{ $locale->code }}]"
-                                              placeholder="{{ __('Text -').$locale->name }}">{{ $article->getTranslation('text', $locale->code) }}</textarea>
-                                    @error('answer')
+                                              placeholder="{{ __('Text -').$locale->name }}">{{ $article->getTranslationWithoutFallback('text', $locale->code) }}</textarea>
+                                    @error('text')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -83,3 +108,19 @@
 
 
 @endsection
+
+@push('scripts')
+
+    <script>
+
+        var options = {
+            filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+            filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+            filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+            filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+        };
+        $('.textarea').ckeditor(options);
+
+
+    </script>
+@endpush

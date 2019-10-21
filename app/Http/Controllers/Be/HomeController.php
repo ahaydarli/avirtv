@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Be;
 use App\Admin;
 use App\Http\Controllers\Controller;
 use App\License;
+<<<<<<< HEAD
+=======
 use App\User;
+>>>>>>> 40d742a38c48faf71506b963134e809f7e598aa3
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -67,5 +70,11 @@ class HomeController extends Controller
         else {
             return redirect()->back()->withInput()->with('error', "Passwords don't match");
         }
+    }
+
+    public function licenseKeys()
+    {
+        $licenses = License::all();
+        return view('be.license-keys', compact('licenses'));
     }
 }

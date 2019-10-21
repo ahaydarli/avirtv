@@ -26,6 +26,9 @@ Route::get("/about-us", 'Frontend\HomeController@about')->name("about");
 Route::get("/pricing", 'Frontend\HomeController@pricing')->name("pricing");
 Route::get("/channels", 'Frontend\HomeController@channels')->name("channels");
 
+Route::get("/article/{slug}", 'Frontend\HomeController@article_show')->name("front.article.show");
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', 'Frontend\ProfileController@index')->name('profile');
@@ -62,6 +65,12 @@ Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function(
 });
 
 // Baku electronics panel
+
+Route::middleware(['auth:admin','checkBe'])->prefix('be')->group(function() {
+    Route::post('/logout', 'Auth\AdminLoginController@logout')->name('be.logout');
+    Route::get("/", 'Be\HomeController@index')->name('be.home');
+    Route::get('/license-keys', 'Be\HomeController@licenseKeys')->name('license.keys');
+});
 Route::middleware(['auth:admin','checkBe'])->prefix('be')->name('be.')->group(function() {
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('logout');
     Route::get("/", 'Be\HomeController@index')->name('home');
@@ -69,7 +78,6 @@ Route::middleware(['auth:admin','checkBe'])->prefix('be')->name('be.')->group(fu
     Route::Resource('customers', 'Be\CustomerController');
     Route::post('customers/detail', 'Be\CustomerController@detail')->name('customers.detail');
 });
-
 Route::get('/be/register','Be\HomeController@register')->name('be.register');
 
 Route::post("/send-message",'Frontend\HomeController@sendMessage')->name('frontend.sendMessage');

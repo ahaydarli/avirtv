@@ -68,11 +68,14 @@ return [
     'watch'=>'Canlı yayımlanan TV və Sevimli şoularınıza mobil cihazlarınızda  baxın',
     'plan'=>'Sizin üçün ən yaxşısını seçin',
     'unlimited'=>'Hər paketdə pulsuz limitsiz yeniləmələr və mükafatlar var',
+    'choose_plan'=>'Planı Seçin',
+    'all_packages'=>'Bütün Paketlər',
 
 
 
     //footer
-    'subscribe'=>'Abunə olun'
+    'subscribe'=>'Abunə olun',
+
 
 
 
