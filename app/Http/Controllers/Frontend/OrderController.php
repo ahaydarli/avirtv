@@ -86,4 +86,10 @@ class OrderController extends Controller
     {
 
     }
+
+    public function selectPackage()
+    {
+        $packages = Package::all();
+        return view('frontend.order.select-package', compact('packages'));
+    }
 }
