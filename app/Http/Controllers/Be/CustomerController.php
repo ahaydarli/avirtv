@@ -6,10 +6,12 @@ use App\Components\GoldenpayUtils;
 use App\License;
 use App\MinistraClient;
 use App\Package;
+use App\Payment;
 use App\Period;
 use App\Service;
 use App\Subscription;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -115,8 +117,18 @@ class CustomerController extends Controller
                 'status' => 1,
                 'license' => $subscription->device == 0 ? $license->license : '',
             ];
-            $client = new MinistraClient();
-            $result = $client->postData('accounts', $servicePayload);
+//            $client = new MinistraClient();
+//            $result = $client->postData('accounts', $servicePayload);
+            $paymentPayload = [
+                'user_id' => $user->id,
+                'subscription_id' => $subscription->id,
+                'type' => Payment::BE,
+                'period_id' => $period->id,
+                'amount' => $amount,
+                'status' => 1,
+                'paid_at' => Carbon::now()
+            ];
+            $payment = Payment::create($paymentPayload);
             $service = Service::create($servicePayload);
         }
         catch (\Exception $e){
