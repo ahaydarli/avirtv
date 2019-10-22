@@ -107,7 +107,7 @@ class AdminUserController extends Controller
     public function destroy($id)
     {
         $user = Admin::find($id);
-        if ($user->status == 0 ) {
+        if ($user->status == Admin::BE) {
             $user->delete();
             return redirect()->route('admin-be.index')->with('success','User successfully deleted');
         }

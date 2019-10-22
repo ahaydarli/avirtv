@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Admin extends Authenticatable
 {
+    const ADMIN = 0;
+    const BE = 1;
     use Notifiable;
 
     protected $guard = 'admin';

@@ -117,8 +117,8 @@ class CustomerController extends Controller
                 'status' => 1,
                 'license' => $subscription->device == 0 ? $license->license : '',
             ];
-//            $client = new MinistraClient();
-//            $result = $client->postData('accounts', $servicePayload);
+            $client = new MinistraClient();
+            $result = $client->postData('accounts', $servicePayload);
             $paymentPayload = [
                 'user_id' => $user->id,
                 'subscription_id' => $subscription->id,
