@@ -202,5 +202,8 @@ class CustomerController extends Controller
         $subscription = Subscription::where('user_id', $user->id)->first();
         return view('be.customer.detailsAjax', compact('user', 'service', 'subscription'))->render();
     }
-
+    public function print(Request $request)
+    {
+        return view('be.customer.print')->render();
+    }
 }

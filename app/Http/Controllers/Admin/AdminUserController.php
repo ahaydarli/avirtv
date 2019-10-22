@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Admin;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -83,7 +84,8 @@ class AdminUserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user=Admin::find($id);
+        return view('admin.admin-be.edit', compact('user'));
     }
 
     /**
@@ -95,7 +97,23 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'email'=>'required|email',
+
+        ]);
+
+
+        $admin=Admin::find($id);
+
+        $admin->email=$request->input('email');
+
+        $admin->status=$request->type;
+        if(trim($request->password)!=''){
+            $admin->password=Hash::make($request->password);
+
+        }
+        $admin->save();
+        return redirect()->route('admin-be.index')->with('success', 'Admin successfully updated');
     }
 
     /**

@@ -123,7 +123,7 @@ class ArticleController extends Controller
             'title' => new ArrayValid,
             'text' => new ArrayValid,
             'slug'=>[new ArrayValid, new UniqueUpdateValid($article->id)],
-            'subtitle' => new ArrayValid,
+            'subtitle' => [new ArrayValid],
         ]);
 
 
