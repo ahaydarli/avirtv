@@ -1,5 +1,5 @@
 @extends("admin.layout")
-@section('title', 'Faq')
+@section('title', 'Contact')
 @section('content')
     <div class="card shadow mb-4">
 {{--        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">--}}

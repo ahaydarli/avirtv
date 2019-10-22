@@ -1,5 +1,6 @@
 @extends('login-layout')
 @section('page', 'login-page')
+@section('title', 'Reset password')
 @section('content')
     <div class="page-header header-filter" style="background-image: url('/img/login.jpg'); background-size: cover; background-position: top center;">
 

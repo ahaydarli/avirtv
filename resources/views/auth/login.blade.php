@@ -1,5 +1,6 @@
 @extends('login-layout')
 @section('page', 'login-page')
+@section('title', 'Avirnet Login')
 @section('content')
     <div class="page-header header-filter" style="background-image: url('https://images.unsplash.com/photo-1565335020653-1d1c4fc20bbc');
      background-size: cover; background-position: center;">
