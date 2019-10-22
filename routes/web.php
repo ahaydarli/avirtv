@@ -78,6 +78,7 @@ Route::middleware(['auth:admin','checkBe'])->prefix('be')->name('be.')->group(fu
     Route::get('/license-keys', 'Be\HomeController@licenseKeys')->name('license-keys');
     Route::Resource('customers', 'Be\CustomerController');
     Route::post('customers/detail', 'Be\CustomerController@detail')->name('customers.detail');
+    Route::post('print', 'Be\CustomerController@print')->name('customers.print');;
 });
 Route::get('/be/register','Be\HomeController@register')->name('be.register');
 

@@ -9,8 +9,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{ __('Sales') }} ({{ __('Daily') }})</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{ __('Customer') }} ({{ __('Daily') }})</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $daily_user_count }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -26,8 +26,8 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">{{ __('Sales') }} (Monthly)</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">{{ __('Customer') }} (Monthly)</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $montly_user_count }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>

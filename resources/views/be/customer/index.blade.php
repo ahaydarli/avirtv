@@ -44,6 +44,10 @@
                            data-toggle="modal" data-target="#customerDetailModal">
                             <i class="fas fa-eye fa-sm text-white-50"></i>
                             View details</a>
+                        <a id="{{ $user->id }}" href="javascript:void(0)"  class="d-none print d-sm-inline-block btn btn-sm btn-primary shadow-sm" >
+                            <i class="fa fa-print" aria-hidden="true"></i>
+                            Print</a>
+
                     </td>
                 </tr>
                 @endforeach
@@ -71,6 +75,19 @@
         </div>
     </div>
 </div>
+
+<script>
+
+</script>
+
+<div id="printableArea">
+    <h1>Print me</h1>
+</div>
+
+
+
+
+
 @endsection
 @push('scripts')
     <script>
@@ -91,6 +108,26 @@
                 })
 
             })
+            $("body").on('click','.print',function(){
+
+                $.ajax({
+                    'url':'{{route('be.customers.print')}}',
+                    'data':{'_token':'{{ csrf_token() }}'},
+                    'type':'post',
+                    'success':function (e) {
+                        var printContents = e;
+                        var originalContents = document.body.innerHTML;
+                        document.body.innerHTML = printContents;
+                        window.print();
+                        document.body.innerHTML = originalContents;
+                    }
+                });
+
+
+
+            })
+
+
         })
     </script>
 @endpush

@@ -41,6 +41,9 @@
                                     {{--                                    <a href="{{route('user.show',$user->id)}}" class="btn btn-primary btn-circle btn-sm">--}}
                                     {{--                                        <i class="far fa-eye"></i>--}}
                                     {{--                                    </a>--}}
+                                    <a class="btn btn-primary btn-circle btn-sm" href="{{route('admin-be.edit',$user->id)}}">
+                                        <i class="far fa-edit"></i>
+                                    </a>
                                     <button class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
                                 </form>
                             @endif

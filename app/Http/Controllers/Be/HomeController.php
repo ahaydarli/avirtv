@@ -9,6 +9,7 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
@@ -20,8 +21,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $montly_user_count = User::where('created_at','>',date('Y-m').'-1 00:00:00')->where('type','=',1)->count();
+        $daily_user_count= User::where('created_at','>',date('Y-m-d').' 00:00:00')->count();
+
+
         $users = User::where('type', 1)->limit(10)->get();
-        return view('be.index', compact('users', 'today_users'));
+        return view('be.index', compact('users', 'today_users','montly_user_count','daily_user_count'));
     }
 
     public function licenseKeys()

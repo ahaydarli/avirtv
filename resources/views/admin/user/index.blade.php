@@ -5,12 +5,16 @@
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
+                @if(session()->has('success'))
+                    <div class="alert alert-success">{{ session()->get('success') }}</div>
+                    @endif
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Phone</th>
                         <th>Account Number</th>
                         <th>Created at</th>
                         <th>Operations</th>
@@ -21,6 +25,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Phone</th>
                         <th>Account Number</th>
                         <th>Created at</th>
                         <th>Operations</th>
@@ -32,11 +37,13 @@
                             <td>{{ $user->id }}</td>
                             <td><a id="{{ $user->id }}" class="a_modal" href="#" data-toggle="modal" data-target="#exampleModal">{{ $user->name }}</a></td>
                             <td>{{$user->email}}</td>
+                            <td>{{ $user->phone }}</td>
+
                             <td>{{$user->account_number}}</td>
                             <td>{{ $user->created_at }}</td>
                             <td>
 
-                                <form id="delete-form" action="{{ route('user.destroy', $user->id) }}" method="POST">
+                                <form style="display: inline-block;" id="delete-form" action="{{ route('user.destroy', $user->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
 {{--                                    <a href="{{route('user.show',$user->id)}}" class="btn btn-primary btn-circle btn-sm">--}}
@@ -44,6 +51,7 @@
 {{--                                    </a>--}}
                                     <button class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
                                 </form>
+
                             </td>
                         </tr>
                     @endforeach
@@ -71,6 +79,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                 </div>
             </div>
         </div>
