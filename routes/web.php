@@ -61,6 +61,8 @@ Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function(
     Route::Resource('period', 'Admin\PeriodController');
     Route::Resource('admin-be', 'Admin\AdminUserController');
     Route::Resource('license', 'Admin\LicenseController');
+    Route::Resource('payment', 'Admin\PaymentController');
+
 
     Route::post('/modal','Admin\UserController@modal')->name('admin.modal');
 });
@@ -84,4 +86,4 @@ Route::get('/be/register','Be\HomeController@register')->name('be.register');
 
 Route::post("/send-message",'Frontend\HomeController@sendMessage')->name('frontend.sendMessage');
 Route::post("/be/register-user",'Be\HomeController@registerUser')->name('be.register-user');
-Route::post('/readmessage','Admin\AdminController@readMessage');
+Route::post('/read-all','Admin\AdminController@readAllMessages');

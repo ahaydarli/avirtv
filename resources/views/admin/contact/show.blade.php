@@ -1,5 +1,5 @@
 @extends("admin.layout")
-@section('title', 'Faq')
+@section('title', 'Payment')
 @section('content')
     <div class="card shadow mb-4">
 {{--        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">--}}
@@ -38,7 +38,7 @@
                     <tr>
                         <th>Operations</th>
                         <td>
-                            <form id="delete-form" action="{{ route('faq.destroy', $contact->id) }}" method="POST">
+                            <form id="delete-form" action="{{ route('contact.destroy', $contact->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
 

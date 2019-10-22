@@ -97,6 +97,12 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link" href="{{ route('payment.index') }}">
+                <i class="fas fa-dollar-sign"></i>
+                <span>Payments</span></a>
+        </li>
+
+        <li class="nav-item">
             <a href="{{route('license.index')}}" class="nav-link">
                 <i class="far fa-address-card"></i>
                 <span>License</span>
@@ -274,7 +280,7 @@
                             </a>
                             @endforeach
 
-                            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            <a class="dropdown-item text-center small text-gray-500" href="{{route('contact.index')}}" id="read-all-msgs">Read All Messages</a>
                         </div>
                     </li>
 
@@ -283,8 +289,12 @@
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna {{Auth::id()}}</span>
-                            <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+{{--                                Valerie Luna--}}
+                            </span>
+                            <i class="fas fa-user-circle fa-2x text-gray-300"></i>
+
+{{--                            <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">--}}
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -399,26 +409,22 @@
 
 
 
-{{--<script type="text/javascript">--}}
-    {{--function readMessage(id){--}}
-        {{--var id = id.getAttribute('data-id');--}}
-        {{--$.ajaxSetup({--}}
-            {{--headers: {--}}
-                {{--'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-            {{--}--}}
-        {{--});--}}
-        {{--$.ajax({--}}
-            {{--type:"POST",--}}
-            {{--url:'/readmessage',--}}
-            {{--data:{--}}
-                {{--id:id--}}
-            {{--},--}}
-                    {{--success:function(){--}}
-                        {{--alert('yes');--}}
-                    {{--}--}}
-        {{--})--}}
-    {{--}--}}
-{{--</script>--}}
+<script type="text/javascript">
+    $('#read-all-msgs').click(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type:"POST",
+            url:'/read-all',
+            success:function(data){
+
+            }
+        })
+    });
+</script>
 
 @stack('scripts')
 

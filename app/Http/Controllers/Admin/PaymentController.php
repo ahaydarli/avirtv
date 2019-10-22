@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Contact;
+use App\Payment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ContactController extends Controller
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::all();
-        return view('admin.contact.index',compact('contacts'));
+        $payments = Payment::orderby('id','desc')->get();
+        return view('admin.payment.index', compact('payments'));
     }
 
     /**
@@ -37,7 +37,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
@@ -46,13 +46,9 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show(Payment $payment)
     {
-        if ($contact->read == 0) {
-            $contact->read = 1;
-            $contact->save();
-        }
-        return view('admin.contact.show',compact('contact'));
+        return view('admin.payment.show',compact('payment'));
     }
 
     /**
@@ -84,10 +80,9 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy(Payment $payment)
     {
-        $contact->delete();
-        return redirect()->route('contact.index')
-            ->with('success','Contact deleted successfully');
+        $payment->delete();
+        return redirect()->route('payment.index')->with('success', 'Payment succesfully deleted');
     }
 }

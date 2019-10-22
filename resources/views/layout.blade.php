@@ -118,7 +118,7 @@
                             <i class="material-icons">account_box</i> {{ __('site.account') }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end">
-                            <a href="{{ route('profile') }}" class="dropdown-item">Profile</a>
+                            <a href="{{ route('profile') }}" class="dropdown-item">{{__('site.profile')}}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
