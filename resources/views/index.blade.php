@@ -87,6 +87,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </div>
     <div class="section section-blog">
         <div class="container">

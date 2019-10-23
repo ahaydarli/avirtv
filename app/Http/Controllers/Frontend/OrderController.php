@@ -92,4 +92,17 @@ class OrderController extends Controller
         $packages = Package::all();
         return view('frontend.order.select-package', compact('packages'));
     }
+
+    public function mergePackage(Request $request)
+    {
+        $client = new MinistraClient();
+        $tariffs = $client->getData('tariffs')->results;
+        foreach($tariffs as $tariff){
+            dd($tariff->packages);
+        }
+        $package_ids = $request->package;
+        dd($package_ids);
+
+
+    }
 }

@@ -51,7 +51,9 @@
                         <select name="ministra_id" class="form-control  @error('ministra_id') is-invalid @enderror" required>
                             <option>Select ministra package</option>
                             @foreach($packages as $package)
+                                @if($package->type == 'tv')
                                 <option value="{{ $package->id }}">{{ $package->name }}</option>
+                                @endif
                             @endforeach
                         </select>
 
