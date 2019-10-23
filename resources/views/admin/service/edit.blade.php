@@ -58,14 +58,6 @@
 
                     </div>
 
-
-                    {{--<div class="form-group">--}}
-                        {{--<div class="form-check">--}}
-                            {{--<input type="checkbox" value="1" name="is_active" class="form-check-input" id="exampleCheck1"--}}
-                                {{--{{ $service->is_active ? 'checked' : '' }}>--}}
-                            {{--<label class="form-check-label" for="exampleCheck1">{{ __('Active') }}</label>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
                     <button type="submit" class="btn btn-primary btn-block">
                         {{ __('Edit') }}
                     </button>

@@ -62,9 +62,10 @@ class HomeController extends Controller
             'email' => 'required',
             'message' => 'required'
         ]);
-        Contact::create($request->all());
-
-        return redirect()->back();
+        if (Contact::create($request->all())){
+            return redirect()->back()->with('success','Message successfully sent');
+        }
+        return redirect()->back()->with('error', 'Something went wrong');
     }
 
     public function about()

@@ -6,6 +6,7 @@
     <div class="main main-raised">
         <div class="contact-content">
             <div class="container">
+                @include('flash-message')
                 <h2 class="title">@lang('site.send_us_message')</h2>
                 <div class="row">
                     <div class="col-md-6">
