@@ -97,6 +97,7 @@ class UserController extends Controller
     public function modal(Request $request){
         $user=User::find($request->id);
         $orders=$user->orders;
+
         return view('admin.ajax.user_modal',['orders'=>$orders])->render();
 
     }

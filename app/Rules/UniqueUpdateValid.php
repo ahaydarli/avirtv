@@ -48,6 +48,6 @@ class UniqueUpdateValid implements Rule
      */
     public function message()
     {
-        return 'The :attribute has unique.';
+        return __( 'validation.array_update_unique' ) ;
     }
 }
