@@ -116,6 +116,13 @@
         </li>
 
         <li class="nav-item">
+            <a href="{{route('tariff.index')}}" class="nav-link">
+                <i class="fas fa-newspaper"></i>
+                <span>Tarif</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a href="{{route('faq.index')}}" class="nav-link">
                 <i class="fas fa-question"></i>
                 <span>Faq</span>
