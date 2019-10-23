@@ -10,6 +10,7 @@ use App\Payment;
 use App\Period;
 use App\Service;
 use App\Subscription;
+use App\Tariff;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -37,7 +38,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $packages = Package::active()->get();
+        $packages = Tariff::active()->get();
         $periods = Period::all();
         return view('be.customer.create', compact('packages','periods'));
     }

@@ -27,19 +27,23 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach($packages as $package)
+                    @foreach($tariffs as $tariff)
                         <div class="col-lg-3 col-md-3">
                             <div class="card card-pricing">
                                 <div class="card-body ">
-                                    <h4 class="card-title">{{ $package->getTranslation('name', app()->getLocale()) }}</h4>
+                                    <h4 class="card-title">{{ $tariff->name }}</h4>
                                     <div class="icon icon-danger">
                                         <i class="material-icons">tv</i>
                                     </div>
-                                    <h3 class="card-title">{{ $package->price }}<small> ₼</small></h3>
+                                    <h3 class="card-title">{{ $tariff->price }}<small> ₼</small></h3>
                                     <p class="card-description">
                                         This is good if your company size is between 2 and 10 Persons.
                                     </p>
-                                    <a href="{{ route('order.subscribe', ['package_id' => $package->id]) }}" class="btn btn-danger btn-round">{{ __('Chose plan') }}</a>
+                                    @if($tariff->type == 1)
+                                        <a href="{{ route('frontend.select-package') }}" class="btn btn-danger btn-round">{{ __('Chose plan') }}</a>
+                                    @else
+                                        <a href="{{ route('order.subscribe', $tariff->id) }}" class="btn btn-danger btn-round">{{ __('Chose plan') }}</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
