@@ -36,12 +36,6 @@
                                                             <strong class="total_price">{{ $tariff->price }} ₼</strong>
                                             </li>
                                         </ul>
-                                        <form class="card p-2">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="Promo code">
-                                                    <button type="submit" class="btn btn-danger btn-sm">{{ __('Redeem') }}</button>
-                                            </div>
-                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -51,23 +45,8 @@
                                         <form class="needs-validation" method="POST" action="{{ route('order.order', $tariff->id) }}">
                                             @csrf
                                             <input type="hidden" class="unit_price" value="{{ $tariff->price }}">
-                                            <h4 class="mb-3">Packages</h4>
-                                            <div class="d-block my-3">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"> Visa card
-                                                        <span class="circle">
-                                                            <span class="check"></span>
-                                                        </span>
-                                                    </label>
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"> Master Card
-                                                        <span class="circle">
-                                                            <span class="check"></span>
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
+                                            <h4 class="mb-3">{{ __('Checkout') }}</h4>
+
                                             <div class="row">
                                                 <div class="col-md-6 mb-3">
                                                     <div class="form-group bmd-form-group">

@@ -66,7 +66,7 @@
                                 </div>
                                 <h3 class="card-title">{{ $tariff->price }}<small> ₼</small></h3>
                                 <p class="card-description">
-                                    This is good if your company size is between 2 and 10 Persons.
+                                    {{ $tariff->detail }}
                                 </p>
                                 <a href="{{ route('frontend.index') }}" class="btn btn-danger btn-round">{{ __('site.choose_plan') }}</a>
                             </div>

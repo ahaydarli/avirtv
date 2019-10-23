@@ -11,6 +11,7 @@ namespace App\Components;
 
 use App\Package;
 use App\Period;
+use App\Tariff;
 use Illuminate\Support\Facades\App;
 
 class GoldenpayUtils
@@ -38,9 +39,9 @@ class GoldenpayUtils
         }
     }
 
-    public static function calculatePrice(Package $package, Period $period)
+    public static function calculatePrice(Tariff $tariff, Period $period)
     {
-        $price = ($package->price * $period->month);
+        $price = ($tariff->price * $period->month);
         if ($period->type == Period::PERCENT){
             $discount = ($price * $period->discount / 100);
         }

@@ -33,11 +33,11 @@
                                 <div class="card-body ">
                                     <h4 class="card-title">{{ $tariff->name }}</h4>
                                     <div class="icon icon-danger">
-                                        <i class="material-icons">tv</i>
+                                        <i class="material-icons">{{ $tariff->icon }}</i>
                                     </div>
                                     <h3 class="card-title">{{ $tariff->price }}<small> ₼</small></h3>
                                     <p class="card-description">
-                                        This is good if your company size is between 2 and 10 Persons.
+                                        {{ $tariff->detail }}
                                     </p>
                                     @if($tariff->type == 1)
                                         <a href="{{ route('frontend.select-package') }}" class="btn btn-danger btn-round">{{ __('Chose plan') }}</a>
