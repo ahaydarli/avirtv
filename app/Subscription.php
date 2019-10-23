@@ -11,7 +11,7 @@ class Subscription extends Model
     protected $table = 'subscription';
 
     protected $fillable = [
-        'user_id', 'package_id', 'account_number', 'payment_status', 'status',
+        'user_id', 'package_id', 'tariff_id','m_tariff_id', 'account_number', 'payment_status', 'status',
         'device', 'period', 'mac_address', 'amount'
     ];
 
@@ -38,6 +38,11 @@ class Subscription extends Model
     public function month()
     {
         return $this->hasOne(Period::class, 'id', 'period');
+    }
+
+    public function tariff()
+    {
+        return $this->hasOne(Tariff::class, 'id', 'tariff_id');
     }
 
 }

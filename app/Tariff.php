@@ -8,10 +8,14 @@ use Spatie\Translatable\HasTranslations;
 class Tariff extends Model
 {
     use HasTranslations;
+
+    protected $table = 'tariffs';
+
     protected $fillable = [
         'name','ministra_id','type', 'price','detail','icon'
     ];
-    protected $table = 'tariffs';
+
     public $translatable = ['name'];
+
     public $timestamps = true;
 }
