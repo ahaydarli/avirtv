@@ -26,7 +26,7 @@
                                 <div class="form-group">
                                     <input id="question" type="text" class="form-control @error('question') is-invalid @enderror"
                                            name="question[{{ $locale->code }}]" value="{{ old('name') }}"
-                                           placeholder="{{ __('Question -').$locale->name }}">
+                                           placeholder="{{ __('Question -').$locale->name }}" required>
                                     @error('question')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -36,7 +36,7 @@
                                 <div class="form-group">
                                     <textarea id="answer" rows="5" class="form-control @error('answer') is-invalid @enderror"
                                               name="answer[{{ $locale->code }}]"
-                                              placeholder="{{ __('Answer -').$locale->name }}">{{ old('answer') }}</textarea>
+                                              placeholder="{{ __('Answer -').$locale->name }}" required>{{ old('answer') }}</textarea>
                                     @error('answer')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

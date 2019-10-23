@@ -14,6 +14,8 @@
                     <thead>
                     <tr>
                         <th>#</th>
+                        <th>Name</th>
+                        <th>Surname</th>
                         <th>Email</th>
                         <th>Created at</th>
                         <th>Operations</th>
@@ -22,6 +24,8 @@
                     <tfoot>
                     <tr>
                         <th>#</th>
+                        <th>Name</th>
+                        <th>Surname</th>
                         <th>Email</th>
                         <th>Created at</th>
                         <th>Operations</th>
@@ -31,6 +35,9 @@
                     @foreach ($users as $user)
                         <tr>
                             <td>{{ $user->id }}</td>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->surname}}</td>
+
                             <td>{{$user->email}}</td>
                             <td>{{ $user->created_at }}</td>
                             <td>

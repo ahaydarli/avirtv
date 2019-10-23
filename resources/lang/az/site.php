@@ -21,12 +21,10 @@ return [
     'about'=>'Haqqımızda',
     'blog'=>'Bloq',
     'presentation'=>'təqdimat',
-    'about'=>'Haqqımızda',
 
     'market'=>'market',
     'sales_faq'=>'Satışda tez tez verilən suallar',
     'how_register'=>'Necə qeydiyyatdan keçmək olar',
-    'sales_faq'=>'Satışda tez tez verilən suallar',
     'seel_goods'=>'Satılan Mallar',
 
 

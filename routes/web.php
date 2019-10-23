@@ -48,6 +48,7 @@ Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function(
     Route::get('/','Admin\AdminController@index')->name('admin.home');
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('/dashboard', 'Admin\AdminController@index')->name('admin.home');
+    Route::get('/profile', 'Admin\AdminController@profile')->name('admin.profile');
     Route::Resource('language', 'Admin\LanguageController');
     Route::Resource('package', 'Admin\PackageController');
     Route::Resource('faq', 'Admin\FaqController');
@@ -63,7 +64,7 @@ Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function(
     Route::Resource('license', 'Admin\LicenseController');
     Route::Resource('payment', 'Admin\PaymentController');
 
-
+    Route::post('/change-pass/{id}','Admin\AdminController@changePass')->name('admin.change-pass');
     Route::post('/modal','Admin\UserController@modal')->name('admin.modal');
 });
 

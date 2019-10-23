@@ -26,7 +26,7 @@ class HomeController extends Controller
 
 
         $users = User::where('type', 1)->limit(10)->get();
-        return view('be.index', compact('users', 'today_users','montly_user_count','daily_user_count'));
+        return view('be.index', compact('users', 'montly_user_count','daily_user_count'));
     }
 
     public function licenseKeys()
