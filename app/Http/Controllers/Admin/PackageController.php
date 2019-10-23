@@ -30,7 +30,7 @@ class PackageController extends Controller
     {
         $locales = Language::all();
         $ministra = new MinistraClient();
-        $packages = $ministra->getData('tariffs')->results;
+        $packages = $ministra->getData('services_package')->results;
         return view('admin.package.create', compact('locales', 'packages'));
     }
 
@@ -74,7 +74,7 @@ class PackageController extends Controller
     {
         $locales = Language::all();
         $ministra = new MinistraClient();
-        $packages = $ministra->getData('tariffs')->results;
+        $packages = $ministra->getData('services_package')->results;
         return view('admin.package.edit', compact('package', 'locales', 'packages'));
     }
 
