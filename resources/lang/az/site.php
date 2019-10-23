@@ -99,6 +99,8 @@ return [
     'subscribe'=>'Abunə olun',
 
 
+    //channels
+    'channels'=>'Tv Kanallar'
 
 
 ];
