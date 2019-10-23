@@ -97,5 +97,5 @@ return [
     'logout'=>'Logout',
 
 
-
+    'channels'=>'Channels'
 ];

@@ -89,4 +89,6 @@ return [
     'profile'=>'Профиль',
     'logout'=>'Bыйти',
 
+    'channels'=>'Каналы'
+
 ];

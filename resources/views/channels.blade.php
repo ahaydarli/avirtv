@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto text-center">
-                    <h1 class="title">{{ __('Tv Channels') }}</h1>
+                    <h1 class="title">{{ __('site.channels') }}</h1>
                 </div>
             </div>
         </div>
