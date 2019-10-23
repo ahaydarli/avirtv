@@ -42,7 +42,13 @@
                             <td>{{ $tarif->id }}</td>
                             <td>{{$tarif->name}}</td>
                             <td>{{$tarif->ministra_id}}</td>
-                            <td>{{$tarif->type}}</td>
+                            <td>
+                                @if($tarif->type)
+                                    Custom
+                                @else
+                                    Full
+                                @endif
+                            </td>
                             <td>{{$tarif->price}}</td>
                             <td>{{$tarif->detail}}</td>
                             <td>{{$tarif->created_at}}</td>

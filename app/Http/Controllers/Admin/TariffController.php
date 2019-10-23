@@ -45,10 +45,24 @@ class TariffController extends Controller
         $request->validate([
             'name' => 'required|array|min:1',
             'price' => 'required',
+            'icon' => 'required'
         ]);
-        Tariff::create($request->all());
+        $tariff = new Tariff();
+        if($request->is_active){
+            $tariff->is_active =1;
+        }
+        else{
+            $tariff->is_active =0;
+        }
+        $tariff->name = $request->name;
+        $tariff->detail = $request->detail;
+        $tariff->type = $request->type;
+        $tariff->ministra_id = $request->ministra_id;
+        $tariff->price = $request->price;
+        $tariff->icon = $request->icon;
+        $tariff->save();
         return redirect()->route('tariff.index')
-            ->with('success', 'Package added');
+            ->with('success', 'Tariff successfully added');
     }
 
     /**
@@ -57,9 +71,9 @@ class TariffController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Tariff $tariff)
     {
-        //
+        return view('admin.tarif.show', compact('tariff'));
     }
 
     /**
@@ -68,9 +82,12 @@ class TariffController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tariff $tariff)
     {
-        //
+        $locales = Language::all();
+        $ministra = new MinistraClient();
+        $packages = $ministra->getData('tariffs')->results;
+        return view('admin.tarif.edit', compact('tariff','locales', 'packages'));
     }
 
     /**
@@ -80,9 +97,29 @@ class TariffController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tariff $tariff)
     {
-        //
+        $request->validate([
+            'name' => 'required|array|min:1',
+            'price' => 'required',
+            'icon' => 'required'
+        ]);
+        if($request->is_active){
+            $tariff->is_active =1;
+        }
+        else{
+            $tariff->is_active =0;
+        }
+        $tariff->name = $request->name;
+        $tariff->detail = $request->detail;
+        $tariff->type = $request->type;
+        $tariff->ministra_id = $request->ministra_id;
+        $tariff->price = $request->price;
+        $tariff->icon = $request->icon;
+        $tariff->save();
+        return redirect()->route('tariff.index')
+            ->with('success', 'Tariff successfully updated');
+
     }
 
     /**
@@ -91,8 +128,9 @@ class TariffController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tariff $tariff)
     {
-        //
+        $tariff->delete();
+        return redirect()->route('tariff.index')->with('success','Tariff successfully deleted');
     }
 }

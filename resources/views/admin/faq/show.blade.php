@@ -10,15 +10,6 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-{{--                    <tr>--}}
-{{--                        <th>#</th>--}}
-{{--                        <th>Question</th>--}}
-{{--                        <th>Answer</th>--}}
-{{--                        <th>Is active</th>--}}
-{{--                        <th>Created at</th>--}}
-{{--                        <th>Updated at</th>--}}
-{{--                        <th>Operations</th>--}}
-{{--                    </tr>--}}
                     <tr>
                         <th>#</th>
                         <td>{{$faq->id}}</td>
