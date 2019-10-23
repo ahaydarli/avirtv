@@ -49,6 +49,6 @@ class UniqueValid implements Rule
      */
     public function message()
     {
-        return 'This :attribute has unique';
+        return __( 'validation.array_unique' ) ;
     }
 }

@@ -9,6 +9,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
+
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
@@ -16,7 +17,7 @@
                         <th>Title</th>
                         <th>Slug</th>
                         <th>Subtitle</th>
-                        <th>Text</th>
+{{--                        <th>Text</th>--}}
                         <th>Image</th>
                         <th>Is active</th>
                         <th>Created at</th>
@@ -30,7 +31,7 @@
                         <th>Title</th>
                         <th>Slug</th>
                         <th>Subtitle</th>
-                        <th>Text</th>
+{{--                        <th>Text</th>--}}
                         <th>Image</th>
                         <th>Is active</th>
                         <th>Created at</th>
@@ -39,13 +40,15 @@
                     </tr>
                     </tfoot>
                     <tbody>
+
                     @foreach ($articles as $article)
+
                         <tr>
                             <td>{{ $article->id }}</td>
                             <td>{{ $article->title }}</td>
                             <td>{{ $article->slug }}</td>
                             <td>{{ $article->subtitle }}</td>
-                            <td> {{ mb_substr( $article->text,0,100,'utf-8') }} @if(strlen($article->text)>100) ... @endif </td>
+{{--                            <td> {{ mb_substr( $article->text,0,100,'utf-8') }} @if(strlen($article->text)>100) ... @endif </td>--}}
                             <td><img style="width: 100px; height: 100px;" src="{{ asset('uploads/article').'/'.$article->image }}"></td>
                             <td>
                                 @if($article->is_active)

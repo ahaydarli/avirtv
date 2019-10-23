@@ -30,25 +30,24 @@
                                  role="tabpanel" aria-labelledby="pills-tab-{{ $locale->code }}">
 
                                 <div class="form-group">
-
-                                    <input id="slug" type="text"
-                                           class="form-control @error('slug') is-invalid @enderror"
-                                           name="slug[{{ $locale->code }}]" value="{{ old('') }}"
-                                           placeholder="{{ __('Slug -').$locale->name }}">
-                                    @error('slug')
+                                    <input id="title" type="text"
+                                           class="form-control @error('title') is-invalid @enderror"
+                                           name="title[{{ $locale->code }}]" value="{{ old('') }}"
+                                           placeholder="{{ __('Title -').$locale->name }}">
+                                    @error('title')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </div>
 
-
                                 <div class="form-group">
-                                    <input id="title" type="text"
-                                           class="form-control @error('title') is-invalid @enderror"
-                                           name="title[{{ $locale->code }}]" value="{{ old('') }}"
-                                           placeholder="{{ __('Title -').$locale->name }}">
-                                    @error('title')
+
+                                    <input id="slug" type="text"
+                                           class="form-control @error('slug') is-invalid @enderror"
+                                           name="slug[{{ $locale->code }}]" value="{{ old('') }}"
+                                           placeholder="{{ __('Slug -').$locale->name }}">
+                                    @error('slug')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -71,7 +70,7 @@
 
                                 <div class="form-group">
                                     <textarea id="text" rows="5"
-                                              class="textarea form-control @error('text') is-invalid @enderror"
+                                              class="ckeditor-text form-control @error('text') is-invalid @enderror"
                                               name="text[{{ $locale->code }}]"
                                               placeholder="{{ __('Text -').$locale->name }}">{{ old('answer') }}</textarea>
                                     @error('text')
@@ -127,7 +126,49 @@
                 filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
                 filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
             };
-            $('.textarea').ckeditor(options);
+            $('.ckeditor-text').ckeditor(options);
+
+      @foreach ($locales as $key=>$locale)
+            let selectorTitle{{$locale->code}}="title[{{$locale->code}}]";
+            $('[name="'+ selectorTitle{{$locale->code}} +'"]').keyup(function(e)
+            {
+                const a = 'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;=!`~\"\'@%'
+                const b = 'aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnooooooooprrsssssttuuuuuuuuuwxyyzzz----------------'
+                const p = new RegExp(a.split('').join('|'), 'g')
+                let val = $(this).val();
+                val = val.toLowerCase().
+                replace(/ /g,'-').
+                replace(/\.+/g,'-').
+                replace(/ı/g,'i').
+                replace(/[-]+/g, '-').
+                replace(/ğ/g,'g').
+                replace(/\$/g,'-').
+                replace(/ç/g,'c').
+                replace(/\^/g,'-').
+                replace(/\*/g,'-').
+                replace(/\(/g,'-').
+                replace(/\)/g,'-').
+                replace(/{/g,'-').
+                replace(/}/g,'-').
+                replace(/\?/g,'-').
+                replace(/\[/g,'-').
+                replace(/\]/g,'-').
+                replace(/\\/g,'-').
+                replace(/ü/g,'u').
+                replace(/ö/g,'o').
+                replace(/ş/g,'s').
+                replace(/ə/g,'e').
+                replace(/\s+/g, '-').                                          // Replace spaces with -
+                replace(p, c => b.charAt(a.indexOf(c))).                       // Replace special characters
+                replace(/&/g, '-').
+                {{-- @if($locale->code <> 'ru')  replace(/[^\w\-]+/g, ''). @endif    // Remove all non-word characters--}}
+                replace(/\-\-+/g, '-').                                        // Replace multiple - with single -
+                replace(/^-+/, '').                                            // Trim - from start of text
+                replace(/-+$/, '');                                            // Trim - from end of text;
+                let selectorSlug{{$locale->code}}="slug[{{$locale->code}}]";
+                $('[name="'+ selectorSlug{{$locale->code}} +'"]').val(val);
+            });
+        @endforeach
 
 
     </script>
