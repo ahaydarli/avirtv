@@ -8,7 +8,7 @@ $(document).ready(function () {
     });
 });
 $(document).ready(function () {
-    $(".period").change(function(){
+    $(".subscribe-period").change(function(){
         let month = $(this).val();
         let price = $(".unit_price").val();
         let new_price = month * price;

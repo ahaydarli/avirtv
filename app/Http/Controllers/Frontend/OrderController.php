@@ -5,19 +5,21 @@ use App\Components\GoldenpayUtils;
 use App\Http\Controllers\Controller;
 use App\MinistraClient;
 use App\Package;
+use App\Period;
 use App\Service;
 use App\Subscription;
+use App\Tariff;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
-    public function subscribe($package_id)
+    public function subscribe($tariff_id)
     {
-        $package = Package::findOrFail($package_id);
-
-        return view('frontend.order.subscribe', compact('package'));
+        $tariff = Tariff::findOrFail($tariff_id);
+        $periods = Period::all();
+        return view('frontend.order.subscribe', compact('tariff', 'periods'));
     }
 
     public function order(Request $request, $package_id)

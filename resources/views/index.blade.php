@@ -56,36 +56,23 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-3 mx-auto">
-                    <div class="card card-pricing">
-                        <div class="card-body ">
-                            <h4 class="card-title">Full paket</h4>
-                            <div class="icon icon-danger">
-                                <i class="material-icons">tv</i>
+                @foreach($tariffs as $tariff)
+                    <div class="col-lg-3 col-md-3 mx-auto">
+                        <div class="card card-pricing">
+                            <div class="card-body ">
+                                <h4 class="card-title">{{ $tariff->name }}</h4>
+                                <div class="icon icon-danger">
+                                    <i class="material-icons">tv</i>
+                                </div>
+                                <h3 class="card-title">{{ $tariff->price }}<small> ₼</small></h3>
+                                <p class="card-description">
+                                    This is good if your company size is between 2 and 10 Persons.
+                                </p>
+                                <a href="{{ route('frontend.index') }}" class="btn btn-danger btn-round">{{ __('site.choose_plan') }}</a>
                             </div>
-                            <h3 class="card-title">10<small> ₼</small></h3>
-                            <p class="card-description">
-                                This is good if your company size is between 2 and 10 Persons.
-                            </p>
-                            <a href="{{ route('frontend.select-package') }}" class="btn btn-danger btn-round">{{ __('site.choose_plan') }}</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-3 mx-auto">
-                    <div class="card card-pricing">
-                        <div class="card-body ">
-                            <h4 class="card-title">Secile bilen paketler</h4>
-                            <div class="icon icon-danger">
-                                <i class="material-icons">tv</i>
-                            </div>
-                            <h3 class="card-title">1<small> ₼</small></h3>
-                            <p class="card-description">
-                                This is good if your company size is between 2 and 10 Persons.
-                            </p>
-                            <a href="{{ route('frontend.select-package') }}" class="btn btn-danger btn-round">{{ __('site.choose_plan') }}</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

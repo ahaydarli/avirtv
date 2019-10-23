@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Language;
 use App\MinistraClient;
 use App\Package;
+use App\Tariff;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -25,11 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $packages = Package::limit(4)->get();
+        $tariffs = Tariff::limit(4)->get();
         $articles=Article::orderBy('id','desc')->limit(3)->get();
         $contents = Content::orderby('id','asc')->limit(6)->get();
 
-        return view('index', compact('packages','contents', 'articles'));
+        return view('index', compact('tariffs','contents', 'articles'));
     }
 
     public function setLocale(Request $request)
@@ -84,10 +85,10 @@ class HomeController extends Controller
 
     public function pricing()
     {
-        $packages = Package::all();
+        $tariffs = Tariff::all();
         $faqs = Faq::limit(4)->get();
 
-        return view('pricing', compact('packages', 'faqs'));
+        return view('pricing', compact('tariffs', 'faqs'));
     }
 
     public function channels()
