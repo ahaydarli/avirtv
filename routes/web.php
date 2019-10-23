@@ -25,7 +25,8 @@ Route::get('/set-locale', 'Frontend\HomeController@setLocale')->name('set-locale
 Route::get("/about-us", 'Frontend\HomeController@about')->name("about");
 Route::get("/pricing", 'Frontend\HomeController@pricing')->name("pricing");
 Route::get("/channels", 'Frontend\HomeController@channels')->name("channels");
-Route::get("/select-package", 'Frontend\ORderController@selectPackage')->name("frontend.select-package");
+Route::get("/select-package", 'Frontend\OrderController@selectPackage')->name("frontend.select-package");
+Route::post("/merger-package", 'Frontend\OrderController@mergePackage')->name("frontend.merge-package");
 
 Route::get("/article/{slug}", 'Frontend\HomeController@article_show')->name("front.article.show");
 
@@ -48,6 +49,7 @@ Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function(
     Route::get('/','Admin\AdminController@index')->name('admin.home');
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
     Route::get('/dashboard', 'Admin\AdminController@index')->name('admin.home');
+    Route::get('/profile', 'Admin\AdminController@profile')->name('admin.profile');
     Route::Resource('language', 'Admin\LanguageController');
     Route::Resource('package', 'Admin\PackageController');
     Route::Resource('faq', 'Admin\FaqController');
@@ -63,7 +65,7 @@ Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function(
     Route::Resource('license', 'Admin\LicenseController');
     Route::Resource('payment', 'Admin\PaymentController');
 
-
+    Route::post('/change-pass/{id}','Admin\AdminController@changePass')->name('admin.change-pass');
     Route::post('/modal','Admin\UserController@modal')->name('admin.modal');
 });
 

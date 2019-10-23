@@ -12,10 +12,32 @@
                     @csrf
 
                     <div class="form-group">
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                               name='name' value="{{ old('name') }}"
+                               placeholder="Name">
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror"
+                               name='surname' value="{{ old('surname') }}"
+                               placeholder="Surname">
+                        @error('surname')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                name='email' value="{{ old('email') }}"
                                placeholder="E-mail">
-                        @error('mail')
+                        @error('email')
                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

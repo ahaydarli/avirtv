@@ -10,7 +10,10 @@ use App\Payment;
 use App\Subscription;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 
 class AdminController extends Controller
 {
@@ -43,5 +46,40 @@ class AdminController extends Controller
 
 
         return true;
+    }
+
+    public function profile()
+    {
+        $admin = Auth::guard('admin')->user();
+        return view('admin.profile', compact('admin'));
+    }
+
+    public function changePass(Request $request,$id)
+    {
+        $this->validate($request, [
+           'current'=> 'required',
+           'newpass' => 'required',
+           'confirm' => 'required'
+        ]);
+        $admin = Admin::find($id);
+
+        if (password_verify($request->current,$admin->password)) {
+            if ($request->newpass == $request->confirm) {
+                $password = Hash::make($request->newpass);
+                $admin->password = $password;
+                if ($admin->save()) {
+                    return redirect()->back()->with('success','Password successfully changed');
+                }
+                else{
+                    return redirect()->back()->with('error','Something went wrong, please try again');
+                }
+            }
+            else {
+                return redirect()->back()->with('error','Passwords don\'t match');
+            }
+        }
+        else{
+            return redirect()->back()->with('error','Current password is not correct');
+        }
     }
 }

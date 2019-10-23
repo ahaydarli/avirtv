@@ -26,7 +26,7 @@
                                 <div class="form-group">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
                                            name="name[{{ $locale->code }}]" value="{{ old('name') }}"
-                                           placeholder="{{ __('Package name-').$locale->name }}">
+                                           placeholder="{{ __('Package name-').$locale->name }}" required>
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <input id="price" type="text" class="form-control  @error('price') is-invalid @enderror"
-                               name="price" placeholder="{{ __('Price') }}">
+                               name="price" placeholder="{{ __('Price') }}" required>
 
                         @error('price')
                         <span class="invalid-feedback" role="alert">
@@ -48,10 +48,12 @@
                     </div>
 
                     <div class="form-group">
-                        <select name="ministra_id" class="form-control  @error('ministra_id') is-invalid @enderror">
+                        <select name="ministra_id" class="form-control  @error('ministra_id') is-invalid @enderror" required>
                             <option>Select ministra package</option>
                             @foreach($packages as $package)
+                                @if($package->type == 'tv')
                                 <option value="{{ $package->id }}">{{ $package->name }}</option>
+                                @endif
                             @endforeach
                         </select>
 

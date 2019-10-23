@@ -6,8 +6,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto text-center">
-                    <h1 class="title">Let&apos;s get started</h1>
-                    <h4>To get started, you will need to choose a plan for your needs. You can opt in for the monthly of annual options and go with one fo the three listed below.</h4>
+                    <h1 class="title">@lang('site.pricing')</h1>
                 </div>
             </div>
         </div>

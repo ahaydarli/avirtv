@@ -13,16 +13,36 @@
                 <form class="user" method="POST" action="{{ route('admin-be.update', $user->id) }}">
                     @csrf
                     @method('PUT')
-
-                    {{--                    @if ($errors->any())--}}
-                    {{--                        @foreach ($errors->all() as $error)--}}
-                    {{--                            <div class="alert-danger alert">{{$error}}</div>--}}
-                    {{--                        @endforeach--}}
-                    {{--                    @endif--}}
-
                     <div class="tab-content pt-2 pl-1" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills" role="tabpanel" aria-labelledby="pills-tab">
 
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Name</label>
+                                <div class="col-sm-9">
+                                    <input id="name" type="text"
+                                           class="form-control @error('name') is-invalid @enderror" name="name"
+                                           value="{{$user->name}}" placeholder="{{ __('Name') }}">
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Surname</label>
+                                <div class="col-sm-9">
+                                    <input id="surname" type="text"
+                                           class="form-control @error('surname') is-invalid @enderror" name="surname"
+                                           value="{{$user->surname}}" placeholder="{{ __('Surname') }}">
+                                    @error('surname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
 
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Email</label>

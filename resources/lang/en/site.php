@@ -26,7 +26,6 @@ return [
     'market'=>'market',
     'sales_faq'=>'sales faq',
     'how_register'=>'how to register',
-    'sales_faq'=>'sales faq',
     'seel_goods'=>'seel goods',
 
 

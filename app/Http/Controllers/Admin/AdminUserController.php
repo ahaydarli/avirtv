@@ -42,6 +42,8 @@ class AdminUserController extends Controller
     {
         $this->validate($request,[
            'email' => 'required',
+           'name' => 'required',
+           'surname' => 'required',
            'password' => 'required',
            'confirm' => 'required',
             'status' => 'required'
@@ -52,6 +54,8 @@ class AdminUserController extends Controller
             $user = new Admin();
             $user->password = $password;
             $user->email = $request->email;
+            $user->name = $request->name;
+            $user->surname = $request->surname;
             $user->status = $request->status;
             if ($user->save()) {
                 return redirect()->route('admin-be.index')->with('success','User successfully created');
@@ -99,14 +103,14 @@ class AdminUserController extends Controller
     {
         $this->validate($request,[
             'email'=>'required|email',
-
+            'name' => 'required',
+            'surname' => 'required',
         ]);
-
-
         $admin=Admin::find($id);
 
         $admin->email=$request->input('email');
-
+        $admin->name = $request->name;
+        $admin->surname = $request->surname;
         $admin->status=$request->type;
         if(trim($request->password)!=''){
             $admin->password=Hash::make($request->password);
