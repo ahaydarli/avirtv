@@ -146,5 +146,9 @@ return [
     */
 
     'attributes' => [],
+    'array_value'=>'This :attribute field must one value different null value',
+    'array_unique'=>'This :attribute has already been taken.',
+    'array_update_unique'=>'This :attribute has already been taken.',
+
 
 ];

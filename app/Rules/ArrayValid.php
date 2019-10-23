@@ -43,6 +43,7 @@ class ArrayValid implements Rule
      */
     public function message()
     {
-        return 'This input must one value different null value';
+        return __( 'validation.array_value' ) ;
+
     }
 }

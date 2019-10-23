@@ -122,5 +122,52 @@
         $('.textarea').ckeditor(options);
 
 
+
+
+    @foreach ($locales as $key=>$locale)
+        let selectorTitle{{$locale->code}}="title[{{$locale->code}}]";
+        $('[name="'+ selectorTitle{{$locale->code}} +'"]').keyup(function(e)
+        {
+            const a = 'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;=!`~\"\'@%'
+            const b = 'aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnooooooooprrsssssttuuuuuuuuuwxyyzzz----------------'
+            const p = new RegExp(a.split('').join('|'), 'g')
+            let val = $(this).val();
+            val = val.toLowerCase().
+            replace(/ /g,'-').
+            replace(/\.+/g,'-').
+            replace(/ı/g,'i').
+            replace(/[-]+/g, '-').
+            replace(/ğ/g,'g').
+            replace(/\$/g,'-').
+            replace(/ç/g,'c').
+            replace(/\^/g,'-').
+            replace(/\*/g,'-').
+            replace(/\(/g,'-').
+            replace(/\)/g,'-').
+            replace(/{/g,'-').
+            replace(/}/g,'-').
+            replace(/\?/g,'-').
+            replace(/\[/g,'-').
+            replace(/\]/g,'-').
+            replace(/\\/g,'-').
+            replace(/ü/g,'u').
+            replace(/ö/g,'o').
+            replace(/ş/g,'s').
+            replace(/ə/g,'e').
+            replace(/\s+/g, '-').                                          // Replace spaces with -
+            replace(p, c => b.charAt(a.indexOf(c))).                       // Replace special characters
+            replace(/&/g, '-').                                        // Replace & with 'and'
+{{--            @if($locale->code <> 'ru')  replace(/[^\w\-]+/g, ''). @endif    // Remove all non-word characters--}}
+            replace(/\-\-+/g, '-').                                        // Replace multiple - with single -
+            replace(/^-+/, '').                                            // Trim - from start of text
+            replace(/-+$/, '');                                            // Trim - from end of text;
+            let selectorSlug{{$locale->code}}="slug[{{$locale->code}}]";
+            $('[name="'+ selectorSlug{{$locale->code}} +'"]').val(val);
+        });
+        @endforeach
+
+
+
+
     </script>
 @endpush
