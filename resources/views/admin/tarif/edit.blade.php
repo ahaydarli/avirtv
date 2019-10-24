@@ -86,9 +86,9 @@
                     <div class="form-group">
                         <select name="ministra_id" class="form-control  @error('ministra_id') is-invalid @enderror">
                             <option>Select ministra package</option>
-                            @foreach($packages as $min_package)
+                    @foreach($packages as $min_package)
                                     <option value="{{ $min_package->id }}" {{ ($min_package->id == $tariff->ministra_id) ? 'selected': '' }}>{{ $min_package->name }}</option>
-                            @endforeach
+                     @endforeach
                         </select>
 
                         @error('ministra_id')
@@ -97,11 +97,17 @@
                         </span>
                         @enderror
                     </div>
+
+
+
                     <div class="form-group">
+
+
                         @foreach($site_packages as $package)
+
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="default-package" value="{{ $package->id }}" name="default[]">
-                                <label class="form-check-label" for="default-package">{{ $package->name }}</label>
+                                <input  type="checkbox" class="form-check-input" id="default-package{{ $package->id }}" @if(in_array($package->id, $choose_packages)>0) checked  @endif value="{{ $package->id }}" name="default[]">
+                                <label class="form-check-label" for="default-package{{ $package->id }}">{{ $package->name }}</label>
                             </div>
                         @endforeach
 
@@ -111,6 +117,9 @@
                         </span>
                         @enderror
                     </div>
+
+
+
                     <div class="form-group">
                         <div class="form-check">
                             <input type="checkbox" value="1" name="is_active" class="form-check-input" id="exampleCheck1"

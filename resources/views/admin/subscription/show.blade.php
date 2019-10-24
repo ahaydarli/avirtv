@@ -29,7 +29,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Package</label>
                                 <div class="col-sm-9">
-                                    <input id="login" type="text" class="form-control"  value="{{$subscription->package->name}}"  readonly>
+                                    <input id="login" type="text" class="form-control"  value="{{$subscription->tariff->name}}"  readonly>
                                 </div>
                             </div>
 

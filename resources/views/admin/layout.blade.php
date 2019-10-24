@@ -19,7 +19,7 @@
     <link href="{{ asset('backend/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 {{--    datepicker--}}
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker3.min.css" />
 
 </head>
 
@@ -420,7 +420,7 @@
 
 {{--datepicker--}}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
 
 <script type="text/javascript">
     $('#read-all-msgs').click(function () {
