@@ -21,11 +21,13 @@
                                 <div class="container">
                                     <div class="row">
                                         @foreach($channels as $channel)
-                                            <div class="col-md-2 col-4" style="margin-bottom: 30px">
-                                                <a href="" class="btn btn-link btn-just-icon btn-twitter" style="height: unset">
-                                                   <img src="http://ministra.avirtel.az/stalker_portal/misc/logos/320/{{ $channel->logo}}">
-                                                </a>
-                                            </div>
+                                            @if($channel->logo)
+                                                <div class="col-md-2 col-4" style="margin-bottom: 30px">
+                                                    <a href="" class="btn btn-link btn-just-icon btn-twitter" style="height: unset">
+                                                       <img src="http://ministra.avirtel.az/stalker_portal/misc/logos/320/{{ $channel->logo}}">
+                                                    </a>
+                                                </div>
+                                            @endif
                                         @endforeach
                                     </div>
                                 </div>

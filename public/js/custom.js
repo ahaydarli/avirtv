@@ -11,7 +11,7 @@ $(document).ready(function () {
     $(".subscribe-period").change(function(){
 
 
-        let option = $(this).find('option:selected')
+        let option = $(this).find('option:selected');
 
         let month = option.attr('data-month');
         let price = $(".unit_price").val();
@@ -23,6 +23,14 @@ $(document).ready(function () {
         } else if (option.attr('data-type') == 'fixed') {
             total_price = new_price - discount;
         }
+        $(".total_price").html(total_price + ' ₼');
+
+    });
+});
+$(document).ready(function () {
+    $(".subscribe-package").change(function(){
+        let price = $(".unit_price").val();
+
         $(".total_price").html(total_price + ' ₼');
 
     });

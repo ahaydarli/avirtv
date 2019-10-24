@@ -18,4 +18,9 @@ class Tariff extends Model
     public $translatable = ['name'];
 
     public $timestamps = true;
+
+    public function default()
+    {
+        return $this->belongsToMany(Package::class,'tariff_default')->withPivot('tariff_id','package_id');
+    }
 }

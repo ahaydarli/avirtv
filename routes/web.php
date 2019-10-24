@@ -25,8 +25,6 @@ Route::get('/set-locale', 'Frontend\HomeController@setLocale')->name('set-locale
 Route::get("/about-us", 'Frontend\HomeController@about')->name("about");
 Route::get("/pricing", 'Frontend\HomeController@pricing')->name("pricing");
 Route::get("/channels", 'Frontend\HomeController@channels')->name("channels");
-Route::get("/select-package", 'Frontend\OrderController@selectPackage')->name("frontend.select-package");
-Route::post("/merger-package", 'Frontend\OrderController@mergePackage')->name("frontend.merge-package");
 
 Route::get("/article/{slug}", 'Frontend\HomeController@article_show')->name("front.article.show");
 
@@ -38,6 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/change-pass', 'Frontend\ProfileController@changepass')->name('change-pass');
     Route::get('/order-test', 'Frontend\OrderController@paymentResult');
     Route::post('/service/detail', 'Frontend\ProfileController@serviceDetail')->name('service.detail');
+    Route::get("/select-package/{package_id}", 'Frontend\OrderController@selectPackage')->name("frontend.select-package");
+    Route::post("/merger-package/{package_id}", 'Frontend\OrderController@mergePackage')->name("frontend.merge-package");
 });
 
 Auth::routes();

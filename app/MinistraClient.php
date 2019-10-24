@@ -3,6 +3,7 @@ namespace App;
 
 
 use GuzzleHttp\Client;
+use PHPUnit\Framework\Constraint\IsFalse;
 
 class MinistraClient
 {
@@ -35,6 +36,22 @@ class MinistraClient
     public function createUser($payload)
     {
         return True;
+    }
+
+    public function getTariff(array $package_ids)
+    {
+
+        $tariffs = $this->getData('tariffs')->results;
+        foreach($tariffs as $tariff) {
+            $ids = [];
+            foreach ($tariff->packages as $pac) {
+                $ids[] = $pac->id;
+            }
+            if($ids and array_diff($package_ids, $ids) == []) {
+                $tariff_id = $tariff->id;
+                return $tariff_id;
+            }
+        }
     }
 
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Language;
 use App\MinistraClient;
+use App\Package;
 use App\Tariff;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -31,7 +32,8 @@ class TariffController extends Controller
         $locales = Language::all();
         $ministra = new MinistraClient();
         $packages = $ministra->getData('tariffs')->results;
-        return view('admin.tarif.create', compact('locales', 'packages'));
+        $site_packages = Package::all();
+        return view('admin.tarif.create', compact('locales', 'packages', 'site_packages'));
     }
 
     /**
@@ -45,7 +47,7 @@ class TariffController extends Controller
         $request->validate([
             'name' => 'required|array|min:1',
             'price' => 'required',
-            'icon' => 'required'
+            'icon' => 'required',
         ]);
         $tariff = new Tariff();
         if($request->is_active){
@@ -61,6 +63,7 @@ class TariffController extends Controller
         $tariff->price = $request->price;
         $tariff->icon = $request->icon;
         $tariff->save();
+        $tariff->default()->attach($request->default());
         return redirect()->route('tariff.index')
             ->with('success', 'Tariff successfully added');
     }
@@ -87,7 +90,8 @@ class TariffController extends Controller
         $locales = Language::all();
         $ministra = new MinistraClient();
         $packages = $ministra->getData('tariffs')->results;
-        return view('admin.tarif.edit', compact('tariff','locales', 'packages'));
+        $site_packages = Package::all();
+        return view('admin.tarif.edit', compact('locales', 'tariff', 'packages', 'site_packages'));
     }
 
     /**
@@ -117,6 +121,7 @@ class TariffController extends Controller
         $tariff->price = $request->price;
         $tariff->icon = $request->icon;
         $tariff->save();
+        $tariff->default()->sync($request->default);
         return redirect()->route('tariff.index')
             ->with('success', 'Tariff successfully updated');
 

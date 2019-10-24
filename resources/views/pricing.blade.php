@@ -40,7 +40,7 @@
                                         {{ $tariff->detail }}
                                     </p>
                                     @if($tariff->type == 1)
-                                        <a href="{{ route('frontend.select-package') }}" class="btn btn-danger btn-round">{{ __('Chose plan') }}</a>
+                                        <a href="{{ route('frontend.select-package', $tariff->id) }}" class="btn btn-danger btn-round">{{ __('Chose plan') }}</a>
                                     @else
                                         <a href="{{ route('order.subscribe', $tariff->id) }}" class="btn btn-danger btn-round">{{ __('Chose plan') }}</a>
                                     @endif
