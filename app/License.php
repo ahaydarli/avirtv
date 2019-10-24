@@ -18,4 +18,8 @@ class License extends Model
     public function User() {
         return $this->belongsTo(User::class);
     }
+
+    public function Subscribe() {
+        return $this->belongsTo(Subscription::class);
+    }
 }

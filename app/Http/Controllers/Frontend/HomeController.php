@@ -94,9 +94,26 @@ class HomeController extends Controller
     public function channels()
     {
         $client = new MinistraClient();
-        $channels = $client->getData('itv');
-        $channels = $channels->results;
-        return view('channels', compact('channels'));
+        $package_ministras = Package::pluck('ministra_id','id')->toArray();
+        $client_packages = $client->getData('services_package')->results;
+        $client_channels = $client->getData('itv')->results;
+        $all_channels = [];
+        foreach ($client_channels as $client_channel) {
+            $all_channels[$client_channel->id] = $client_channel;
+        }
+        $packages = [];
+        foreach ($client_packages as $client_package) {
+            if (in_array($client_package->id, $package_ministras)) {
+                foreach ($client_package->services as $channels) {
+                    $channels->logo = $all_channels[$channels->id]->logo;
+                }
+                $client_package->name = Package::where('ministra_id',$client_package->id)->value('name');
+                $client_package->id = array_search($client_package->id, $package_ministras);
+                $packages[] = $client_package;
+            }
+        }
+        sort($packages);
+        return view('channels',compact('packages'));
     }
 
     public function profile()
@@ -106,11 +123,11 @@ class HomeController extends Controller
     }
 
 
-    public function article_show($slug){
-
+    public function article_show($slug)
+    {
         $article=Article::where('slug','like','%'.$slug.'%')->first();
         return view('article',compact('article'));
-
     }
+
 
 }

@@ -53,6 +53,13 @@
                             @endif
                         </td>
                     </tr>
+
+                    <tr>
+                        <th>Subscribe</th>
+                        <td>
+                            {{$license->subscribe_id}}
+                        </td>
+                    </tr>
                     <tr>
                         <th>Created</th>
                         <td>{{$license->created_at}}</td>
