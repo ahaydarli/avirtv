@@ -31,7 +31,6 @@ class OrderController extends Controller
             'device' => 'required|integer',
             'period' => 'required|integer',
         ]);
-        $tariff_id = filter_var($tariff_id, FILTER_SANITIZE_NUMBER_INT);
         $tariff = Tariff::findOrFail($tariff_id);
         $period = Period::findOrFail($request->period);
         $amount = GoldenpayUtils::calculatePrice($tariff, $period);
@@ -115,22 +114,50 @@ class OrderController extends Controller
 
     }
 
-    public function selectPackage()
+    public function selectPackage($tariff_id)
     {
+        $tariff = Tariff::with('default')->findOrFail($tariff_id);
+        $default = $tariff->default()->pluck('ministra_id')->toArray();
         $packages = Package::all();
-        return view('frontend.order.select-package', compact('packages'));
+        $periods = Period::all();
+        return view('frontend.order.select-package', compact('packages', 'tariff', 'periods', 'default'));
     }
 
-    public function mergePackage(Request $request)
+    public function mergePackage(Request $request, $tariff_id)
     {
+        $tariff = Tariff::with('default')->findOrFail($tariff_id);
+        $request->validate([
+            'device' => 'required|integer',
+            'period' => 'required|integer',
+        ]);
+        $package_ids = $tariff->default()->pluck('ministra_id')->toArray();
+        $package_ids[] = $request->package;
+
         $client = new MinistraClient();
-        $tariffs = $client->getData('tariffs')->results;
-        foreach($tariffs as $tariff){
-            dd($tariff->packages);
+        $m_tariff_id = $client->getTariff($package_ids);
+
+        if ($m_tariff_id) {
+            $period = Period::findOrFail($request->period);
+            $amount = GoldenpayUtils::calculatePrice($tariff, $period);
+
+            $payload = [
+                'user_id' => Auth::id(),
+                'tariff_id' => $tariff->id,
+                'm_tariff_id' => $m_tariff_id,
+                'account_number' => Subscription::generateAccountNumber(),
+                'device' => $request->device,
+                'period' => $period->id,
+                'mac_address' => $request->mac_address ?? $request->mac_address,
+                'amount' => $amount,
+                'payment_status' => 0,
+                'status' => 0,
+            ];
+            $subscription = Subscription::create($payload);
+
+            return dd($subscription);
         }
-        $package_ids = $request->package;
-        dd($package_ids);
 
-
+        return redirect()->route('frontend.select-package', $tariff_id)->with('error', "Something went't wrong. Please try again");
     }
+
 }
