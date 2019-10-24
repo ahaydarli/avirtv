@@ -36,7 +36,13 @@
                         <tr>
                         <td>{{ $package->name }}</td>
                         <td>{{ $package->price }}</td>
-                        <td>{{ $package->is_active }}</td>
+                        <td>
+                            @if($package->is_active)
+                                Active
+                            @else
+                                Deactive
+                            @endif
+                        </td>
                         <td>{{ $package->ministra_id }}</td>
                         <td>{{ $package->created_at }}</td>
                         <td>
