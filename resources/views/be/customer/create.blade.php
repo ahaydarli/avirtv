@@ -53,10 +53,10 @@
                     </div>
 
                     <div class="form-group">
-                        <select name="package_id" id="" class="form-control">
-                            <option>Select package</option>
-                            @foreach($packages as $package)
-                                <option value="{{ $package->id }}">{{ $package->name }}</option>
+                        <select name="tariff_id" id="be-tariff-plan" class="form-control">
+                            <option>Select tariff plan</option>
+                            @foreach($tariffs as $tariff)
+                                <option value="{{ $tariff->ministra_id }}">{{ $tariff->name }}</option>
                             @endforeach
                         </select>
                         @error('package_id')

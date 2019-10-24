@@ -36,19 +36,17 @@
                         <tr>
                             <td>{{ $sub->id }}</td>
                             <td>{{ $sub->user->name }}</td>
-                            <td>{{ $sub->package->name }}</td>
+                            <td>{{ $sub->tariff->name }}</td>
                             <td>{{$sub->payment_status}}</td>
                             <td>{{$sub->status}}</td>
                             <td>{{$sub->account_number}}</td>
                             <td>{{ $sub->created_at }}</td>
                             <td>{{ $sub->updated_at }}</td>
-
                             <td>
-
                                 <form id="delete-form" action="{{ route('service.destroy', $sub->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{route('subscription.show',$sub->id)}}" class="btn btn-primary btn-circle btn-sm">
+                                    <a href="{{route('subscription.show', $sub->id)}}" class="btn btn-primary btn-circle btn-sm">
                                         <i class="far fa-eye"></i>
                                     </a>
                                     <button class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
@@ -56,7 +54,6 @@
                             </td>
                         </tr>
                     @endforeach
-
                     </tbody>
                 </table>
             </div>

@@ -42,7 +42,7 @@
                             <td>{{ $license->id }}</td>
                             <td>{{ $license->license }}</td>
                             <td>
-                                @if($license->user_id !=0)
+                                @if(!$license->user_id)
                                 {{$license->user->name}}
                                 @endif
                             </td>
