@@ -54,13 +54,11 @@
                             <td>{{ $sub->account_number }}</td>
                             <td class="created">{{ $sub->created_at->format('m/d/Y') }}</td>
                             <td>{{ $sub->updated_at }}</td>
-
                             <td>
-
                                 <form id="delete-form" action="{{ route('service.destroy', $sub->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{route('subscription.show',$sub->id)}}"
+                                    <a href="{{route('subscription.show', $sub->id)}}"
                                        class="btn btn-primary btn-circle btn-sm">
                                         <i class="far fa-eye"></i>
                                     </a>
@@ -70,7 +68,6 @@
                             </td>
                         </tr>
                     @endforeach
-
                     </tbody>
                 </table>
             </div>

@@ -38,9 +38,9 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $packages = Tariff::active()->get();
+        $tariffs = Tariff::all();
         $periods = Period::all();
-        return view('be.customer.create', compact('packages','periods'));
+        return view('be.customer.create', compact('tariffs','periods'));
     }
 
     /**
@@ -56,7 +56,7 @@ class CustomerController extends Controller
             'name' => 'required',
             'device' => 'required',
             'phone' => 'required',
-            'package_id' => 'required',
+            'tariff_id' => 'required',
             'period' => 'required'
         ]);
 
@@ -79,16 +79,17 @@ class CustomerController extends Controller
             return redirect()->route('be.customers.create')->with('error', $e->getMessage());
         }
         try {
-            $package = Package::findOrFail($request->input('package_id'));
+            $tariff = Tariff::where('ministra_id', $request->input('tariff_id'))->first();
             $period = Period::findorFail($request->input('period'));
-            $amount = GoldenpayUtils::calculatePrice($package, $period);
+            $amount = GoldenpayUtils::calculatePrice($tariff, $period);
 
             $subscriptionPayload = [
                 'user_id' => $user->id,
-                'package_id' => $request->input('package_id'),
+                'tariff_id' => $tariff->id,
+                'm_tariff_id' => $tariff->ministra_id,
                 'account_number' => $account_number,
                 'device' => $request->input('device'),
-                'period' => $request->input('period'),
+                'period' => $period->id,
                 'mac_address' => $request->input('mac_address') ?? $request->input('mac_address'),
                 'amount' => $amount,
                 'payment_status' => 1,
@@ -103,26 +104,25 @@ class CustomerController extends Controller
         }
         try{
             if ($subscription->device == 0) {
-                $license = License::free()->get()->first();
-                $license->status = 1;
-                $license->user_id = $user->id;
-                $license->save();
+                $license = License::get()->first();
             }
+            $expire_date = date_format(Carbon::now()->addMonth(12), 'Y-m-d H:i:s');
             $servicePayload = [
                 'password' => $subscription->account_number,
-                'full_name' => $user->name,
-                'user_id' => $user->id,
+                'full_name' => $subscription->user->name,
+                'user_id' => $subscription->user->id,
                 'login' => $subscription->account_number,
                 'account_number' => $subscription->account_number,
-                'tariff_plan' => $package->ministra_id,
+                'tariff_plan' => $subscription->m_tariff_id,
                 'stb_mac' => $subscription->mac_address,
                 'status' => 1,
                 'license' => $subscription->device == 0 ? $license->license : '',
+                'end_date' => $expire_date,
             ];
-//            $client = new MinistraClient();
-//            $result = $client->postData('accounts', $servicePayload);
+            $client = new MinistraClient();
+            $result = $client->postData('accounts', $servicePayload);
             $paymentPayload = [
-                'user_id' => $user->id,
+                'user_id' => $subscription->user->id,
                 'subscription_id' => $subscription->id,
                 'type' => Payment::BE,
                 'period_id' => $period->id,
@@ -204,6 +204,7 @@ class CustomerController extends Controller
         $subscription = Subscription::where('user_id', $user->id)->first();
         return view('be.customer.detailsAjax', compact('user', 'service', 'subscription'))->render();
     }
+
     public function print(Request $request)
     {
         return view('be.customer.print')->render();

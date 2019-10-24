@@ -109,9 +109,9 @@ class OrderController extends Controller
         return False;
     }
 
-    public function pay($order_id)
+    public function pay($subscription_id)
     {
-
+        $subscription = findOrFail($subscription_id);
     }
 
     public function selectPackage($tariff_id)
