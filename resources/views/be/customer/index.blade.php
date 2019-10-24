@@ -80,9 +80,6 @@
 
 </script>
 
-<div id="printableArea">
-    <h1>Print me</h1>
-</div>
 
 
 

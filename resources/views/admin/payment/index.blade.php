@@ -50,7 +50,13 @@
                                 @endif
                             </td>
                             <td>{{$payment->period->month}} Months</td>
-                            <td>{{$payment->status}}</td>
+                            <td>
+                                @if($payment->status)
+                                    Unavailable
+                                @else
+                                    Available
+                                @endif
+                            </td>
                             <td>{{$payment->paid_at}}</td>
                             <td>{{ $payment->created_at }}</td>
                             <td>

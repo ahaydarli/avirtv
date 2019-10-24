@@ -44,6 +44,9 @@ class TariffController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
         $request->validate([
             'name' => 'required|array|min:1',
             'price' => 'required',
@@ -63,7 +66,7 @@ class TariffController extends Controller
         $tariff->price = $request->price;
         $tariff->icon = $request->icon;
         $tariff->save();
-        $tariff->default()->attach($request->default());
+        $tariff->default()->attach($request->default);
         return redirect()->route('tariff.index')
             ->with('success', 'Tariff successfully added');
     }
@@ -87,11 +90,15 @@ class TariffController extends Controller
      */
     public function edit(Tariff $tariff)
     {
+       $choose_packages=$tariff->default->pluck('id')->toArray();
+
+
+
         $locales = Language::all();
         $ministra = new MinistraClient();
         $packages = $ministra->getData('tariffs')->results;
         $site_packages = Package::all();
-        return view('admin.tarif.edit', compact('locales', 'tariff', 'packages', 'site_packages'));
+        return view('admin.tarif.edit', compact('locales', 'tariff', 'packages', 'site_packages','choose_packages'));
     }
 
     /**
@@ -135,6 +142,7 @@ class TariffController extends Controller
      */
     public function destroy(Tariff $tariff)
     {
+        $tariff->default()->detach();
         $tariff->delete();
         return redirect()->route('tariff.index')->with('success','Tariff successfully deleted');
     }

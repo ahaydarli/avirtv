@@ -91,8 +91,8 @@
                     <div class="form-group">
                         @foreach($site_packages as $package)
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="default-package" name="default[]">
-                                <label class="form-check-label" for="default-package">{{ $package->name }}</label>
+                                <input type="checkbox" class="form-check-input" id="default-package{{ $package->id }}" name="default[]" value="{{ $package->id }}">
+                                <label class="form-check-label" for="default-package{{ $package->id }}">{{ $package->name }}</label>
                             </div>
                         @endforeach
 

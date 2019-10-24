@@ -55,54 +55,30 @@
                 <div class="text-center">
                     <h3 class="title">@lang('site.frequently_asked_question')</h3>
                 </div>
-                <div class="row">
-                    <div class="col-md-4 ml-auto">
-                        <div class="info info-horizontal">
-                            <div class="icon icon-info">
-                                <i class="material-icons">card_membership</i>
+
+
+
+                @foreach(collect($faqs)->chunk(2) as $v=>$faq)
+                    <div class="row">
+                        @foreach($faq as $k=>$add)
+                            <div class="col-md-4 @if ($k % 2 == 0) ml-auto  @else mr-auto @endif ">
+                                <div class="info info-horizontal">
+                                    <div class="icon icon-{{ $icons[$k]['icon_color'] }}">
+                                        <i class="material-icons">{{ $icons[$k]['icon_name'] }}</i>
+                                    </div>
+                                    <div class="description">
+                                        <h4 class="info-title">{{ $add->question }}</h4>
+                                        <p>{{ $add->answer }}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="description">
-                                <h4 class="info-title">Can I cancel my subscription?</h4>
-                                <p>Yes, you can cancel and perform other actions on your subscriptions via the My Account page. </p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
-                    <div class="col-md-4 mr-auto">
-                        <div class="info info-horizontal">
-                            <div class="icon icon-success">
-                                <i class="material-icons">card_giftcard</i>
-                            </div>
-                            <div class="description">
-                                <h4 class="info-title">Is there any discount for an annual subscription?</h4>
-                                <p>Yes, we offer a 40% discount if you choose annual subscription for any plan.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 ml-auto">
-                        <div class="info info-horizontal">
-                            <div class="icon icon-success">
-                                <i class="material-icons">attach_money</i>
-                            </div>
-                            <div class="description">
-                                <h4 class="info-title">Which payment methods do you take?</h4>
-                                <p>WooCommerce comes bundled with PayPal (for accepting credit card and PayPal account payments), BACS, and cash on delivery for accepting payments. </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mr-auto">
-                        <div class="info info-horizontal">
-                            <div class="icon icon-rose">
-                                <i class="material-icons">question_answer</i>
-                            </div>
-                            <div class="description">
-                                <h4 class="info-title">Any other questions we can answer?</h4>
-                                <p>We are happy to help you. Contact us.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
+
+
+
             </div>
         </div>
     </div>
