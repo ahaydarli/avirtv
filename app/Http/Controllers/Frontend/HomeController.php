@@ -86,9 +86,15 @@ class HomeController extends Controller
     public function pricing()
     {
         $tariffs = Tariff::all();
-        $faqs = Faq::limit(4)->get();
+        $faqs = Faq::inRandomOrder()->limit(4)->get();
+        $icons=[
+            ['icon_color'=>'info','icon_name'=>'card_membership'],
+            ['icon_color'=>'success','icon_name'=>'card_giftcard'],
+            ['icon_color'=>'success','icon_name'=>'attach_money'],
+            ['icon_color'=>'rose','icon_name'=>'question_answer'],
+        ];
 
-        return view('pricing', compact('tariffs', 'faqs'));
+        return view('pricing', compact('tariffs', 'faqs','icons'));
     }
 
     public function channels()

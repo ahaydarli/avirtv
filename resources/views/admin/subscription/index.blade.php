@@ -4,6 +4,7 @@
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
+                <input id="subscription-date" style="margin:  0 auto; display: block" type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
@@ -36,11 +37,11 @@
                         <tr>
                             <td>{{ $sub->id }}</td>
                             <td>{{ $sub->user->name }}</td>
-                            <td>{{ $sub->package->name }}</td>
+                            <td>{{ $sub->tariff->name }}</td>
                             <td>{{$sub->payment_status}}</td>
                             <td>{{$sub->status}}</td>
                             <td>{{$sub->account_number}}</td>
-                            <td>{{ $sub->created_at }}</td>
+                            <td class="created">{{ $sub->created_at->format('m/d/Y') }}</td>
                             <td>{{ $sub->updated_at }}</td>
 
                             <td>
@@ -64,3 +65,40 @@
     </div>
 
 @endsection
+
+@push('scripts')
+
+
+    <script>
+        $(function() {
+            $('input[name="daterange"]').daterangepicker({
+                opens: 'left'
+            }, function(start, end, label) {
+                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            });
+
+            $('body').on('click','.applyBtn',function () {
+               let value=$("#subscription-date").val();
+                var d1 = value.split("-");
+                var from=$.trim(d1[0]);
+                var to=$.trim(d1[1]);
+
+
+                from=new Date(from);
+                to=new Date(to);
+
+
+                $('.created').each(function() {
+                    var date=new Date($(this).text());
+                   if(from < date && date < to){
+
+                   }else{
+                       $(this).parent().hide();
+                   }
+                });
+
+
+            })
+        });
+    </script>
+    @endpush
