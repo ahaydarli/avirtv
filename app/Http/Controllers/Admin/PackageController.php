@@ -103,6 +103,14 @@ class PackageController extends Controller
      * @param  \App\Package  $package
      * @return \Illuminate\Http\Response
      */
+    public function activate(Request $request)
+    {
+        $package = Package::find($request->id);
+        $package->is_active = !$package->is_active;
+        $package->save();
+    }
+
+
     public function destroy(Package $package)
     {
         $package->delete();

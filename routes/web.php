@@ -69,6 +69,15 @@ Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function(
 
     Route::post('/change-pass/{id}','Admin\AdminController@changePass')->name('admin.change-pass');
     Route::post('/modal','Admin\UserController@modal')->name('admin.modal');
+
+    Route::post('/package/activate','Admin\PackageController@activate');
+    Route::post('/license/activate','Admin\LicenseController@activate');
+    Route::post('/article/activate','Admin\ArticleController@activate');
+    Route::post('/content/activate','Admin\ContentController@activate');
+
+
+
+
 });
 
 // Baku electronics panel

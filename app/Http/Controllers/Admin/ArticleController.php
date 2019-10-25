@@ -167,6 +167,15 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function activate(Request $request)
+    {
+        $article = Article::find($request->id);
+        $article->is_active = !$article->is_active;
+        $article->save();
+    }
+
+
     public function destroy(Article $article)
     {
         $image=$article->image;

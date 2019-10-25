@@ -15,9 +15,9 @@
                     <tr>
                         <th>Name</th>
                         <th>Price</th>
-                        <th>Is active</th>
                         <th>Ministra id</th>
                         <th>Created at</th>
+                        <th>Is active</th>
                         <th>Operations</th>
                     </tr>
                     </thead>
@@ -25,9 +25,9 @@
                     <tr>
                         <th>Name</th>
                         <th>Price</th>
-                        <th>Is active</th>
                         <th>Ministra id</th>
                         <th>Created at</th>
+                        <th>Is active</th>
                         <th>Operations</th>
                     </tr>
                     </tfoot>
@@ -36,15 +36,15 @@
                         <tr>
                         <td>{{ $package->name }}</td>
                         <td>{{ $package->price }}</td>
-                        <td>
-                            @if($package->is_active)
-                                Active
-                            @else
-                                Deactive
-                            @endif
-                        </td>
                         <td>{{ $package->ministra_id }}</td>
                         <td>{{ $package->created_at }}</td>
+                        <td class="activate" data-id="{{$package->id}}">
+                            @if($package->is_active)
+                                <button class="btn btn-outline-danger w-100">Deactivate</button>
+                            @else
+                                <button class="btn btn-outline-success w-100">Activate</button>
+                            @endif
+                        </td>
                         <td>
                             <form id="delete-form" action="{{ route('package.destroy', $package->id) }}" method="POST">
                                 @csrf
@@ -65,3 +65,30 @@
     </div>
 
 @endsection()
+
+@push('scripts')
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+        $('.activate').click(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            var id = $(this).data('id');
+            $.ajax({
+                type:"POST",
+                data: { 'id' : id  },
+                url:'package/activate',
+                success:function(data){
+                    location.reload();
+                }
+            })
+        });
+        });
+
+    </script>
+
+
+    @endpush
