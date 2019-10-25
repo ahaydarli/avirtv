@@ -76,9 +76,6 @@ Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function(
     Route::post('/article/activate','Admin\ArticleController@activate');
     Route::post('/content/activate','Admin\ContentController@activate');
 
-
-
-
 });
 
 // Baku electronics panel
@@ -86,18 +83,17 @@ Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function(
 Route::middleware(['auth:admin','checkBe'])->prefix('be')->group(function() {
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('be.logout');
     Route::get("/", 'Be\HomeController@index')->name('be.home');
-    Route::get('/license-keys', 'Be\HomeController@licenseKeys')->name('license.keys');
 });
+
 Route::middleware(['auth:admin','checkBe'])->prefix('be')->name('be.')->group(function() {
     Route::post('/logout', 'Auth\AdminLoginController@logout')->name('logout');
     Route::get("/", 'Be\HomeController@index')->name('home');
     Route::get('/license-keys', 'Be\HomeController@licenseKeys')->name('license-keys');
     Route::Resource('customers', 'Be\CustomerController');
     Route::post('customers/detail', 'Be\CustomerController@detail')->name('customers.detail');
+    Route::post('customers/get-packages', 'Be\CustomerController@getPackages')->name('customers.get-packages');
     Route::post('print', 'Be\CustomerController@print')->name('customers.print');;
 });
-Route::get('/be/register','Be\HomeController@register')->name('be.register');
 
 Route::post("/send-message",'Frontend\HomeController@sendMessage')->name('frontend.sendMessage');
-Route::post("/be/register-user",'Be\HomeController@registerUser')->name('be.register-user');
 Route::post('/read-all','Admin\AdminController@readAllMessages');

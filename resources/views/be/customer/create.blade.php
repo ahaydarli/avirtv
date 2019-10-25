@@ -53,17 +53,20 @@
                     </div>
 
                     <div class="form-group">
-                        <select name="tariff_id" id="be-tariff-plan" class="form-control">
-                            <option>Select tariff plan</option>
+                        <select name="tariff_id" id="be-tariff-plan" class="form-control @error('tariff_id') is-invalid @enderror">
+                            <option value="">Select tariff plan</option>
                             @foreach($tariffs as $tariff)
-                                <option value="{{ $tariff->ministra_id }}">{{ $tariff->name }}</option>
+                                <option data-type="{{ $tariff->type }}" value="{{ $tariff->id }}">{{ $tariff->name }}</option>
                             @endforeach
                         </select>
-                        @error('package_id')
+                        @error('tariff_id')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
+                    </div>
+                    <div class="form-group" id="be-package">
+
                     </div>
                     <div class="form-group">
                         <select name="device" id="" class="form-control device">
@@ -98,9 +101,29 @@
             </div>
         </div>
     </div>
-
-
-
-
-
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            $("#be-tariff-plan").change(function(){
+                let type = $(this).find(':selected').data('type');
+                let tariff_id = $(this).val();
+                let package_div =$('#be-package');
+                if (type === 1){
+                    $.ajax({
+                        'url':'{{route('be.customers.get-packages')}}',
+                        'data':{'_token':'{{ csrf_token() }}', 'tariff_id':tariff_id},
+                        'type':'post',
+                        'success':function (data) {
+                            package_div.show();
+                            package_div.html(data)
+                        }
+                    })
+                }
+                else {
+                    $('#be-package').hide();
+                }
+            });
+        });
+    </script>
+@endpush

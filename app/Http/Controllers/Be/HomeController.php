@@ -29,12 +29,6 @@ class HomeController extends Controller
         return view('be.index', compact('users', 'montly_user_count','daily_user_count'));
     }
 
-    public function licenseKeys()
-    {
-        $licenses = License::all();
-        return view('be.license-keys', compact('licenses'));
-    }
-
 
     public function register()
     {
