@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Period;
 use App\Subscription;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Tariff;
 
 
 class SubscriptionController extends Controller
@@ -17,37 +17,43 @@ class SubscriptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $periods=Period::all();
-        if (collect(request()->all())->filter()->count() >= 2) {
-            $subscriptions = $this->filter(new Subscription());
-        } else {
-            $subscriptions = Subscription::all();
+        $subscriptions = new Subscription();
+
+        if ($request->filter) {
+            $subscriptions = $this->filter($request, $subscriptions);
         }
-        return view('admin.subscription.index', compact('subscriptions','periods'));
+        else {
+            $subscriptions = $subscriptions->get();
+        }
+        $tariff = Tariff::all();
+        return view('admin.subscription.index', compact('subscriptions', 'tariff'));
     }
 
-
-    public function filter($subscription)
+    public function filter(Request $request, $subscriptions)
     {
+//        dd($request->get('payment_status'));
+        if($request->get('payment_status') != null) {
 
-        if (request()->payment_status != 3 && request()->payment_status != '') {
-            $subscription = $subscription->where('payment_status', '=', (request()->input('payment_status') - 1));
+            $subscriptions = $subscriptions->where('payment_status', $request->payment_status);
         }
+        if($request->get('status') != null) {
 
-        if (request()->status != 3 && request()->status != '') {
-            $subscription = $subscription->where('status', '=', (request()->input('status') - 1));
+            $subscriptions = $subscriptions->where('status', $request->status);
         }
-        if (request()->from != '' && request()->to != '') {
-
+        if ($request->get('tariff_id') != null) {
+            $subscriptions = $subscriptions->where('tariff_id', $request->tariff_id);
+        }
+        if ($request->get('device') != null) {
+            $subscriptions = $subscriptions->where('device', $request->device);
+        }
+        if ($request->from != '' && $request->to != '') {
             $from = date('Y-m-d', strtotime(\request()->from));
             $to = date('Y-m-d', strtotime(\request()->to));
-            $subscription = $subscription->where('created_at', '>', $from)->where('created_at', '<', $to);
+            $subscriptions = $subscriptions->whereBetween('created_at', [$from, $to]);
         }
-
-
-        return $subscription->get();
+        return $subscriptions->get();
     }
 
 

@@ -4,26 +4,77 @@
     <div class="card shadow mb-4">
         <div class="card-body">
 
-            <form action="" method="get" style="text-align: center;">
+            <form action="" method="get" >
 
-                <input type="text" name="from" class="subscription_date" autocomplete="off"
-                       value=" @if(request()->from) {{ request()->from }} @endif">
+                <input type="hidden" name="filter" value="1">
+                <div class="form-row">
+                    <div class="form-group col-md-2 ">
+                        <label for="from" class="col-sm-12">From</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="from" name="from" class="subscription_date form-control" autocomplete="off"
+                                    @if(request()->from) value=" {{ request()->from }} " @endif placeholder="From Date">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="to" class="col-sm-12">To</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="to" id="to" class="subscription_date form-control" autocomplete="off"
+                                    @if(request()->to) value=" {{ request()->to }}" @endif  placeholder="To Date">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2 ">
+                        <label for="inputEmail3" class="col-sm-12">Payment Status</label>
+                        <div class="col-sm-9">
+                            <select name="payment_status" class="form-control">
+                                <option  value="" >Sec</option>
+                                <option @if(request()->payment_status!='' and  request()->payment_status==0) selected  @endif value="0">Odenilmeyib</option>
+                                <option @if(request()->payment_status!='' and request()->payment_status==1) selected  @endif value="1">Odenilib</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail3" class="col-sm-12">Status</label>
+                        <div class="col-md-10 col-sm-9">
+                            <select name="status" class="form-control">
+                                <option value="">Sec</option>
+                                <option @if(request()->status!='' and  request()->status==0) selected  @endif value="0">Aktiv Deyil</option>
+                                <option @if(request()->status!='' and request()->status==1) selected  @endif  value="1">Aktivdir</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail3" class="col-sm-12">Tariff</label>
+                        <div class="col-sm-9">
 
-                <input type="text" name="to" class="subscription_date" autocomplete="off"
-                       value=" @if(request()->to) {{ request()->to }} @endif ">
-                <select name="payment_status" style="padding: 1.5px;">
-                    <option value="3">Sec</option>
-                    <option value="2" @if(request()->get('payment_status')==2) selected @endif>Ödənilib</option>
-                    <option value="1" @if(request()->has('payment_status') and request()->get('payment_status')==1) selected @endif>Ödənilməyib</option>
-                </select>
-                <select name="status" style="padding: 1.5px;">
-                    <option value="3">Sec</option>
-                    <option value="2" @if(request()->get('status')==2) selected @endif>Aktiv</option>
-                    <option value="1" @if(request()->get('status')==1) selected @endif>Deaktiv</option>
-                </select>
+                            <select name="tariff_id" class="form-control">
+                                <option value="">Sec</option>
+                                @foreach($tariff as $t)
+                                    <option @if( request()->tariff_id and $t->id==request()->tariff_id)  selected @endif value="{{ $t->id }}"> {{ $t->name }}</option>
+                                @endforeach
+                            </select>
 
-                <input type="hidden" name="filter" value="filter">
-                <input type="submit" class="btn btn-secondary btn-sm">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail3" class="col-sm-12">Device</label>
+                        <div class="col-sm-9 col-md-12">
+                            <select name="device" class="form-control ">
+                                <option value="">Sec</option>
+                                <option @if(request()->device!='' and  request()->device==0) selected  @endif value="0">TV, Smartphones</option>
+                                <option @if(request()->device!='' and request()->device==1) selected  @endif  value="1">MAG devices</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center">
+                    <input type="submit" class="btn btn-success" style="margin-right: 100px;">
+                </div>
+
+
+
+
+
             </form>
 
 
@@ -92,9 +143,17 @@
 
 
     <script>
+
+
+
+
         $(function () {
 
+            $('#to').attr("placeholder","To Date");
+            $('#from').attr("placeholder","From Date");
+
             $('.subscription_date').datepicker();
+
 
         });
     </script>
