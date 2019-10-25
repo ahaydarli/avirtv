@@ -16,10 +16,10 @@
                         <th>License</th>
                         <th>User</th>
                         <th>Created by</th>
-                        <th>Is active</th>
                         <th>Status</th>
                         <th>Created at</th>
                         <th>Updated at</th>
+                        <th>Is active</th>
                         <th>Operations</th>
                     </tr>
                     </thead>
@@ -29,10 +29,10 @@
                         <th>License</th>
                         <th>User</th>
                         <th>Created by</th>
-                        <th>Is active</th>
                         <th>Status</th>
                         <th>Created at</th>
                         <th>Updated at</th>
+                        <th>Is active</th>
                         <th>Operations</th>
                     </tr>
                     </tfoot>
@@ -49,13 +49,13 @@
                             <td>
                                 {{$license->created_by}}
                             </td>
-                            <td>
-                                @if($license->is_active)
-                                    Active
-                                @else
-                                    Deactive
-                                @endif
-                            </td>
+{{--                            <td>--}}
+{{--                                @if($license->is_active)--}}
+{{--                                    Active--}}
+{{--                                @else--}}
+{{--                                    Deactive--}}
+{{--                                @endif--}}
+{{--                            </td>--}}
                             <td>
                                 @if($license->status)
                                     Unavailable
@@ -65,6 +65,13 @@
                             </td>
                             <td>{{ $license->created_at }}</td>
                             <td>{{ $license->updated_at }}</td>
+                            <td class="activate" data-id="{{$license->id}}">
+                                @if($license->is_active)
+                                    <button class="btn btn-outline-danger w-100">Deactivate</button>
+                                @else
+                                    <button class="btn btn-outline-success w-100">Activate</button>
+                                @endif
+                            </td>
                             <td>
 
                                 <form id="delete-form" action="{{ route('license.destroy', $license->id) }}" method="POST">
@@ -86,3 +93,30 @@
     </div>
 
 @endsection
+
+@push('scripts')
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.activate').click(function () {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                var id = $(this).data('id');
+                $.ajax({
+                    type:"POST",
+                    data: { 'id' : id  },
+                    url:'license/activate',
+                    success:function(data){
+                        location.reload();
+                    }
+                })
+            });
+        });
+
+    </script>
+
+
+@endpush

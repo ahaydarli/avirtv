@@ -113,6 +113,13 @@ class ContentController extends Controller
             ->with('success', 'Content successfully updated');
     }
 
+    public function activate(Request $request)
+    {
+        $content = Content::find($request->id);
+        $content->is_active = !$content->is_active;
+        $content->save();
+    }
+
     /**
      * Remove the specified resource from storage.
      *

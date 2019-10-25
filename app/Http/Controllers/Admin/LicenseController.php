@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\License;
+use App\Package;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -87,6 +88,13 @@ class LicenseController extends Controller
      */
     public function update(Request $request, License $license)
     {
+    }
+
+    public function activate(Request $request)
+    {
+        $license = License::find($request->id);
+        $license->is_active = !$license->is_active;
+        $license->save();
     }
 
     /**

@@ -19,9 +19,9 @@
                         <th>Subtitle</th>
 {{--                        <th>Text</th>--}}
                         <th>Image</th>
-                        <th>Is active</th>
                         <th>Created at</th>
                         <th>Updated at</th>
+                        <th>Is active</th>
                         <th>Operations</th>
                     </tr>
                     </thead>
@@ -33,9 +33,9 @@
                         <th>Subtitle</th>
 {{--                        <th>Text</th>--}}
                         <th>Image</th>
-                        <th>Is active</th>
                         <th>Created at</th>
                         <th>Updated at</th>
+                        <th>Is active</th>
                         <th>Operations</th>
                     </tr>
                     </tfoot>
@@ -50,15 +50,16 @@
                             <td>{{ $article->subtitle }}</td>
 {{--                            <td> {{ mb_substr( $article->text,0,100,'utf-8') }} @if(strlen($article->text)>100) ... @endif </td>--}}
                             <td><img style="width: 100px; height: 100px;" src="{{ asset('uploads/article').'/'.$article->image }}"></td>
-                            <td>
-                                @if($article->is_active)
-                                    Active
-                                    @else
-                                    Deactive
-                                @endif
-                            </td>
                             <td>{{ $article->created_at }}</td>
                             <td>{{ $article->updated_at }}</td>
+
+                            <td class="activate" data-id="{{$article->id}}">
+                                @if($article->is_active)
+                                    <button class="btn btn-outline-danger w-100 ">Deactivate</button>
+                                @else
+                                    <button class="btn btn-outline-success w-100">Activate</button>
+                                @endif
+                            </td>
                             <td>
 
                                 <form id="delete-form" action="{{ route('article.destroy', $article->id) }}" method="POST">
@@ -83,3 +84,30 @@
     </div>
 
 @endsection
+
+@push('scripts')
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.activate').click(function () {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                var id = $(this).data('id');
+                $.ajax({
+                    type:"POST",
+                    data: { 'id' : id  },
+                    url:'article/activate',
+                    success:function(data){
+                        location.reload();
+                    }
+                })
+            });
+        });
+
+    </script>
+
+
+@endpush

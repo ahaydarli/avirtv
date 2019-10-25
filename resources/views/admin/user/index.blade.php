@@ -37,7 +37,13 @@
                             <td>{{ $user->id }}</td>
                             <td><a id="{{ $user->id }}" class="a_modal" href="#" data-toggle="modal" data-target="#exampleModal">{{ $user->name }}</a></td>
                             <td>{{$user->email}}</td>
-                            <td>{{ $user->phone }}</td>
+                            <td>
+                                @if(isset($user->phone))
+                                {{ $user->phone }}
+                                    @else
+                                <span class="text-danger">Yoxdur</span>
+                                    @endif
+                            </td>
 
                             <td>{{$user->account_number}}</td>
                             <td>{{ $user->created_at }}</td>
@@ -84,7 +90,7 @@
             </div>
         </div>
     </div>
-    
+
     @push('scripts')
         <script>
             $(function () {
