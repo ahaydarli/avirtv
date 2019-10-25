@@ -1,6 +1,6 @@
 @extends("layout")
 @section('page', 'about-us')
-@section('title', 'Avirnet Faq')
+@section('title', __('site.faq'))
 @section('content')
 
     <div class="page-header header-filter header-small" data-parallax="true" style="background-image: url('/img/faq.jpg');">

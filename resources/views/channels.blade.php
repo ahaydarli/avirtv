@@ -1,6 +1,6 @@
 @extends("layout")
 @section('page', 'profile-page')
-@section('title', __('Channels'))
+@section('title', __('site.channels'))
 @section('content')
     <div class="page-header header-filter" data-parallax="true" style="background-image: url('/img/city-profile.jpg');">
         <div class="container">

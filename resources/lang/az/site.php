@@ -3,7 +3,7 @@
 return [
     //header menu
 
-    'home'=>'Home',
+    'home'=>'Ana Səhifə',
     'about_us'=>'Haqqımızda',
     'pricing'=>'Paketlər',
     'faq'=>'FAQ',
@@ -78,10 +78,11 @@ return [
     'add'=>'Yeni Servis Əlavə Et',
     'package'=>'Paket',
     'payment_date'=>'Ödəniş vaxtı',
-    'payment_status'=>'Ödəniş Tarixi',
+    'payment_status'=>'Ödəniş Statusu',
     'price'=>'Qiymət',
     'period'=>'Period',
     'payed'=>'Ödənildi',
+    'not-payed'=> 'ÖDƏNİLMƏYİB',
     'actions'=>'Əməliyyatlar',
     'change_password'=>'Şifrəni Dəyiş',
     'current_password'=>'Əvvəlki şifrə',
@@ -91,7 +92,28 @@ return [
      'profile'=>'Profil',
     'logout'=>'Çıxış',
 
-
+    'pay' => 'Ödəyin',
+    'total' => 'Ümumi',
+    'subtotal' => 'Cəmi',
+    'month' => 'Ay',
+    'product' => 'Məhsul',
+    'receipt' => 'Qəbz',
+    'date' => 'Tarix',
+    'select-package' => 'Paket seçin',
+    'view-details' => 'Detallara baxın',
+    'close' => 'Bağla',
+    'checkout' => 'Yoxla',
+    'default-package' => 'Ilkin paket',
+    'Select custom package' => 'Uyğun paketi seçin' ,
+    'payment' => 'Ödəniş',
+    'Selected packages' => 'Seçilmiş paketlər',
+    'Choose period' => 'Müddət seçin' ,
+    'Choose device' => 'Cihazı seçin',
+    'Your packages' => 'Paketləriniz',
+    'devices' => 'Cihazlar',
+    "Tv's, smartphones etc" => "Televizorlar, smartfonlar və s",
+    'other' => 'Digər',
+    'article' => 'Məqalə',
 
 
 
@@ -99,8 +121,6 @@ return [
     'subscribe'=>'Abunə olun',
 
 
-    //channels
-    'channels'=>'Tv Kanallar'
 
 
 ];

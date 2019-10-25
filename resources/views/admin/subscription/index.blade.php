@@ -1,6 +1,11 @@
 @extends("admin.layout")
 @section('title', 'Subscriptions')
 @section('content')
+    <style>
+        td,tr,th{
+            text-align: center;
+        }
+    </style>
     <div class="card shadow mb-4">
         <div class="card-body">
 
@@ -61,7 +66,20 @@
                             <td>{{ $sub->id }}</td>
                             <td>{{ $sub->user->name }}</td>
                             <td>{{ $sub->tariff->name }}</td>
-                            <td>{{ $sub->payment_status}}</td>
+                            <td>
+                                @if($sub->payment_status)
+                                    Paid
+                                @else
+                                    Not paid
+                                @endif
+                            </td>
+                            <td>
+                                @if($sub->status)
+                                    Active
+                                @else
+                                    Deactive
+                                @endif
+                            </td>
                             <td>{{ $sub->status }}</td>
                             <td>{{ $sub->account_number }}</td>
                             <td class="created">{{ $sub->created_at->format('m/d/Y') }}</td>

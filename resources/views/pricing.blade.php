@@ -1,6 +1,6 @@
 @extends('layout')
 @section('page', 'pricing')
-@section('title', 'Avirnet Pricing')
+@section('title', __('site.pricing'))
 @section('content')
     <div class="page-header header-filter header-small" data-parallax="true" style="background-image: url('/img/pricing.jpg');">
         <div class="container">
@@ -14,18 +14,18 @@
     <div class="main main-raised">
         <div class="container">
             <div class="pricing-2">
-                <div class="row">
-                    <div class="col-md-6 ml-auto mr-auto text-center">
-                        <ul class="nav nav-pills nav-pills-danger">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#pill1" data-toggle="tab">@lang('site.monthly')</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#pill2" data-toggle="tab">@lang('site.yearly')</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+{{--                <div class="row">--}}
+{{--                    <div class="col-md-6 ml-auto mr-auto text-center">--}}
+{{--                        <ul class="nav nav-pills nav-pills-danger">--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link active" href="#pill1" data-toggle="tab">@lang('site.monthly')</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a class="nav-link" href="#pill2" data-toggle="tab">@lang('site.yearly')</a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div class="row">
                     @foreach($tariffs as $tariff)
                         <div class="col-lg-3 col-md-3">
@@ -40,9 +40,9 @@
                                         {{ $tariff->detail }}
                                     </p>
                                     @if($tariff->type == 1)
-                                        <a href="{{ route('frontend.select-package', $tariff->id) }}" class="btn btn-danger btn-round">{{ __('Chose plan') }}</a>
+                                        <a href="{{ route('frontend.select-package', $tariff->id) }}" class="btn btn-danger btn-round">{{ __('site.choose_plan') }}</a>
                                     @else
-                                        <a href="{{ route('order.subscribe', $tariff->id) }}" class="btn btn-danger btn-round">{{ __('Chose plan') }}</a>
+                                        <a href="{{ route('order.subscribe', $tariff->id) }}" class="btn btn-danger btn-round">{{ __('site.choose_plan') }}</a>
                                     @endif
                                 </div>
                             </div>

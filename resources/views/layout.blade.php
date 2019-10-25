@@ -164,11 +164,11 @@
                         {{ __('site.pricing') }}
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('frontend.index') }}">
-                        {{ __('site.blog') }}
-                    </a>
-                </li>
+{{--                <li>--}}
+{{--                    <a href="{{ route('frontend.index') }}">--}}
+{{--                        {{ __('site.blog') }}--}}
+{{--                    </a>--}}
+{{--                </li>--}}
             </ul>
         </nav>
         <div class="copyright float-right">
