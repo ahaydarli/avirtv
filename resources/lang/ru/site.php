@@ -79,6 +79,8 @@ return [
     'price'=>'цена',
     'period'=>'период',
     'payed'=>'оплаченный',
+    'not-payed'=> 'НЕ ОПЛАЧЕН',
+
     'actions'=>'действия',
 
     'change_password'=>'сменить пароль',
@@ -88,7 +90,45 @@ return [
     "change"=>"Изменить",
     'profile'=>'Профиль',
     'logout'=>'Bыйти',
+    'pay' => 'платить',
+    'total' => 'Общее количество',
+    'subtotal' => 'Промежуточный итог',
+    'month' => 'Месяц',
+    'product' => 'Продукт',
+    'receipt' => 'Чек',
+    'date' => 'Свидание',
+    'select-package' => 'Выберите пакет',
+    'view-details' => 'Посмотреть детали',
+    'close' => 'близко',
+    'checkout' => 'Kонтроль',
+    'default-package' => 'Пакет по умолчанию',
+    'Select custom package' => 'Выберите пользовательский пакет' ,
+    'payment' => 'Оплата',
+    'Selected packages' => 'Выбранные пакеты',
+    'Choose period' => 'Выберите период' ,
+    'Choose device' => 'Выберите устройство',
+    'Your packages' => 'Ваши пакеты',
+    'devices' => 'приборы',
+    "Tv's, smartphones etc" => "Телевизоры, смартфоны и т. Д.",
+    'other' => 'Другие',
+    'article' => 'Статья',
 
-    'channels'=>'Каналы'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ];

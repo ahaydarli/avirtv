@@ -1,12 +1,15 @@
 @extends("admin.layout")
 @section('title', 'Contact')
 @section('content')
+
     <div class="card shadow mb-4">
 {{--        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">--}}
 {{--            <h6 class="m-0 font-weight-bold text-primary">Faq table</h6>--}}
 {{--            <a href="{{ route('contact.create') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">--}}
 {{--                <i class="fas fa-plus text-white-50"></i> Add new</a>--}}
 {{--        </div>--}}
+
+
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

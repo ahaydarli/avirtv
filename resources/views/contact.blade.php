@@ -1,6 +1,6 @@
 @extends('layout')
 @section('page', 'contact-page')
-@section('title', 'Avirnet Contact')
+@section('title', __('site.contact_us'))
 @section('content')
     <div id="contactUsMap" class="big-map"></div>
     <div class="main main-raised">
