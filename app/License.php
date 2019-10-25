@@ -10,7 +10,7 @@ class License extends Model
 
     protected $table= 'license' ;
     protected $fillable = [
-        'license','user_id','is_active', 'status'
+        'license','user_id','is_active', 'status', 'subscribe_id'
     ];
 
     public $timestamps=true;

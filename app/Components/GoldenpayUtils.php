@@ -31,7 +31,7 @@ class GoldenpayUtils
             $stub = new Goldenpay();
             $resp = $stub->getPaymentKeyJSONRequest($amount, $lang, $card_type, $description);
             if ($resp->paymentKey) {
-                header('Location: ' . $resp->urlRedirect);
+                return $resp;
             }
         }
         else{
