@@ -45,4 +45,9 @@ class Subscription extends Model
         return $this->hasOne(Tariff::class, 'id', 'tariff_id');
     }
 
+    public function license()
+    {
+        return $this->hasOne(License::class, 'subscribe_id', 'id');
+    }
+
 }

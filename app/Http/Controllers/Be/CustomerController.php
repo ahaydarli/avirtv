@@ -106,7 +106,7 @@ class CustomerController extends Controller
             if ($subscription->device == 0) {
                 $license = License::get()->first();
             }
-            $expire_date = date_format(Carbon::now()->addMonth(12), 'Y-m-d H:i:s');
+            $expire_date = date_format(Carbon::now()->addMonth($subscription->period->month), 'Y-m-d H:i:s');
             $servicePayload = [
                 'password' => $subscription->account_number,
                 'full_name' => $subscription->user->name,

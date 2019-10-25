@@ -95,12 +95,16 @@
                                                                <div class="ripple-container"></div>
                                                            </button>
                                                        @else
-                                                           <a href="#" class="btn btn-success btn-sm" rel="tooltip"
-                                                                   data-original-title="{{ __('Pay') }}" title="{{ __('Pay') }}">
-                                                               <i class="material-icons">payment</i>
-                                                               {{ __('Pay') }}
-                                                               <div class="ripple-container"></div>
-                                                           </a>
+                                                           <form action="{{ route('order.payment', $order->id) }}" method="POST">
+                                                               @csrf
+                                                               <button type="submit" class="btn btn-success btn-sm" rel="tooltip"
+                                                                  data-original-title="{{ __('Pay') }}" title="{{ __('Pay') }}">
+                                                                   <i class="material-icons">payment</i>
+                                                                   {{ __('Pay') }}
+                                                                   <div class="ripple-container"></div>
+                                                               </button>
+                                                           </form>
+
                                                        @endif
                                                    </td>
                                                </tr>

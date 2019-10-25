@@ -48,18 +48,30 @@ class OrderController extends Controller
             'status' => 0,
         ];
         $subscription = Subscription::create($payload);
+        return $this->paymentPage($subscription->id);
+    }
+
+    public function paymentPage($subscription_id)
+    {
+        $subscription = Subscription::findOrFail($subscription_id);
+        return view('frontend.order.payment', compact('subscription'));
+    }
+
+    public function pay($subscription_id)
+    {
+        $subscription = Subscription::findOrFail($subscription_id);
         return $this->payOrder($subscription);
     }
 
     protected function payOrder(Subscription $subscription)
     {
         // there is will be redirecting to Goldenpay
-//        $price = $order->package->price*100*$order->period;
+//        $price = $subscription->amount;
 //        $card_type = 'v';
-//        $payment = GoldenpayUtils::pay($price, $card_type, $order->id);
+//        $payment = GoldenpayUtils::pay($price, $card_type, $subscription->id);
 //        dd($payment);
-        $subscription =  $this->paymentResult($subscription->id);
-        if ($subscription){
+        $payment =  $this->paymentResult($subscription->id);
+        if ($payment){
             return redirect()->route('profile');
         }
     }
@@ -69,8 +81,9 @@ class OrderController extends Controller
         // there is will be post id from Goldepay
         $subscription = Subscription::findOrFail($subscription_id);
         if ($subscription->device == 0) {
-            $license = License::free()->get()->first();
+            $license = License::get()->first();
         }
+        $expire_date = date_format(Carbon::now()->addMonth($subscription->month->month), 'Y-m-d H:i:s');
         $client = new MinistraClient();
         $payload = [
             'password' => $subscription->account_number,
@@ -82,6 +95,7 @@ class OrderController extends Controller
             'stb_mac' => $subscription->mac_address,
             'status' => 1,
             'license' => $subscription->device == 0 ? $license->license : '',
+            'end_date' => $expire_date,
         ];
 
         $result = $client->postData('accounts', $payload);
@@ -89,9 +103,12 @@ class OrderController extends Controller
             $subscription->payment_status = 1;
             $subscription->status = 1;
             $subscription->save();
-            $license->status = 1;
-            $license->user_id = $subscription->user->id;
-            $license->save();
+            if ($subscription->device == 0) {
+                $license->status = 1;
+                $license->subscribe_id = $subscription->id;
+                $license->user_id = $subscription->user->id;
+                $license->save();
+            }
             $service = Service::create($payload);
             $paymentPayload = [
                 'user_id' => $subscription->id,
@@ -109,10 +126,6 @@ class OrderController extends Controller
         return False;
     }
 
-    public function pay($subscription_id)
-    {
-        $subscription = findOrFail($subscription_id);
-    }
 
     public function selectPackage($tariff_id)
     {
@@ -154,7 +167,7 @@ class OrderController extends Controller
             ];
             $subscription = Subscription::create($payload);
 
-            return dd($subscription);
+            return $this->paymentPage($subscription->id);
         }
 
         return redirect()->route('frontend.select-package', $tariff_id)->with('error', "Something went't wrong. Please try again");
