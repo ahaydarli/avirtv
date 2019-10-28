@@ -73,7 +73,7 @@
                 </div>
 
                 <div style="text-align: center">
-                    <input type="submit" class="btn btn-success" style="margin-right: 100px;">
+                    <input type="submit" class="btn btn-success" style="margin-right: 100px;" value="Search">
                 </div>
 
 
@@ -131,7 +131,6 @@
                                     Deactive
                                 @endif
                             </td>
-                            <td>{{ $sub->status }}</td>
                             <td>{{ $sub->account_number }}</td>
                             <td class="created">{{ $sub->created_at->format('m/d/Y') }}</td>
                             <td>
