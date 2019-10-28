@@ -41,9 +41,9 @@
                     @foreach ($periods as $period)
                         <tr>
                             <td>{{ $period->id }}</td>
-                            <td>{{ $period->month }}</td>
+                            <td>{{ $period->month }} months</td>
                             <td>{{ $period->type }}</td>
-                            <td> {{ $period->discount }}</td>
+                            <td> {{ $period->discount }} percent</td>
                             <td>{{ $period->created_at }}</td>
                             <td>{{ $period->updated_at }}</td>
                             <td>

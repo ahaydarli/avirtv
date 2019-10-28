@@ -48,7 +48,13 @@
 
                     <tr>
                         <th>Status</th>
-                        <td>{{$payment->status}}</td>
+                        <td>
+                            @if($payment->status)
+                                Active
+                            @else
+                                Deactive
+                            @endif
+                        </td>
                     </tr>
 
                     <tr>

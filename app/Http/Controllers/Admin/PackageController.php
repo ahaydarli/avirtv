@@ -18,7 +18,14 @@ class PackageController extends Controller
     public function index()
     {
         $packages = Package::all();
-        return view('admin.package.index', compact('packages'));
+        $ministra = new MinistraClient();
+        $ministras = $ministra->getData('services_package')->results;
+//        foreach ($ministras as $min) {
+//            echo $min->name;
+//            echo '<br>';
+//        }
+
+        return view('admin.package.index', compact('packages','ministras'));
     }
 
     /**

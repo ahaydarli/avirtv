@@ -44,28 +44,28 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Payment Status</label>
                                 <div class="col-sm-9">
-                                    <input id="payment" type="text" class="form-control" value="{{$subscription->payment_status}}"readonly>
+                                    <input id="payment" type="text" class="form-control" value="@if($subscription->payment_status) Paid @else Not Paid @endif" readonly>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Status</label>
                                 <div class="col-sm-9">
-                                    <input id="status" type="text" class="form-control" value="{{$subscription->status}}"readonly>
+                                    <input id="status" type="text" class="form-control" value="@if($subscription->status) Active @else Deactive @endif" readonly>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Device</label>
                                 <div class="col-sm-9">
-                                    <input id="device" type="text" class="form-control" value="{{$subscription->device}}"readonly>
+                                    <input id="device" type="text" class="form-control" value="@if($subscription->device) MAG @else Tv, Smartphones etc @endif"readonly>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Period</label>
                                 <div class="col-sm-9">
-                                    <input id="period" type="text" class="form-control" value="{{$subscription->period}}"readonly>
+                                    <input id="period" type="text" class="form-control" value="{{$subscription->period}} months" readonly>
                                 </div>
                             </div>
 

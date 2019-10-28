@@ -36,7 +36,14 @@
                         <tr>
                         <td>{{ $package->name }}</td>
                         <td>{{ $package->price }}</td>
-                        <td>{{ $package->ministra_id }}</td>
+                        <td>
+                            @foreach($ministras as $min_package)
+                                @if($package->ministra_id == $min_package->id)
+                                    {{$min_package->name}}
+                                    @break
+                                @endif
+                            @endforeach
+                        </td>
                         <td>{{ $package->created_at }}</td>
                         <td class="activate" data-id="{{$package->id}}">
                             @if($package->is_active)
