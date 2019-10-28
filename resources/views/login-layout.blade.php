@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/apple-icon.png')}}">
+    <link rel="icon" type="image/png" href="{{asset('img/favicon.png')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         @yield('title')
@@ -39,7 +39,7 @@
     <!-- CSS Files -->
     <link href="{{ asset('css/material-kit.min1036.css?v=2.1.1') }}" rel="stylesheet" />
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/custom.css') }}demo/demo.css" rel="stylesheet" />
+    <link href="{{ asset('demo/demo.css') }}" rel="stylesheet" />
     <link href="{{ asset('demo/vertical-nav.css') }}" rel="stylesheet" />
 </head>
 
@@ -120,34 +120,34 @@
 <script src="{{ asset('js/core/jquery.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/core/popper.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/core/bootstrap-material-design.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/js/plugins/moment.min.js') }}"></script>
+<script src="{{ asset('js/plugins/moment.min.js') }}"></script>
 <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-<script src="{{ asset('assets/js/plugins/bootstrap-datetimepicker.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/plugins/bootstrap-datetimepicker.js') }}" type="text/javascript"></script>
 <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="{{ asset('assets/js/plugins/nouislider.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/plugins/nouislider.min.js') }}" type="text/javascript"></script>
 <!--  Google Maps Plugin    -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGat1sgDZ-3y6fFe6HD7QUziVC6jlJNog"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="{{ asset('https://buttons.github.io/buttons.js') }}"></script>
 <!--	Plugin for Sharrre btn -->
-<script src="{{ asset('assets/js/plugins/jquery.sharrre.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/plugins/jquery.sharrre.js') }}" type="text/javascript"></script>
 <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-<script src="{{ asset('assets/js/plugins/bootstrap-tagsinput.js') }}"></script>
+<script src="{{ asset('js/plugins/bootstrap-tagsinput.js') }}"></script>
 <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-<script src="{{ asset('assets/js/plugins/bootstrap-selectpicker.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/plugins/bootstrap-selectpicker.js') }}" type="text/javascript"></script>
 <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="{{ asset('assets/js/plugins/jasny-bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/plugins/jasny-bootstrap.min.js') }}" type="text/javascript"></script>
 <!--	Plugin for Small Gallery in Product Page -->
-<script src="{{ asset('assets/js/plugins/jquery.flexisel.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/plugins/jquery.flexisel.js') }}" type="text/javascript"></script>
 <!-- Plugins for presentation and navigation  -->
-<script src="{{ asset('assets/demo/modernizr.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/demo/vertical-nav.js') }}" type="text/javascript"></script>
+<script src="{{ asset('demo/modernizr.js') }}" type="text/javascript"></script>
+<script src="{{ asset('demo/vertical-nav.js') }}" type="text/javascript"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="{{ asset('assets/demo/vertical-nav.js') }}"></script>
+<script async defer src="{{ asset('demo/vertical-nav.js') }}"></script>
 <!-- Js With initialisations For Demo Purpose, Don't Include it in Your Project -->
-<script src="{{ asset('assets/demo/demo.js') }}" type="text/javascript"></script>
+<script src="{{ asset('demo/demo.js') }}" type="text/javascript"></script>
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-<script src="{{ asset('assets/js/material-kit.min1036.js?v=2.1.1') }}" type="text/javascript"></script>
+<script src="{{ asset('js/material-kit.min1036.js?v=2.1.1') }}" type="text/javascript"></script>
 
 <script>
     $(document).ready(function() {

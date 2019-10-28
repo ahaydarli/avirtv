@@ -115,7 +115,14 @@ return [
     'other' => 'Другие',
     'article' => 'Статья',
 
-
+    'register'=>'Регистр',
+    'register name'=>'Имя',
+    'register email'=>'Электронная почта ',
+    'register password'=>'Пароль',
+    'register confirm'=>'Подтвердить Пароль',
+    'register agree'=>'Я принимаю условия  ',
+    'register more'=>'пользовательского соглашения',
+    'register button'=>'Регистр',
 
 
 
