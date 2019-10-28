@@ -97,20 +97,20 @@
                         <i class="material-icons">contactless</i> @lang('site.contact_us')
                     </a>
                 </li>
-                <li class="dropdown nav-item">
-                    <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
-                        <i class="material-icons">language</i>
-                        <b class="caret"></b>
-                        <div class="ripple-container"></div>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        @foreach($languages as $language)
-                            <a href="{{ route('set-locale', ['locale' => $language->code]) }}"
-                               class="dropdown-item">{{ $language->name }}</a>
-                        @endforeach
+{{--                <li class="dropdown nav-item">--}}
+{{--                    <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">--}}
+{{--                        <i class="material-icons">language</i>--}}
+{{--                        <b class="caret"></b>--}}
+{{--                        <div class="ripple-container"></div>--}}
+{{--                    </a>--}}
+{{--                    <div class="dropdown-menu dropdown-menu-right">--}}
+{{--                        @foreach($languages as $language)--}}
+{{--                            <a href="{{ route('set-locale', ['locale' => $language->code]) }}"--}}
+{{--                               class="dropdown-item">{{ $language->name }}</a>--}}
+{{--                        @endforeach--}}
 
-                    </div>
-                </li>
+{{--                    </div>--}}
+{{--                </li>--}}
                 <li class="button-container nav-item iframe-extern">
                 @auth
                     <li class="button-container dropdown nav-item iframe-extern">

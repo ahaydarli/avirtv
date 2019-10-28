@@ -30,6 +30,8 @@ return [
 
     //content basliqlari
     'latest_articles'=>'Последние статьи',
+    'start' => 'Начало',
+
 
 
     //pricing səhifəsi
