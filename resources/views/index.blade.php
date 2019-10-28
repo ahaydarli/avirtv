@@ -9,8 +9,9 @@
                     <h2 class="title">{{__('site.watch')}}</h2>
                     <h4></h4>
                     <br>
-                    <a href="" target="_blank" class="btn btn-danger btn-raised btn-lg">
-                        <i class="fa fa-play"></i> @lang('site.watch_video')
+                    <a href="{{route('pricing')}}" target="_blank" class="btn btn-danger btn-raised btn-lg">
+                        <i class="fa fa-play"></i>
+                         @lang('site.start')
                     </a>
                 </div>
             </div>

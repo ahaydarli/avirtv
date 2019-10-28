@@ -10,6 +10,7 @@ return [
     'contact_us'=>'Bizimlə Əlaqə',
     'channels' => 'Kanallar',
 
+
     //buttonlar
 
     'login'=>'Daxil ol',
@@ -31,6 +32,7 @@ return [
 
      //content basliqlari
     'latest_articles'=>'Son Məqalələr',
+    'start' => 'Başla',
 
 
     //pricing səhifəsi

@@ -13,6 +13,8 @@ return [
     //buttonlar
     'login'=>'Login',
     'watch_video'=>'Watch Video',
+    'start' => 'Start',
+
 
 
 
