@@ -121,7 +121,7 @@
         <li class="nav-item">
             <a href="{{route('tariff.index')}}" class="nav-link">
                 <i class="fas fa-newspaper"></i>
-                <span>Tarif</span>
+                <span>Tariff</span>
             </a>
         </li>
 

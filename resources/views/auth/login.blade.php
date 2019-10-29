@@ -23,7 +23,6 @@
                                         </div>
                                          <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                                 name="email" value="{{ old('email') }}" required  autofocus placeholder="@lang('site.login_email')">
-
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -40,7 +39,6 @@
                                         </div>
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
                                                name="password" required placeholder="@lang('site.login_password')">
-
                                             @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -55,20 +53,18 @@
                                                 @lang('site.forgot_password')
                                             </a>
                                         </div>
-                                      <div class="col-md-6">
-                                          <a  class="btn btn-link text-danger" href="{{ route('register') }}">
-                                              @lang('site.register')
-                                          </a>
-                                      </div>
-
+                                        <div class="col-md-6">
+                                            <a  class="btn btn-link text-danger" href="{{ route('register') }}">
+                                                @lang('site.register')
+                                            </a>
+                                        </div>
                                     </div>
-
                                 @endif
 
                             </div>
                             <div class="card-footer justify-content-center">
                                 <button type="submit" class="btn btn-danger btn-lg">
-                                     @lang('site.login')
+                                    @lang('site.login')
                                 </button>
                             </div>
                         </div>
@@ -87,9 +83,7 @@
                         </li>
                         <li>
                             <a href="">
-
                                 @lang('site.about_us')
-
                             </a>
                         </li>
                         <li>
@@ -99,7 +93,7 @@
                         </li>
                         <li>
                             <a href="">
-                               @lang('site.licences')
+                                @lang('site.licences')
                             </a>
                         </li>
                     </ul>

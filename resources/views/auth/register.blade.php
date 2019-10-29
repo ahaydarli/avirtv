@@ -1,5 +1,6 @@
 @extends('login-layout')
 @section('page', 'signup-page')
+@section('title', __('site.register') )
 @section('content')
     <div class="page-header header-filter" filter-color="yellow" style="background-image: url('img/register.jpg'); background-size: cover; background-position: top center;">
         <div class="container">
@@ -21,7 +22,6 @@
                                                 </div>
                                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"
                                                        required autocomplete="name" autofocus placeholder=" {{ __('site.register name') }} ">
-
                                                 @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -38,7 +38,6 @@
                                                 </div>
                                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"
                                                        required autocomplete="email" placeholder=" {{ __('site.register email')  }} ">
-
                                                 @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -54,7 +53,6 @@
                                                       </span>
                                                 </div>
                                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="{{ __('site.register password') }}">
-
                                                 @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -79,6 +77,7 @@
                                                     <span class="check"></span>
                                                     </span>
                                                {{ __('site.register agree') }}
+
                                                 <a href="#something">{{ __('site.register more') }}</a>.
                                             </label>
                                         </div>

@@ -84,7 +84,9 @@
                 </div>
 
                 <div style="text-align: center">
-                    <input type="submit" class="btn btn-success" style="margin-right: 100px;" value="Filter">
+
+                    <input type="submit" class="btn btn-success" style="margin-right: 100px;" value="Search">
+
                 </div>
 
 

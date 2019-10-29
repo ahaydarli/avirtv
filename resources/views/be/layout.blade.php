@@ -55,12 +55,6 @@
                 <span>Customers</span>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="{{route('be.license-keys')}}" class="nav-link">
-                <i class="far fa-newspaper"></i>
-                <span>License keys</span>
-            </a>
-        </li>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 

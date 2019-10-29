@@ -69,8 +69,10 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Period</label>
                                 <div class="col-sm-9">
+
                                     <input id="period" type="text" class="form-control"
                                            value="{{$subscription->period}}" readonly>
+
                                 </div>
                             </div>
 

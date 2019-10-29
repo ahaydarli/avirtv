@@ -106,7 +106,7 @@ class CustomerController extends Controller
             if ($subscription->device == 0) {
                 $license = License::get()->first();
             }
-            $expire_date = date_format(Carbon::now()->addMonth($subscription->period->month), 'Y-m-d H:i:s');
+            $expire_date = date_format(Carbon::now()->addMonth($subscription->month->month), 'Y-m-d H:i:s');
             $servicePayload = [
                 'password' => $subscription->account_number,
                 'full_name' => $subscription->user->name,
@@ -208,5 +208,15 @@ class CustomerController extends Controller
     public function print(Request $request)
     {
         return view('be.customer.print')->render();
+    }
+
+    public function getPackages(Request $request)
+    {
+        $tariff_id = $request->tariff_id;
+        $tariff = Tariff::with('default')->findOrFail($tariff_id);
+        $default = $tariff->default()->pluck('ministra_id')->toArray();
+        $packages = Package::all();
+        return view('be.customer.packagesAjax', compact('default', 'packages'))->render();
+
     }
 }

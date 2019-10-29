@@ -3,12 +3,13 @@
 return [
     //header menu
 
-    'home'=>'Home',
+    'home'=>'Ana Səhifə',
     'about_us'=>'Haqqımızda',
     'pricing'=>'Paketlər',
     'faq'=>'FAQ',
     'contact_us'=>'Bizimlə Əlaqə',
     'channels' => 'Kanallar',
+
 
     //buttonlar
 
@@ -31,6 +32,7 @@ return [
 
      //content basliqlari
     'latest_articles'=>'Son Məqalələr',
+    'start' => 'Başla',
 
 
     //pricing səhifəsi
@@ -78,10 +80,11 @@ return [
     'add'=>'Yeni Servis Əlavə Et',
     'package'=>'Paket',
     'payment_date'=>'Ödəniş vaxtı',
-    'payment_status'=>'Ödəniş Tarixi',
+    'payment_status'=>'Ödəniş Statusu',
     'price'=>'Qiymət',
     'period'=>'Period',
     'payed'=>'Ödənildi',
+    'not-payed'=> 'ÖDƏNİLMƏYİB',
     'actions'=>'Əməliyyatlar',
     'change_password'=>'Şifrəni Dəyiş',
     'current_password'=>'Əvvəlki şifrə',
@@ -91,12 +94,52 @@ return [
      'profile'=>'Profil',
     'logout'=>'Çıxış',
 
-
+    'pay' => 'Ödəyin',
+    'total' => 'Ümumi',
+    'subtotal' => 'Cəmi',
+    'month' => 'Ay',
+    'product' => 'Məhsul',
+    'receipt' => 'Qəbz',
+    'date' => 'Tarix',
+    'select-package' => 'Paket seçin',
+    'view-details' => 'Detallara baxın',
+    'close' => 'Bağla',
+    'checkout' => 'Yoxla',
+    'default-package' => 'Ilkin paket',
+    'Select custom package' => 'Uyğun paketi seçin' ,
+    'payment' => 'Ödəniş',
+    'Selected packages' => 'Seçilmiş paketlər',
+    'Choose period' => 'Müddət seçin' ,
+    'Choose device' => 'Cihazı seçin',
+    'Your packages' => 'Paketləriniz',
+    'devices' => 'Cihazlar',
+    "Tv's, smartphones etc" => "Televizorlar, smartfonlar və s",
+    'other' => 'Digər',
+    'article' => 'Məqalə',
 
 
 
     //footer
     'subscribe'=>'Abunə olun',
+
+    'register'=>'Qeydiyyat',
+    'register name'=>'Ad',
+    'register email'=>'Email',
+    'register password'=>'Parol',
+    'register confirm'=>'Təkrar Parol',
+    'register agree'=>'Mən bütün ',
+    'register more'=>'şərtlərlə razıyam',
+    'register button'=>'qeydiyyat',
+
+    'reset password' => 'Şifrəni yenilə',
+    'send' => 'Göndər',
+    'e-mail address' => 'E-poçt ünvanı',
+
+
+    'reset' => 'Şifrəni yenilə',
+    'e-mail' => 'E-poçt',
+    'password' => 'Şifrə',
+    'confirm' => 'Şifrəni təsdiqlə',
 
 
     //channels
@@ -124,11 +167,4 @@ return [
     'hello'=>'Salam!',
     'regards'=>'Hörmətlə',
     'action'=>':actionText düyməsini basmaqda çətinlik çəkirsinizsə, aşağıdakı URL-dən istifadə edin :actionUrl'
-
-
-
-
-
-
-
 ];

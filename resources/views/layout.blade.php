@@ -41,18 +41,13 @@
 
     <!-- CSS Files -->
 
-<!--
     <link href="{{ asset('css/material-kit.min1036.css?v=2.1.1') }}" rel="stylesheet"/>
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('css/custom.css') }}demo/demo.css" rel="stylesheet"/>
+    <link href="{{ asset('demo/demo.css') }}" rel="stylesheet"/>
     <link href="{{ asset('demo/vertical-nav.css')}}" rel="stylesheet"/>
 
-    -->
 
-    <link href="/css/material-kit.min1036.css?v=2.1.1" rel="stylesheet"/>
-    <link rel="stylesheet" href="/css/custom.css">
-    <link rel="stylesheet" href="/demo/demo.css">
-    <link rel="stylesheet" href="/demo/vertical-nav.css">
+
 </head>
 
 <body class="@yield('page') sidebar-collapse">
@@ -97,20 +92,20 @@
                         <i class="material-icons">contactless</i> @lang('site.contact_us')
                     </a>
                 </li>
-                <li class="dropdown nav-item">
-                    <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
-                        <i class="material-icons">language</i>
-                        <b class="caret"></b>
-                        <div class="ripple-container"></div>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        @foreach($languages as $language)
-                            <a href="{{ route('set-locale', ['locale' => $language->code]) }}"
-                               class="dropdown-item">{{ $language->name }}</a>
-                        @endforeach
+{{--                <li class="dropdown nav-item">--}}
+{{--                    <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">--}}
+{{--                        <i class="material-icons">language</i>--}}
+{{--                        <b class="caret"></b>--}}
+{{--                        <div class="ripple-container"></div>--}}
+{{--                    </a>--}}
+{{--                    <div class="dropdown-menu dropdown-menu-right">--}}
+{{--                        @foreach($languages as $language)--}}
+{{--                            <a href="{{ route('set-locale', ['locale' => $language->code]) }}"--}}
+{{--                               class="dropdown-item">{{ $language->name }}</a>--}}
+{{--                        @endforeach--}}
 
-                    </div>
-                </li>
+{{--                    </div>--}}
+{{--                </li>--}}
                 <li class="button-container nav-item iframe-extern">
                 @auth
                     <li class="button-container dropdown nav-item iframe-extern">
@@ -150,7 +145,7 @@
         <nav class="float-left">
             <ul>
                 <li>
-                    <a href="{{ route('frontend.index') }}">
+                    <a href="{{ route('frontend.index') }}" >
                         {{ __('site.home') }}
                     </a>
                 </li>
@@ -164,11 +159,11 @@
                         {{ __('site.pricing') }}
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('frontend.index') }}">
-                        {{ __('site.blog') }}
-                    </a>
-                </li>
+{{--                <li>--}}
+{{--                    <a href="{{ route('frontend.index') }}">--}}
+{{--                        {{ __('site.blog') }}--}}
+{{--                    </a>--}}
+{{--                </li>--}}
             </ul>
         </nav>
         <div class="copyright float-right">

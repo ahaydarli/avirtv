@@ -1,6 +1,6 @@
 @extends('layout')
 @section('page', 'landing-page')
-@section('title', 'Avinet Iptv')
+@section('title', __('site.home'))
 @section('content')
     <div class="page-header header-filter" data-parallax="true" style="background-image: url('/img/ip_tv2.jpg')">
         <div class="container">
@@ -9,8 +9,9 @@
                     <h2 class="title">{{__('site.watch')}}</h2>
                     <h4></h4>
                     <br>
-                    <a href="" target="_blank" class="btn btn-danger btn-raised btn-lg">
-                        <i class="fa fa-play"></i> @lang('site.watch_video')
+                    <a href="{{route('pricing')}}" target="_blank" class="btn btn-danger btn-raised btn-lg">
+                        <i class="fa fa-play"></i>
+                         @lang('site.start')
                     </a>
                 </div>
             </div>
@@ -68,7 +69,13 @@
                                 <p class="card-description">
                                     {{ $tariff->detail }}
                                 </p>
-                                <a href="{{ route('frontend.index') }}" class="btn btn-danger btn-round">{{ __('site.choose_plan') }}</a>
+{{--                                <a href="{{ route('frontend.index') }}" class="btn btn-danger btn-round">{{ __('site.choose_plan') }}</a>--}}
+
+                                @if($tariff->type == 1)
+                                    <a href="{{ route('frontend.select-package', $tariff->id) }}" class="btn btn-danger btn-round">{{ __('site.choose_plan') }}</a>
+                                @else
+                                    <a href="{{ route('order.subscribe', $tariff->id) }}" class="btn btn-danger btn-round">{{ __('site.choose_plan') }}</a>
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -4,7 +4,7 @@ return [
     //header menu
     'home'=>'Home',
     'about_us'=>'ABOUT US',
-    'pricing'=>'pricing',
+    'pricing'=>'Pricing',
     'faq'=>'FAQ',
     'contact_us'=>'Contact Us',
     'channels' => 'Channels',
@@ -13,6 +13,8 @@ return [
     //buttonlar
     'login'=>'Login',
     'watch_video'=>'Watch Video',
+    'start' => 'Start',
+
 
 
 
@@ -87,6 +89,7 @@ return [
     'price'=>'Price',
     'period'=>'Period',
     'payed'=>'Payed',
+    'not-payed'=> 'NOT PAYED',
     'actions'=>'Actions',
     'change_password'=>'Change Password',
     'current_password'=>'Current Password',
@@ -95,6 +98,51 @@ return [
     "change"=>"Change",
     'profile'=>'Profile',
     'logout'=>'Logout',
+    'pay' => 'Pay',
+    'total' => 'Total',
+    'subtotal' => 'Subtotal',
+    'month' => 'Month',
+    'product' => 'Product',
+    'receipt' => 'Receipt',
+    'date' => 'Date',
+    'select-package' => 'Select Package',
+    'view-details' => 'View details',
+    'close' => 'Close',
+    'checkout' => 'Checkout',
+    'default-package' => 'Default package',
+    'Select custom package' => 'Select custom package' ,
+    'payment' => 'Payment',
+    'Selected packages' => 'Selected packages',
+    'Choose period' => 'Choose period' ,
+    'Choose device' => 'Choose device',
+    'Your packages' => 'Your packages',
+    'devices' => 'devices',
+    "Tv's, smartphones etc" => "Tv's, smartphones etc",
+    'other' => 'Other',
+    'article' => 'Article',
+
+
+
+
+    'register'=>'Register',
+    'register name'=>'Name',
+    'register email'=>'Email',
+    'register password'=>'Password',
+    'register confirm'=>'Confirm Passüord',
+    'register agree'=>'I agree to the',
+    'register more'=>'terms and conditions.',
+    'register button'=>'register',
+
+    'reset password' => 'Reset password',
+    'send' => 'Send',
+    'e-mail address' => 'E-mail address',
+
+
+    'reset' => 'Reset password',
+    'e-mail' => 'E-mail',
+    'password' => 'Password',
+    'confirm' => 'Confirm password',
+
 
 
     'channels'=>'Channels',
@@ -117,4 +165,5 @@ return [
      'email parol reset'=>'This password reset link will expire in :count minutes.',
     'hello'=>'Hello!',
     'regards'=>'Regards',
+
 ];

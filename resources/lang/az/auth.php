@@ -1,5 +1,5 @@
 <?php
 return [
     'failed' => 'Məlumatlar düzgün deyil.',
-    'throttle' => 'Giriş cəhdləri çoxdur. Xahiş edirəm yenidən cəhd edin :saniyə.',
+    'throttle' => 'Giriş cəhdləri çoxdur. Xahiş edirəm yenidən cəhd edin :seconds saniyə.',
 ];

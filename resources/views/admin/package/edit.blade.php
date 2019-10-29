@@ -24,10 +24,13 @@
                         @foreach ($locales as $locale)
                             <div class="tab-pane fade show {{ ($locale->code == 'az') ? 'active': '' }}" id="pills-{{ $locale->code }}"
                                  role="tabpanel" aria-labelledby="pills-tab-{{ $locale->code }}">
-                                <div class="form-group">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                           name="name[{{ $locale->code }}]" value="{{ $package->getTranslation('name', $locale->code) }}"
-                                           placeholder="{{ __('Package name-').$locale->code}}">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Name</label>
+                                    <div class="col-sm-9">
+                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                                               name="name[{{ $locale->code }}]" value="{{ $package->getTranslation('name', $locale->code) }}"
+                                               placeholder="{{ __('Package name-').$locale->code}}">
+                                    </div>
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -37,10 +40,12 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="form-group">
-                        <input id="price" type="text" class="form-control  @error('price') is-invalid @enderror"
-                               name="price" value="{{ $package->price }}" placeholder="{{ __('Price') }}">
-
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Price</label>
+                        <div class="col-sm-9">
+                            <input id="price" type="text" class="form-control  @error('price') is-invalid @enderror"
+                                   name="price" value="{{ $package->price }}" placeholder="{{ __('Price') }}">
+                        </div>
                         @error('price')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -48,7 +53,9 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Ministra</label>
+                        <div class="col-sm-9">
                         <select name="ministra_id" class="form-control  @error('ministra_id') is-invalid @enderror">
                             <option>Select ministra package</option>
                             @foreach($packages as $min_package)
@@ -57,6 +64,7 @@
                                 @endif
                             @endforeach
                         </select>
+                        </div>
 
                         @error('ministra_id')
                         <span class="invalid-feedback" role="alert">

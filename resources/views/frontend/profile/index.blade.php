@@ -1,6 +1,6 @@
 @extends('layout')
 @section('page', 'profile-page')
-@section('title',  __('Profile'))
+@section('title',  __('site.profile'))
 @section('content')
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('img/city-profile.jpg');">
     <div class="container">
@@ -52,7 +52,7 @@
 
                                </div>
                                <div class="tab-pane" id="account">
-                                   <p> I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>
+                                   <p> </p>
                                </div>
                                <div class="tab-pane active show" id="subscriptions">
                                    <a href="{{ route('pricing') }}" class="btn btn-success float-right">
@@ -79,28 +79,28 @@
                                                    <td>{{ $order->created_at }}</td>
                                                    <td>
                                                        <span class="badge badge-pill {{ $order->payment_status ? 'badge-success' : 'badge-danger' }}">
-                                                           {{ $order->payment_status ? 'Payed' : 'Not payed' }}
+                                                           {{ $order->payment_status ? __('site.payed') : __('site.not-payed') }}
                                                        </span>
                                                    </td>
                                                    <td class="text-right">{{ $order->tariff->price }} ₼</td>
-                                                   <td class="text-right">{{ $order->month->month }} {{ __('month') }}</td>
+                                                   <td class="text-right">{{ $order->month->month }} {{ __('site.month') }}</td>
                                                    <td class="text-right">{{ $order->amount }} ₼</td>
                                                    <td class="td-actions text-right">
                                                        @if($order->payment_status)
                                                            <button type="button" data-id="{{ $order->id }}" rel="tooltip" class="btn btn-info btn-sm service-detail"
-                                                                   data-original-title="{{ __('View details') }}" title="{{ __('View details') }}"
+                                                                   data-original-title="{{ __('site.view-details') }}" title="{{ __('site.view-details') }}"
                                                                    data-toggle="modal" data-target="#customerDetailModal">
                                                                <i class="material-icons">visibility</i>
-                                                               {{ __('View details') }}
+                                                               {{ __('site.view-details') }}
                                                                <div class="ripple-container"></div>
                                                            </button>
                                                        @else
                                                            <form action="{{ route('order.payment', $order->id) }}" method="POST">
                                                                @csrf
                                                                <button type="submit" class="btn btn-success btn-sm" rel="tooltip"
-                                                                  data-original-title="{{ __('Pay') }}" title="{{ __('Pay') }}">
+                                                                  data-original-title="{{ __('site.pay') }}" title="{{ __('site.pay') }}">
                                                                    <i class="material-icons">payment</i>
-                                                                   {{ __('Pay') }}
+                                                                   {{ __('site.pay') }}
                                                                    <div class="ripple-container"></div>
                                                                </button>
                                                            </form>
@@ -195,7 +195,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('site.close')}}</button>
             </div>
         </div>
     </div>

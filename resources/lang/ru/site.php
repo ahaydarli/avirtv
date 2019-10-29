@@ -30,6 +30,8 @@ return [
 
     //content basliqlari
     'latest_articles'=>'Последние статьи',
+    'start' => 'Начало',
+
 
 
     //pricing səhifəsi
@@ -79,6 +81,8 @@ return [
     'price'=>'цена',
     'period'=>'период',
     'payed'=>'оплаченный',
+    'not-payed'=> 'НЕ ОПЛАЧЕН',
+
     'actions'=>'действия',
 
     'change_password'=>'сменить пароль',
@@ -88,7 +92,49 @@ return [
     "change"=>"Изменить",
     'profile'=>'Профиль',
     'logout'=>'Bыйти',
+    'pay' => 'платить',
+    'total' => 'Общее количество',
+    'subtotal' => 'Промежуточный итог',
+    'month' => 'Месяц',
+    'product' => 'Продукт',
+    'receipt' => 'Чек',
+    'date' => 'Свидание',
+    'select-package' => 'Выберите пакет',
+    'view-details' => 'Посмотреть детали',
+    'close' => 'близко',
+    'checkout' => 'Kонтроль',
+    'default-package' => 'Пакет по умолчанию',
+    'Select custom package' => 'Выберите пользовательский пакет' ,
+    'payment' => 'Оплата',
+    'Selected packages' => 'Выбранные пакеты',
+    'Choose period' => 'Выберите период' ,
+    'Choose device' => 'Выберите устройство',
+    'Your packages' => 'Ваши пакеты',
+    'devices' => 'приборы',
+    "Tv's, smartphones etc" => "Телевизоры, смартфоны и т. Д.",
+    'other' => 'Другие',
+    'article' => 'Статья',
 
+    'register'=>'Регистр',
+    'register name'=>'Имя',
+    'register email'=>'Электронная почта ',
+    'register password'=>'Пароль',
+    'register confirm'=>'Подтвердить Пароль',
+    'register agree'=>'Я принимаю условия  ',
+    'register more'=>'пользовательского соглашения',
+    'register button'=>'Регистр',
+
+
+
+
+    'reset password' => 'Şifrəni yenilə',
+    'send' => 'Göndər',
+    'e-mail address' => 'E-poçt ünvanı',
+
+    'reset' => 'Şifrəni yenilə',
+    'e-mail' => 'E-poçt',
+    'password' => 'Şifrə',
+    'confirm' => 'Şifrəni təsdiqlə',
     'channels'=>'Каналы',
 
 

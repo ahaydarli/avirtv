@@ -104,7 +104,8 @@
                     }
                 })
 
-            })
+            });
+
             $("body").on('click','.print',function(){
 
                 $.ajax({
@@ -119,12 +120,7 @@
                         document.body.innerHTML = originalContents;
                     }
                 });
-
-
-
             })
-
-
         })
     </script>
 @endpush
