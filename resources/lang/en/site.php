@@ -145,15 +145,25 @@ return [
 
 
 
+    'channels'=>'Channels',
 
+    'register'=>'Register',
+    'register name'=>'Name',
+    'register email'=>'Email',
+    'register password'=>'Password',
+    'register confirm'=>'Confirm Passüord',
+    'register agree'=>'I agree to the',
+    'register more'=>'terms and conditions.',
+    'register button'=>'register',
 
-
-
-
-
-
-
-
-
+    //reset email
+    'Reset Password Notification'=>'Reset Password Notification',
+    'You are receiving this email because we received a password reset request for your account.'
+    => 'You are receiving this email because we received a password reset request for your account.',
+    'Reset Password'=>'Reset Password',
+    'If you did not request a password reset, no further action is required.'=>'If you did not request a password reset, no further action is required.',
+     'email parol reset'=>'This password reset link will expire in :count minutes.',
+    'hello'=>'Hello!',
+    'regards'=>'Regards',
 
 ];

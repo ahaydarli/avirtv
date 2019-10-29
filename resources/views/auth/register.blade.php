@@ -76,7 +76,8 @@
                                                 <span class="form-check-sign">
                                                     <span class="check"></span>
                                                     </span>
-                                                {{ __('site.register agree') }}
+                                               {{ __('site.register agree') }}
+
                                                 <a href="#something">{{ __('site.register more') }}</a>.
                                             </label>
                                         </div>

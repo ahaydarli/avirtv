@@ -135,21 +135,16 @@ return [
     'e-mail' => 'E-poçt',
     'password' => 'Şifrə',
     'confirm' => 'Şifrəni təsdiqlə',
+    'channels'=>'Каналы',
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    'register'=>'Регистр',
+    'register name'=>'Имя',
+    'register email'=>'Электронная почта ',
+    'register password'=>'Пароль',
+    'register confirm'=>'Подтвердить Пароль',
+    'register agree'=>'Я принимаю условия  ',
+    'register more'=>'пользовательского соглашения',
+    'register button'=>'Регистр',
 
 ];
