@@ -9,7 +9,7 @@
         <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
             <div class="card card-login card-hidden">
                 <div class="card-header card-header-danger text-center">
-                    <h4 class="card-title">{{ __('Reset password') }}</h4>
+                    <h4 class="card-title">{{ __('site.reset password') }}</h4>
                 </div>
 
                 <div class="card-body">
@@ -23,7 +23,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-12 col-form-label text-center">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-12 col-form-label text-center">{{ __('site.e-mail address') }}</label>
 
                             <div class="col-md-12">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid
@@ -38,7 +38,7 @@
                         </div>
                         <div class="card-footer justify-content-center">
                             <button type="submit" class="btn btn-default ">
-                                {{ __('Send Password Reset Link') }}
+                                {{ __('site.send') }}
                             </button>
                         </div>
                     </form>

@@ -127,6 +127,18 @@ return [
 
 
 
+    'reset password' => 'Şifrəni yenilə',
+    'send' => 'Göndər',
+    'e-mail address' => 'E-poçt ünvanı',
+
+    'reset' => 'Şifrəni yenilə',
+    'e-mail' => 'E-poçt',
+    'password' => 'Şifrə',
+    'confirm' => 'Şifrəni təsdiqlə',
+
+
+
+
 
 
 
