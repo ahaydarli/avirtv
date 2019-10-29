@@ -36,8 +36,6 @@
                                 @enderror
                             </div>
                         </div>
-                    </form>
-                </div>
                 <div class="card-footer justify-content-center">
                     <button type="submit" class="btn btn-default ">
                         {{ __('Send Password Reset Link') }}

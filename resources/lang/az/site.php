@@ -100,7 +100,35 @@ return [
 
 
     //channels
-    'channels'=>'Tv Kanallar'
+    'channels'=>'Tv Kanallar',
+
+    //register
+
+    'register'=>'Qeydiyyat',
+    'register name'=>'Ad',
+    'register email'=>'Email',
+    'register password'=>'Parol',
+    'register confirm'=>'Təkrar Parol',
+    'register agree'=>'Mən bütün ',
+    'register more'=>'şərtlərlə razıyam',
+    'register button'=>'qeydiyyat',
+
+
+
+    //email
+    'Reset Password Notification'=>'Parolun  Dəyişdirilməsi',
+    'You are receiving this email because we received a password reset request for your account.'=>'Hesabınız üçün şifrə yeniləmə tələbi aldığımız üçün bu e-poçtu alırsınız.',
+    'Reset Password'=>'Parolu Yenilə',
+    'If you did not request a password reset, no further action is required.'=>'Şifrə sıfırlamağı tələb etməmisinizsə, o zaman  bu emaili görməzdən gəlin.',
+    'email parol reset'=>'Bu parol sıfırlama bağlantısı :count dəqiqədən sonra başa çatacaqdır',
+    'hello'=>'Salam!',
+    'regards'=>'Hörmətlə',
+    'action'=>':actionText düyməsini basmaqda çətinlik çəkirsinizsə, aşağıdakı URL-dən istifadə edin :actionUrl'
+
+
+
+
+
 
 
 ];

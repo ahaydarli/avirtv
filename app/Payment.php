@@ -11,7 +11,8 @@ class Payment extends Model
     const ONLINE = 3;
 
     protected $fillable = [
-        'user_id', 'subscription_id', 'type', 'period_id', 'amount', 'details', 'status'
+        'user_id', 'subscription_id', 'type', 'period_id', 'amount', 'status',
+        'payment_details'
     ];
 
     public function user()

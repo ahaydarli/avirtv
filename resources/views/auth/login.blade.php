@@ -49,10 +49,22 @@
                                       </div>
                                 </span>
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                         @lang('site.forgot_password')
-                                    </a>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                @lang('site.forgot_password')
+                                            </a>
+                                        </div>
+                                      <div class="col-md-6">
+                                          <a  class="btn btn-link text-danger" href="{{ route('register') }}">
+                                              @lang('site.register')
+                                          </a>
+                                      </div>
+
+                                    </div>
+
                                 @endif
+
                             </div>
                             <div class="card-footer justify-content-center">
                                 <button type="submit" class="btn btn-danger btn-lg">

@@ -11,7 +11,7 @@ class Subscription extends Model
     protected $table = 'subscription';
 
     protected $fillable = [
-        'user_id', 'package_id', 'tariff_id','m_tariff_id', 'account_number', 'payment_status', 'status',
+        'user_id', 'package_id', 'tariff_id', 'm_tariff_id', 'account_number', 'payment_status', 'status',
         'device', 'period', 'mac_address', 'amount'
     ];
 
@@ -27,7 +27,7 @@ class Subscription extends Model
 
     public function package()
     {
-        return $this->hasOne(Package::class, 'id','package_id');
+        return $this->hasOne(Package::class, 'id', 'package_id');
     }
 
     public function service()
@@ -50,4 +50,15 @@ class Subscription extends Model
         return $this->hasOne(License::class, 'subscribe_id', 'id');
     }
 
+    public function scopeFilterByDate($query, $from, $to)
+    {
+        $query->whereBetween('created_at', [$from, $to]);
+        return $query;
+    }
+
+    public function scopeFilterByColumn($query, $column, $value)
+    {
+        $query->where($column, $value);
+        return $query;
+    }
 }
