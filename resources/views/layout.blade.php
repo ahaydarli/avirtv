@@ -41,18 +41,13 @@
 
     <!-- CSS Files -->
 
-<!--
     <link href="{{ asset('css/material-kit.min1036.css?v=2.1.1') }}" rel="stylesheet"/>
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('css/custom.css') }}demo/demo.css" rel="stylesheet"/>
+    <link href="{{ asset('demo/demo.css') }}" rel="stylesheet"/>
     <link href="{{ asset('demo/vertical-nav.css')}}" rel="stylesheet"/>
 
-    -->
 
-    <link href="/css/material-kit.min1036.css?v=2.1.1" rel="stylesheet"/>
-    <link rel="stylesheet" href="/css/custom.css">
-    <link rel="stylesheet" href="/demo/demo.css">
-    <link rel="stylesheet" href="/demo/vertical-nav.css">
+
 </head>
 
 <body class="@yield('page') sidebar-collapse">
@@ -150,7 +145,7 @@
         <nav class="float-left">
             <ul>
                 <li>
-                    <a href="{{ route('frontend.index') }}">
+                    <a href="{{ route('frontend.index') }}" >
                         {{ __('site.home') }}
                     </a>
                 </li>

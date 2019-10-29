@@ -12,6 +12,7 @@
 */
 
 use App\Contact;
+use Illuminate\Support\Facades\Mail;
 use function foo\func;
 
 View::composer('admin.layout', function ($view) {
@@ -97,3 +98,4 @@ Route::middleware(['auth:admin','checkBe'])->prefix('be')->name('be.')->group(fu
 
 Route::post("/send-message",'Frontend\HomeController@sendMessage')->name('frontend.sendMessage');
 Route::post('/read-all','Admin\AdminController@readAllMessages');
+

@@ -9,7 +9,7 @@
             <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
                 <div class="card card-login card-hidden">
                     <div class="card-header card-header-danger text-center">
-                        <h4 class="card-title">{{ __('Reset password') }}</h4>
+                        <h4 class="card-title">{{ __('site.reset password') }}</h4>
                     </div>
                     <div class="card-body">
                         @if (session('status'))
@@ -34,7 +34,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="password" class="col-md-12 col-form-label text-center">{{ __('Password') }}</label>
+                                <label for="password" class="col-md-12 col-form-label text-center">{{ __('site.password') }}</label>
 
                                 <div class="col-md-12">
                                     <input id="password" type="password" class="form-control pl-3 @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="password-confirm" class="col-md-12 col-form-label text-center">{{ __('Confirm Password') }}</label>
+                                <label for="password-confirm" class="col-md-12 col-form-label text-center">{{ __('site.confirm') }}</label>
 
                                 <div class="col-md-12">
                                     <input id="password-confirm" type="password" class="form-control pl-3" name="password_confirmation" required autocomplete="new-password">
@@ -58,7 +58,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-12 offset-md-3">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Reset Password') }}
+                                        {{ __('site.reset') }}
                                     </button>
                                 </div>
                             </div>

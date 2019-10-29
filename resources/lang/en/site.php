@@ -124,7 +124,24 @@ return [
 
 
 
+    'register'=>'Register',
+    'register name'=>'Name',
+    'register email'=>'Email',
+    'register password'=>'Password',
+    'register confirm'=>'Confirm Passüord',
+    'register agree'=>'I agree to the',
+    'register more'=>'terms and conditions.',
+    'register button'=>'register',
 
+    'reset password' => 'Reset password',
+    'send' => 'Send',
+    'e-mail address' => 'E-mail address',
+
+
+    'reset' => 'Reset password',
+    'e-mail' => 'E-mail',
+    'password' => 'Password',
+    'confirm' => 'Confirm password',
 
 
 

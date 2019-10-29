@@ -122,6 +122,25 @@ return [
     //footer
     'subscribe'=>'Abunə olun',
 
+    'register'=>'Qeydiyyat',
+    'register name'=>'Ad',
+    'register email'=>'Email',
+    'register password'=>'Parol',
+    'register confirm'=>'Təkrar Parol',
+    'register agree'=>'Mən bütün ',
+    'register more'=>'şərtlərlə razıyam',
+    'register button'=>'qeydiyyat',
+
+    'reset password' => 'Şifrəni yenilə',
+    'send' => 'Göndər',
+    'e-mail address' => 'E-poçt ünvanı',
+
+
+    'reset' => 'Şifrəni yenilə',
+    'e-mail' => 'E-poçt',
+    'password' => 'Şifrə',
+    'confirm' => 'Şifrəni təsdiqlə',
+
 
 
 
