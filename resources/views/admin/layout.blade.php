@@ -79,6 +79,12 @@
                 <span>Subscriptions</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{route('coupon.index')}}" class="nav-link">
+                <i class="fas fa-cubes"></i>
+                <span>Coupon</span>
+            </a>
+        </li>
 
         <li class="nav-item">
             <a href="{{route('service.index')}}" class="nav-link">
