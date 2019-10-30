@@ -147,4 +147,9 @@ return [
     'register more'=>'пользовательского соглашения',
     'register button'=>'Регистр',
 
+
+    'notfound'=>'Купон не найден',
+    'successfully'=>'Успешно закончился',
+    'error' => 'Oшибка',
+
 ];

@@ -14,7 +14,7 @@
                                 <h4 class="card-title">@lang('site.login')</h4>
                             </div>
                             <div class="card-body ">
-                                <span class="bmd-form-group">
+                                <span class="bmd-form-group has-danger">
                                       <div class="input-group">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text">
@@ -30,7 +30,7 @@
                                             @enderror
                                       </div>
                                 </span>
-                                <span class="bmd-form-group">
+                                <span class="bmd-form-group has-danger">
                                       <div class="input-group">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text">

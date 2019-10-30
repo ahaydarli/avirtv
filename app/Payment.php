@@ -9,6 +9,7 @@ class Payment extends Model
     const BE = 1;
     const KOMTEC = 2;
     const ONLINE = 3;
+    const COUPON = 4;
 
     protected $fillable = [
         'user_id', 'subscription_id', 'type', 'period_id', 'amount', 'status',
