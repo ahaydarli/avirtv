@@ -49,7 +49,11 @@
                                     {{$payment->type}}
                                 @endif
                             </td>
-                            <td>{{$payment->period->month}} Months</td>
+                            <td>
+                                @if($payment->period_id)
+                                {{$payment->period->month}} Months
+                                    @endif
+                            </td>
                             <td>
                                 @if($payment->status)
                                     Unavailable

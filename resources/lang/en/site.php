@@ -145,17 +145,6 @@ return [
 
 
 
-    'channels'=>'Channels',
-
-    'register'=>'Register',
-    'register name'=>'Name',
-    'register email'=>'Email',
-    'register password'=>'Password',
-    'register confirm'=>'Confirm Passüord',
-    'register agree'=>'I agree to the',
-    'register more'=>'terms and conditions.',
-    'register button'=>'register',
-
     //reset email
     'Reset Password Notification'=>'Reset Password Notification',
     'You are receiving this email because we received a password reset request for your account.'

@@ -23,7 +23,7 @@
                                <div class="nav-tabs-wrapper">
                                    <ul class="nav nav-tabs" data-tabs="tabs">
                                        <li class="nav-item">
-                                           <a class="nav-link" href="#profile" data-toggle="tab">
+                                           <a class="nav-link active show" href="#profile" data-toggle="tab">
                                                <i class="material-icons">dashboard</i> {{ __('site.dashboard') }}
                                                <div class="ripple-container"></div></a>
                                        </li>
@@ -33,7 +33,7 @@
                                                <div class="ripple-container"></div></a>
                                        </li>
                                        <li class="nav-item">
-                                           <a class="nav-link active show" href="#subscriptions" data-toggle="tab">
+                                           <a class="nav-link" href="#subscriptions" data-toggle="tab">
                                                <i class="material-icons">done_all</i> {{ __('site.subscriptions') }}
                                                <div class="ripple-container"></div></a>
                                        </li>
@@ -48,13 +48,35 @@
                        </div>
                        <div class="card-body ">
                            <div class="tab-content text-center">
-                               <div class="tab-pane" id="profile">
+                               <div class="tab-pane active show" id="profile">
+                                   <div class="row">
+                                       <div class="col-6 " style="font-weight:500; padding-top:80px;">
+                                           <p style="font-size:20px !important; text-align: center !important">Əgər sizin İPTV kartınız varsa , kartın arxasındakı şifrəni buradan daxil edərək 12 aylıq <b>FULL</b> paketə qoşula bilərsiniz.</p>
+                                       </div>
+                                       <div class="col-6">
+                                           <div class="card" style="width: 20rem;">
+                                               <img class="card-img-top" style="border-radius: 10px !important; " src="{{asset('img/card.png')}}" alt="Card image cap">
+                                           </div>
+                                       </div>
+
+                                   </div>
+                                   <form action="" class="user">
+                                               <div class="form-group row">
+                                                   <div class="col-sm-3"></div>
+                                               <div class="col-sm-6">
+                                                   <input id="login" type="text" class="form-control" name="login" value="" placeholder="Promo kodu daxil edin" >
+                                               </div>
+                                                   <div class="col-sm-12">
+                                                       <button class="btn btn-danger btn-round">Daxil et</button>
+                                                   </div>
+                                               </div>
+                                   </form>
 
                                </div>
                                <div class="tab-pane" id="account">
                                    <p> </p>
                                </div>
-                               <div class="tab-pane active show" id="subscriptions">
+                               <div class="tab-pane" id="subscriptions">
                                    <a href="{{ route('pricing') }}" class="btn btn-success float-right">
                                        <i class="material-icons">add</i>
                                        {{ __('site.add') }}
