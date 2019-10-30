@@ -33,7 +33,11 @@
                     </tr>
                     <tr>
                         <th>Period</th>
-                        <td>{{$payment->period->month}} Months</td>
+                        <td>
+                            @if($payment->period_id)
+                            {{$payment->period->month}} Months
+                            @endif
+                        </td>
                     </tr>
 
                     <tr>
