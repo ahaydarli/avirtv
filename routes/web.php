@@ -67,7 +67,7 @@ Route::middleware(['auth:admin','checkAdmin'])->prefix('admin')->group(function(
     Route::Resource('license', 'Admin\LicenseController');
     Route::Resource('payment', 'Admin\PaymentController');
     Route::Resource('tariff', 'Admin\TariffController');
-
+    Route::Resource('coupon', 'Admin\CouponController');
 
     Route::post('/change-pass/{id}','Admin\AdminController@changePass')->name('admin.change-pass');
     Route::post('/modal','Admin\UserController@modal')->name('admin.modal');

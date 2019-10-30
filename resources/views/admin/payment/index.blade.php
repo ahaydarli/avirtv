@@ -15,7 +15,6 @@
                         <th>Subscription</th>
                         <th>User</th>
                         <th>Type</th>
-                        <th>Period</th>
                         <th>Status</th>
                         <th>Paid</th>
                         <th>Created at</th>
@@ -28,7 +27,6 @@
                         <th>Subscription</th>
                         <th>User</th>
                         <th>Type</th>
-                        <th>Period</th>
                         <th>Status</th>
                         <th>Paid</th>
                         <th>Created at</th>
@@ -48,11 +46,6 @@
                                 @else
                                     {{$payment->type}}
                                 @endif
-                            </td>
-                            <td>
-                                @if($payment->period_id)
-                                {{$payment->period->month}} Months
-                                    @endif
                             </td>
                             <td>
                                 @if($payment->status)
