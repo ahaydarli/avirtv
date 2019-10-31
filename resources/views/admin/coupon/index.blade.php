@@ -38,7 +38,11 @@
                         <tr>
 
                             <td>{{ $coupon->id }}</td>
-                            <td>{{ $coupon->user_id }}</td>
+                            <td>
+                                @if($coupon->user_id)
+                                    {{$coupon->user->name}}
+                                    @endif
+                                </td>
                             <td>{{ $coupon->coupon }}</td>
                             <td>
                                 @if($coupon->is_active)

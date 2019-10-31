@@ -85,18 +85,18 @@
                         <i class="material-icons">contactless</i> @lang('site.contact_us')
                     </a>
                 </li>
-                <li class="dropdown nav-item">
-                    <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
-                        <i class="material-icons">language</i>
-                        <b class="caret"></b>
-                        <div class="ripple-container"></div></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        @foreach($languages as $language)
-                            <a href="{{ route('set-locale', ['locale' => $language->code]) }}" class="dropdown-item">{{ $language->name }}</a>
-                        @endforeach
+{{--                <li class="dropdown nav-item">--}}
+{{--                    <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">--}}
+{{--                        <i class="material-icons">language</i>--}}
+{{--                        <b class="caret"></b>--}}
+{{--                        <div class="ripple-container"></div></a>--}}
+{{--                    <div class="dropdown-menu dropdown-menu-right">--}}
+{{--                        @foreach($languages as $language)--}}
+{{--                            <a href="{{ route('set-locale', ['locale' => $language->code]) }}" class="dropdown-item">{{ $language->name }}</a>--}}
+{{--                        @endforeach--}}
 
-                    </div>
-                </li>
+{{--                    </div>--}}
+{{--                </li>--}}
                 <li class="button-container nav-item iframe-extern">
                     @auth
                         <a href="signup.html" target="_blank" class="btn  btn-danger btn-round btn-block">
@@ -144,6 +144,9 @@
 <script src="{{ asset('demo/vertical-nav.js') }}" type="text/javascript"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="{{ asset('demo/vertical-nav.js') }}"></script>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
 <!-- Js With initialisations For Demo Purpose, Don't Include it in Your Project -->
 <script src="{{ asset('demo/demo.js') }}" type="text/javascript"></script>
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
@@ -158,4 +161,15 @@
         materialKit.initSliders();
     });
 </script>
+<script>
+    $('#agree').click(function () {
+        $("input#condition").attr('checked',true);
+    });
+    $('#disagree').click(function () {
+        $("input#condition").attr('checked',false);
+
+    })
+</script>
+
+@stack('js')
 </body>

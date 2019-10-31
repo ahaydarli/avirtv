@@ -34,8 +34,20 @@
                                     </span>
                                     @enderror
                                 </div>
+
                             </div>
                         @endforeach
+
+                            <div class="form-group">
+                                <input id="key" class="form-control @error('key') is-invalid @enderror"
+                                       name="key"
+                                       placeholder="{{ __('Key')}}" value="{{ old('key') }}">
+                                @error('key')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">

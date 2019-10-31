@@ -123,33 +123,17 @@ return [
     'register agree'=>'Я принимаю условия  ',
     'register more'=>'пользовательского соглашения',
     'register button'=>'Регистр',
-
-
-
-
     'reset password' => 'Şifrəni yenilə',
     'send' => 'Göndər',
     'e-mail address' => 'E-poçt ünvanı',
-
     'reset' => 'Şifrəni yenilə',
     'e-mail' => 'E-poçt',
     'password' => 'Şifrə',
     'confirm' => 'Şifrəni təsdiqlə',
-    'channels'=>'Каналы',
-
-
-    'register'=>'Регистр',
-    'register name'=>'Имя',
-    'register email'=>'Электронная почта ',
-    'register password'=>'Пароль',
-    'register confirm'=>'Подтвердить Пароль',
-    'register agree'=>'Я принимаю условия  ',
-    'register more'=>'пользовательского соглашения',
-    'register button'=>'Регистр',
-
-
     'notfound'=>'Купон не найден',
     'successfully'=>'Успешно закончился',
     'error' => 'Oшибка',
+    'accept' => 'Razıyam',
+
 
 ];

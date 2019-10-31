@@ -85,6 +85,7 @@
             </div>
         </div>
     </div>
+
     <div class="section section-blog">
         <div class="container">
             <h2 class="section-title">@lang('site.latest_articles')</h2>
