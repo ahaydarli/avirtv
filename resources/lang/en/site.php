@@ -155,4 +155,8 @@ return [
     'hello'=>'Hello!',
     'regards'=>'Regards',
 
+    'successfully'=>'Successfully Ended',
+    'notfound'=>'Coupon Not Found',
+    'error' => 'Error',
+
 ];

@@ -17,18 +17,11 @@
 
                         <div class="tab-pane fade show active" id="pills"
                              role="tabpanel" aria-labelledby="pills-tab">
-
-
-
-
-
-
-
-                            <div class="form-group row">
+                        <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Seriya Code</label>
                                 <div class="col-sm-9">
                                     <input  id="month" type="text"
-                                            class="form-control @error('count') is-invalid @enderror"
+                                            class="form-control @error('code') is-invalid @enderror"
                                             name="code"
                                             value="{{ old('code') }}" >
                                     @error('code')
