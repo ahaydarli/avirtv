@@ -13,7 +13,7 @@
                                 <div class="col-md-12 mr-auto">
                                     <form class="form" method="POST" action="{{ route('register') }}">
                                         @csrf
-                                        <div class="form-group">
+                                        <div class="form-group has-danger">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                       <span class="input-group-text">
@@ -45,7 +45,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group has-danger">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                       <span class="input-group-text">

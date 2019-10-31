@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/service/detail', 'Frontend\ProfileController@serviceDetail')->name('service.detail');
     Route::get("/select-package/{package_id}", 'Frontend\OrderController@selectPackage')->name("frontend.select-package");
     Route::post("/merger-package/{package_id}", 'Frontend\OrderController@mergePackage')->name("frontend.merge-package");
+    Route::post("/profile/code", 'Frontend\ProfileController@searchCouponCode')->name("frontend.search.coupon");
 });
 
 Auth::routes();
