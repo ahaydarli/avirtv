@@ -54,33 +54,48 @@ Route::get('/check', function (Request $request) {
 
     if($request->command == 'pay') {
         $payment = Payment::where('payment_details', $request->txn_id)->first();
+
         $payment->amount = $request->sum;
         $payment->paid_at = $request->txn_date;
         $payment->status = 1;
         $payment->save();
         $subscription = Subscription::where('account_number', $request->account)->first();
+        $user = User::find($subscription->user_id);
 
-        $all_amount = $subscription->amount;
-        $months = $subscription->month->month;
-        $per_month = $all_amount/$months;
-        $count_months = intdiv(($request->sum+$subscription->remainder),$per_month);
-        $remainder = fmod(($request->sum+$subscription->remainder), $per_month);
-        if ($subscription->deadline) {
-            if (Carbon::now()>$subscription->deadline) {
-                $deadline =  Carbon::parse($payment->paid_at)->addMonth($count_months);
+
+        $price =  $subscription->tariff->price;
+
+        if (($request->sum+$user->remainder) >= $price) {
+            $count_months = intdiv(($request->sum+$user->remainder),$price);
+            $remainder = fmod(($request->sum+$user->remainder), $price);
+
+            if($count_months > 0) {
+
+                if ($subscription->deadline) {
+                    if (Carbon::now() > $subscription->deadline) {
+                        $deadline = Carbon::parse($payment->paid_at)->addMonth($count_months);
+                    }
+                    else {
+                        $deadline = Carbon::parse($subscription->deadline)->addMonth($count_months);
+                    }
+                }
+                else {
+                    $deadline = Carbon::parse($payment->paid_at)->addMonth($count_months);
+                }
+                $subscription->deadline = $deadline;
+                $subscription->status = 1;
+                $subscription->payment_status = 1;
+                $subscription->save();
             }
-            else {
-                $deadline =  Carbon::parse($subscription->deadline)->addMonth($count_months);
-            }
+
         }
-        else {
-            $deadline =  Carbon::parse($payment->paid_at)->addMonth($count_months);
+        else{
+            $count_months = 0;
+            $remainder = $request->sum + $user->remainder;
         }
-        $subscription->deadline = $deadline;
-        $subscription->remainder = $remainder;
-        $subscription->status = 1;
-        $subscription->payment_status = 1;
-        $subscription->save();
+        $user->remainder = $remainder;
+        $user->save();
+
         return \Response::view('million.pay',['txn_id'=>$request->txn_id, 'amount'=> $request->sum])->header('Content-Type', 'xml');
 
     }

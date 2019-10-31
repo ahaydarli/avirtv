@@ -78,7 +78,8 @@
                                                     </span>
                                                {{ __('site.register agree') }}
 
-                                                <a href="#something">{{ __('site.register more') }}</a>.
+                                                <a href="#something">{{ __('site.register more') }}</a>
+
                                             </label>
                                         </div>
                                         <div class="text-center">
@@ -86,7 +87,9 @@
                                                 {{ __('site.register button') }}
                                             </button>
                                         </div>
+
                                     </form>
+
                                 </div>
                             </div>
                         </div>
@@ -94,6 +97,8 @@
                 </div>
             </div>
         </div>
+
+
         <footer class="footer">
             <div class="container">
                 <nav class="float-left">

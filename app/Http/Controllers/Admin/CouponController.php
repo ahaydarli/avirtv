@@ -59,9 +59,7 @@ class CouponController extends Controller
             ]);
         }
 
-
         return redirect()->route('coupon.index')->with('success', 'Coupons Added');
-
     }
 
     /**
