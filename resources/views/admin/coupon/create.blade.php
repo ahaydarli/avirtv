@@ -24,7 +24,20 @@
 
 
 
-
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Seriya Code</label>
+                                <div class="col-sm-9">
+                                    <input  id="month" type="text"
+                                            class="form-control @error('count') is-invalid @enderror"
+                                            name="code"
+                                            value="{{ old('code') }}" >
+                                    @error('code')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Coupon Count</label>
                                 <div class="col-sm-9">
