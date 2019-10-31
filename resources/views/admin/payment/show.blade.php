@@ -31,14 +31,7 @@
                             @endif
                         </td>
                     </tr>
-                    <tr>
-                        <th>Period</th>
-                        <td>
-                            @if($payment->period_id)
-                            {{$payment->period->month}} Months
-                            @endif
-                        </td>
-                    </tr>
+
 
                     <tr>
                         <th>Amount</th>

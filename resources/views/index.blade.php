@@ -17,6 +17,7 @@
             </div>
         </div>
     </div>
+
     <div class="main main-raised">
         <div class="container">
             <div class="section text-center">
@@ -26,6 +27,7 @@
                         <h4 class="description">{{ __('site.live') }}</h4>
                     </div>
                 </div>
+
                 <div class="features">
                     <div class="row">
                     <?php $i=1; ?>
