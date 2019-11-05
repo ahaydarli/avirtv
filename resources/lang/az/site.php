@@ -142,19 +142,7 @@ return [
     //channels
     'channels' => 'Tv Kanallar',
 
-    //register
 
-    'register' => 'Qeydiyyat',
-    'register name' => 'Ad',
-    'register email' => 'Email',
-    'register password' => 'Parol',
-    'register confirm' => 'Təkrar Parol',
-    'register agree' => 'Mən bütün ',
-    'register more' => 'şərtlərlə razıyam',
-    'register button' => 'qeydiyyat',
-
-
-    //email
     'Reset Password Notification' => 'Parolun  Dəyişdirilməsi',
     'You are receiving this email because we received a password reset request for your account.' => 'Hesabınız üçün şifrə yeniləmə tələbi aldığımız üçün bu e-poçtu alırsınız.',
     'Reset Password' => 'Parolu Yenilə',
@@ -179,8 +167,7 @@ return [
     'License key' => 'Lisenziya kod' ,
 
     'Successfully' => 'Uğurla başa çatdı',
-    'notfound' => 'Kupon tapılmadı',
-    'error' => 'Xəta',
+
 
 
 ];
