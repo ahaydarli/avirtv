@@ -69,26 +69,25 @@
                                                       </span>
                                                 </div>
                                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder=" {{ __('site.register confirm') }} ">
-<<<<<<< HEAD
 
                                             </div>
                                         </div>
-{{--                                        <div class="form-check">--}}
-{{--                                            <label class="form-check-label" data-toggle="modal" data-target="#exampleModal">--}}
-{{--                                                <input class="form-check-input" type="checkbox" value="" id="condition">--}}
+                                        {{--                                        <div class="form-check">--}}
+                                        {{--                                            <label class="form-check-label" data-toggle="modal" data-target="#exampleModal">--}}
+                                        {{--                                                <input class="form-check-input" type="checkbox" value="" id="condition">--}}
 
-{{--                                                <span class="form-check-sign">--}}
-{{--                                                    <span class="check"></span>--}}
-{{--                                                    </span>--}}
-{{--                                               {{ __('site.register agree') }}--}}
+                                        {{--                                                <span class="form-check-sign">--}}
+                                        {{--                                                    <span class="check"></span>--}}
+                                        {{--                                                    </span>--}}
+                                        {{--                                               {{ __('site.register agree') }}--}}
 
-{{--                                                <a href="#something">{{ __('site.register more') }}</a>--}}
-{{--                                                <span type="button" data-toggle="modal" data-target="#exampleModal">--}}
-{{--                                                    { __('site.register agree') }}--}}
-{{--                                                </span>--}}
-{{--                                            </label>--}}
+                                        {{--                                                <a href="#something">{{ __('site.register more') }}</a>--}}
+                                        {{--                                                <span type="button" data-toggle="modal" data-target="#exampleModal">--}}
+                                        {{--                                                    { __('site.register agree') }}--}}
+                                        {{--                                                </span>--}}
+                                        {{--                                            </label>--}}
 
-{{--                                        </div>--}}
+                                        {{--                                        </div>--}}
                                         <div class="form-group has-danger" style="padding-left: 40px;">
                                             <div class="input-group">
                                                 <label data-toggle="modal" class="form-check-label" data-target="#exampleModal">
@@ -103,24 +102,6 @@
                                         </div>
                                         <div class="text-center">
                                             <button type="submit"  id="register" class="btn btn-danger btn-round">
-=======
-                                            </div>
-                                        </div>
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" value="" checked>
-                                                <span class="form-check-sign">
-                                                    <span class="check"></span>
-                                                    </span>
-                                               {{ __('site.register agree') }}
-
-                                                <a href="#something">{{ __('site.register more') }}</a>
-
-                                            </label>
-                                        </div>
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-danger btn-round">
->>>>>>> e4127e9e087a418979f19f83d8627a1092b01b6c
                                                 {{ __('site.register button') }}
                                             </button>
                                         </div>
@@ -135,7 +116,6 @@
             </div>
         </div>
 
-<<<<<<< HEAD
         <div class="modal fade" style="" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -154,8 +134,6 @@
                 </div>
             </div>
         </div>
-=======
->>>>>>> e4127e9e087a418979f19f83d8627a1092b01b6c
 
         <footer class="footer">
             <div class="container">
@@ -196,19 +174,19 @@
 @endsection
 
 @push('js')
-{{--    <script>--}}
-{{--        $('#register').click(function(){--}}
-{{--            if( $('input[type=checkbox]').attr('checked') ){--}}
-{{--                $('.form').submit();--}}
-{{--            }--}}
-{{--            else {--}}
-{{--                $('#condition-error').show();--}}
-{{--                $('#condition-error-text').html('Şərtlərin seçilməsi mütləqdir');--}}
-{{--            }--}}
+    {{--    <script>--}}
+    {{--        $('#register').click(function(){--}}
+    {{--            if( $('input[type=checkbox]').attr('checked') ){--}}
+    {{--                $('.form').submit();--}}
+    {{--            }--}}
+    {{--            else {--}}
+    {{--                $('#condition-error').show();--}}
+    {{--                $('#condition-error-text').html('Şərtlərin seçilməsi mütləqdir');--}}
+    {{--            }--}}
 
-{{--        })--}}
-{{--    </script>--}}
+    {{--        })--}}
+    {{--    </script>--}}
 
 
 
-    @endpush
+@endpush

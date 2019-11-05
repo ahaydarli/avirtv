@@ -129,8 +129,9 @@
                 @guest
                     <li class="button-container nav-item iframe-extern">
 
-                        <a href="{{ route('login') }}" class="btn  btn-danger btn-round btn-block">
-                            <i class="material-icons">fingerprint</i> @lang('site.login')
+                        <a href="{{route('register')}}" class="btn btn-danger btn-round btn-block">
+                            <i class="material-icons">fingerprint</i> @lang('site.register')
+
                         </a>
                     </li>
                 @endguest

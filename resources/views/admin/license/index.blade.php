@@ -42,7 +42,12 @@
                             <td>{{ $license->id }}</td>
                             <td>{{ $license->license }}</td>
                             <td>
-                                {{$license->user_id}}
+                                @if($license->user_id !==0)
+                                    {{$license->user->name}}
+                                    @else
+                                    {{$license->user_id}}
+                                @endif
+
                             </td>
                             <td>
                                 {{$license->created_by}}

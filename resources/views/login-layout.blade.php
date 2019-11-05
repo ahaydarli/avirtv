@@ -144,12 +144,9 @@
 <script src="{{ asset('demo/vertical-nav.js') }}" type="text/javascript"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="{{ asset('demo/vertical-nav.js') }}"></script>
-<<<<<<< HEAD
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-=======
->>>>>>> e4127e9e087a418979f19f83d8627a1092b01b6c
 <!-- Js With initialisations For Demo Purpose, Don't Include it in Your Project -->
 <script src="{{ asset('demo/demo.js') }}" type="text/javascript"></script>
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
