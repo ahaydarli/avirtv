@@ -12,6 +12,7 @@
                     <tr>
                         <th>#</th>
                         <th>Content</th>
+                        <th>Key</th>
                         <th>Operations</th>
                     </tr>
                     </thead>
@@ -19,6 +20,7 @@
                     <tr>
                         <th>#</th>
                         <th>Content</th>
+                        <th>Key</th>
                         <th>Operations</th>
                     </tr>
                     </tfoot>
@@ -27,10 +29,20 @@
                         <tr>
                             <td>{{$about->id}}</td>
                             <td>{!! $about->content !!}</td>
+                            <td>{{$about->key}}</td>
                             <td>
+{{--                                    <a class="btn btn-primary btn-circle btn-sm" href="{{ route('about.edit', $about->id) }}">--}}
+{{--                                        <i class="far fa-edit"></i>--}}
+{{--                                    </a>--}}
+
+                                <form id="delete-form" action="{{ route('about.destroy', $about->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
                                     <a class="btn btn-primary btn-circle btn-sm" href="{{ route('about.edit', $about->id) }}">
                                         <i class="far fa-edit"></i>
                                     </a>
+                                    <button class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

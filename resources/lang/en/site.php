@@ -158,5 +158,7 @@ return [
     'successfully'=>'Successfully Ended',
     'notfound'=>'Coupon Not Found',
     'error' => 'Error',
+    'accept' => 'Accept',
+
 
 ];

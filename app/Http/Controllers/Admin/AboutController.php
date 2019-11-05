@@ -46,6 +46,7 @@ class AboutController extends Controller
     {
         $request->validate([
             'content' => 'required|array|min:1',
+            'key' => 'required',
         ]);
         About::create($request->all());
         return redirect()->route('about.index');
@@ -98,8 +99,10 @@ class AboutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(About $about)
     {
-        //
+        $about->delete();
+        return redirect()->route('about.index')->with('success', 'Content successfully deleted');
+
     }
 }

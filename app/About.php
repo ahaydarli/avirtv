@@ -10,7 +10,7 @@ class About extends Model
     use HasTranslations;
     protected $table='about';
     protected $fillable = [
-        'content'
+        'content','key'
     ];
     public $timestamps=false;
     public $translatable = ['content'];

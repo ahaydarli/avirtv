@@ -144,14 +144,6 @@ return [
 
     //register
 
-    'register' => 'Qeydiyyat',
-    'register name' => 'Ad',
-    'register email' => 'Email',
-    'register password' => 'Parol',
-    'register confirm' => 'Təkrar Parol',
-    'register agree' => 'Mən bütün ',
-    'register more' => 'şərtlərlə razıyam',
-    'register button' => 'qeydiyyat',
 
 
     //email
@@ -167,6 +159,9 @@ return [
     'Successfully' => 'Uğurla başa çatdı',
     'notfound' => 'Kupon tapılmadı',
     'error' => 'Xəta',
+
+
+    'accept' => 'Razıyam',
 
 
 ];

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\About;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/profile';
 
     /**
      * Create a new controller instance.
@@ -69,5 +70,16 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'account_number' => User::generateAccountNumber()
         ]);
+    }
+
+
+    public function showRegistrationForm()
+    {
+        $conditions = About::where('key','conditions')->first();
+        if(!$conditions) {
+            $conditions = '';
+        }
+        return view('auth.register',compact('conditions'));
+
     }
 }

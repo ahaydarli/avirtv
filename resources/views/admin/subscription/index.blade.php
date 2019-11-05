@@ -153,7 +153,7 @@
                             <td>{{ $sub->account_number }}</td>
                             <td class="created">{{ $sub->created_at->format('m/d/Y') }}</td>
                             <td>
-                                <form id="delete-form" action="{{ route('service.destroy', $sub->id) }}" method="POST">
+                                <form id="delete-form" action="{{ route('subscription.destroy', $sub->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <a href="{{route('subscription.show', $sub->id)}}"

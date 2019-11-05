@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\About;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\App;
@@ -26,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/profile';
 
 
     /**
@@ -37,5 +38,16 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+
+    public function showLoginForm()
+    {
+        $conditions = About::where('key','conditions')->first();
+        if(!$conditions) {
+            $conditions = '';
+        }
+        return view('auth.login',compact('conditions'));
+
     }
 }
