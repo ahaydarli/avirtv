@@ -38,15 +38,11 @@
                         <tr>
 
                             <td>{{ $coupon->id }}</td>
-<<<<<<< HEAD
                             <td>
                                 @if($coupon->user_id)
                                     {{$coupon->user->name}}
                                     @endif
                                 </td>
-=======
-                            <td>{{ $coupon->user_id }}</td>
->>>>>>> e4127e9e087a418979f19f83d8627a1092b01b6c
                             <td>{{ $coupon->coupon }}</td>
                             <td>
                                 @if($coupon->is_active)
