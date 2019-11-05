@@ -31,6 +31,7 @@ Route::get("/article/{slug}", 'Frontend\HomeController@article_show')->name("fro
 Route::middleware('auth')->group(function () {
     Route::get('/profile', 'Frontend\ProfileController@index')->name('profile');
     Route::get('/order/{package_id}', 'Frontend\OrderController@subscribe')->name('order.subscribe');
+    Route::get('/how-to-connect','Frontend\ProfileController@connect')->name('profile.connect');
     Route::post('/order/{package_id}', 'Frontend\OrderController@order')->name('order.order');
     Route::post('/order/pay/{order_id}', 'Frontend\OrderController@paymentPage')->name('order.payment');
     Route::post('/change-pass', 'Frontend\ProfileController@changepass')->name('change-pass');
@@ -39,6 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::get("/select-package/{package_id}", 'Frontend\OrderController@selectPackage')->name("frontend.select-package");
     Route::post("/merger-package/{package_id}", 'Frontend\OrderController@mergePackage')->name("frontend.merge-package");
     Route::post("/profile/code", 'Frontend\ProfileController@searchCouponCode')->name("frontend.search.coupon");
+
 });
 
 Auth::routes();

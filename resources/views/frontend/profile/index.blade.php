@@ -54,12 +54,12 @@
                                 <div class="tab-content text-center">
                                     <div class="tab-pane active show" id="profile">
                                         <div class="row">
-                                            <div class="col-6 " style="font-weight:500; padding-top:80px;">
+                                            <div class="col " style="font-weight:500; padding-top:80px;">
                                                 <p style="font-size:20px !important; text-align: center !important">Əgər
                                                     sizin İPTV kartınız varsa , kartın arxasındakı şifrəni buradan daxil
                                                     edərək 12 aylıq <b>FULL</b> paketə qoşula bilərsiniz.</p>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col ">
                                                 <div class="card" style="width: 20rem;">
                                                     <img class="card-img-top" style="border-radius: 10px !important; "
                                                          src="{{asset('img/card.png')}}" alt="Card image cap">

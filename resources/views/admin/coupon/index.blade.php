@@ -18,6 +18,7 @@
                         <th>Coupon</th>
                         <th>Is Active</th>
                         <th>Status</th>
+                        <th>Period</th>
                         <th>Created at</th>
                     </tr>
                     </thead>
@@ -28,6 +29,7 @@
                         <th>Coupon</th>
                         <th>Is Active</th>
                         <th>Status</th>
+                        <th>Period</th>
                         <th>Created at</th>
                     </tr>
                     </tfoot>
@@ -57,6 +59,9 @@
                                 @else
                                     No Used
                                 @endif
+                            </td>
+                            <td>
+                                {{$coupon->period->month}} Months
                             </td>
                             <td>{{ $coupon->created_at->format('d-M-Y') }}</td>
                         </tr>

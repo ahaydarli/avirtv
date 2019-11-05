@@ -138,7 +138,7 @@ class HomeController extends Controller
 
     public function article_show($slug)
     {
-        $article=Article::where('slug','like','%'.$slug.'%')->first();
+        $article=Article::where('slug','like','%'.$slug.'%')->firstOrFail();
         return view('article',compact('article'));
     }
 

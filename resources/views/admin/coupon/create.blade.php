@@ -45,7 +45,16 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Period</label>
+                                <div class="col-sm-9">
+                                    <select name="period" class="form-control  @error('period') is-invalid @enderror">
+                                        @foreach($periods as $p)
+                                            <option value="{{ $p->id }}">{{ $p->month }} Month</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
 
 
 

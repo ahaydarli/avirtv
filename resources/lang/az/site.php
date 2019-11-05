@@ -168,6 +168,8 @@ return [
 
     'Successfully' => 'Uğurla başa çatdı',
 
+    'How to connect us' => 'Bizə necə qoşulmaq olar?!'
+
 
 
 ];

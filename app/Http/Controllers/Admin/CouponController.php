@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Period;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Coupon;
@@ -30,11 +31,8 @@ class CouponController extends Controller
      */
     public function create()
     {
-
-
-        return view('admin.coupon.create');
-
-
+        $periods=Period::all();
+        return view('admin.coupon.create',['periods'=>$periods]);
     }
 
     /**
@@ -47,18 +45,17 @@ class CouponController extends Controller
     {
         $request->validate([
             'count' => 'required|numeric',
-            'code' => 'required'
+            'code' => 'required|max:2|min:2',
+            'period'=>'required',
         ]);
-
-
         for ($a = 0; $a < $request->count; $a++) {
             factory(Coupon::class, 1)->create([
                 'coupon' => strtoupper($faker->unique()->bothify($request->code . '********')),
                 'is_active' => 1,
-                'status' => 0
+                'status' => 0,
+                'period_id'=>$request->period
             ]);
         }
-
         return redirect()->route('coupon.index')->with('success', 'Coupons Added');
     }
 

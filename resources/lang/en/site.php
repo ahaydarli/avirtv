@@ -170,6 +170,7 @@ return [
     'Ministra password' => 'Ministra password',
     'License key' => 'License key' ,
 
+    'How to connect us' => 'How to connect us?!'
 
 
 ];

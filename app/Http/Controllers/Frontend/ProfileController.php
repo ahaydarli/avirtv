@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\About;
 use App\Components\GoldenpayUtils;
 use App\Coupon;
 use App\Http\Controllers\Controller;
@@ -81,9 +82,8 @@ class ProfileController extends Controller
                 $coupons->user_id=Auth::id();
                 $coupons->save();
                 $tariff = Tariff::first();
-                $period = Period::where('month', 12)->first();
+                $period = $coupons->period;
                 // TODO check price for coupon code, optimal version
-                $tariff->price = $tariff->price-1;
                 $amount = GoldenpayUtils::calculatePrice($tariff, $period);
                 $payload = [
                     'user_id' => Auth::id(),
@@ -140,7 +140,8 @@ class ProfileController extends Controller
                     ];
                     $payment = Payment::create($paymentPayload);
                     DB::commit();
-                    return redirect()->route('profile')->with('success', __('site.successfully'));
+                    return redirect()->route('profile.connect')->with('success', __('site.successfully'));
+
                 }
             } else {
                 return redirect()->back()->withErrors(__('site.notfound'));
@@ -150,5 +151,12 @@ class ProfileController extends Controller
             return redirect()->back()->withErrors(__('site.wrong'));
 
         }
+    }
+
+
+    public function connect()
+    {
+        $content = About::where('key','connect')->first();
+        return view('how-to-connect', compact('content'));
     }
 }

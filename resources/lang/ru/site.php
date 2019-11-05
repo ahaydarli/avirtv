@@ -145,6 +145,7 @@ return [
     'Ministra login' => 'Вход в Ministra' ,
     'Ministra password' => 'Министра пароль',
     'License key' => 'Лицензионный ключ' ,
+    'How to connect us' => 'Bizə necə qoşulmaq olar?!'
 
 
 ];

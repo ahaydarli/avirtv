@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Admin;
 use App\Contact;
+use App\Coupon;
 use App\Http\Controllers\Controller;
 use App\License;
 use App\Payment;
 use App\Subscription;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -24,6 +26,11 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $this_day_coupon_active_count=Coupon::whereRaw('DATEDIFF(updated_at,curdate())=?',[0])->where('status',1)->count();
+        $this_month_coupon_active_count=Coupon::whereBetween('updated_at',[(new Carbon('first day of this month'))->format('Y-m-d'), DB::raw('curdate()')])->where('status',1)->count();
+
+
+
         $licenses = License::where('status',0)->get();
         $daily_users = User::where('created_at','>',date('Y-m-d').' 00:00:00')->get();
         $monthly_users = User::where('created_at','>',date('Y-m').'-1 00:00:00')->get();
@@ -32,9 +39,9 @@ class AdminController extends Controller
         $daily_be_users = Admin::where('created_at','>',date('Y-m-d').' 00:00:00')->where('status',1)->get();
         $monthly_be_users = Admin::where('created_at','>',date('Y-m').'-1 00:00:00')->where('status',1)->get();
         $be_payments = Payment::where('type',1)->sum('amount');
-
         return view('admin.admin-home', compact('licenses','daily_users','monthly_users',
-            'daily_subscriptions', 'monthly_subscriptions', 'daily_be_users','monthly_be_users','be_payments'
+            'daily_subscriptions', 'monthly_subscriptions', 'daily_be_users','monthly_be_users','be_payments',
+            'this_day_coupon_active_count','this_month_coupon_active_count'
         ));
     }
 
