@@ -27,10 +27,7 @@ class AdminController extends Controller
     public function index()
     {
         $this_day_coupon_active_count=Coupon::whereRaw('DATEDIFF(updated_at,curdate())=?',[0])->where('status',1)->count();
-        $this_month_coupon_active_count=Coupon::whereBetween('updated_at',[(new Carbon('first day of this month'))->format('Y-m-d'), DB::raw('curdate()')])->where('status',1)->count();
-
-
-
+        $this_month_coupon_active_count= Coupon::where('status',1)->where('updated_at','>',date('Y-m').'-1 00:00:00')->count();
         $licenses = License::where('status',0)->get();
         $daily_users = User::where('created_at','>',date('Y-m-d').' 00:00:00')->get();
         $monthly_users = User::where('created_at','>',date('Y-m').'-1 00:00:00')->get();
@@ -45,21 +42,22 @@ class AdminController extends Controller
         ));
     }
 
+
     public function readAllMessages()
     {
         DB::table('contact')
             ->where('read', 0)
             ->update(['read' => 1]);
-
-
         return true;
     }
+
 
     public function profile()
     {
         $admin = Auth::guard('admin')->user();
         return view('admin.profile', compact('admin'));
     }
+
 
     public function changePass(Request $request,$id)
     {
@@ -89,4 +87,6 @@ class AdminController extends Controller
             return redirect()->back()->with('error','Current password is not correct');
         }
     }
+
+
 }

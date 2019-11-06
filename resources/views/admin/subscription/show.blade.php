@@ -42,6 +42,15 @@
 
 
                             <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Deadline</label>
+                                <div class="col-sm-9">
+                                    <input id="login" type="text" class="form-control"
+                                           value="{{$subscription->deadline}}" readonly>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Payment Status</label>
                                 <div class="col-sm-9">
                                     <input id="payment" type="text" class="form-control"

@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\URL;
 use phpDocumentor\Reflection\Types\Void_;
 use Illuminate\Support\Facades\DB;
 
@@ -83,6 +84,14 @@ class ProfileController extends Controller
                 $coupons->save();
                 $tariff = Tariff::first();
                 $period = $coupons->period;
+                //Payment Paid At
+                $now=Carbon::now();
+                $period_month=$period->month;
+                //subscription deadline
+                $deadline=$now->addMonths($period_month);
+                if ($period->id !=2 ) {
+                    $tariff->price = $tariff->price -1;
+                }
                 // TODO check price for coupon code, optimal version
                 $amount = GoldenpayUtils::calculatePrice($tariff, $period);
                 $payload = [
@@ -96,6 +105,7 @@ class ProfileController extends Controller
                     'amount' => $amount,
                     'payment_status' => 1,
                     'status' => 0,
+                    'deadline'=>$deadline
                 ];
                 $subscription = Subscription::create($payload);
                 if ($subscription->device == 0) {
@@ -115,8 +125,8 @@ class ProfileController extends Controller
                     'end_date' => $expire_date,
                 ];
                 // TODO
-            $client = new MinistraClient();
-            $result = $client->postData('accounts', $payload);
+                $client = new MinistraClient();
+                $result = $client->postData('accounts', $payload);
 //          if ($result->status == 'OK') {
                 if ($result->status == 'OK') {
                     $subscription->payment_status = 1;
@@ -136,11 +146,15 @@ class ProfileController extends Controller
                         'period_id' => $subscription->period,
                         'amount' => $subscription->amount,
                         'status' => 1,
-                        'paid_at' => Carbon::now()
+                        'paid_at' => $now
                     ];
                     $payment = Payment::create($paymentPayload);
                     DB::commit();
-                    return redirect()->route('profile.connect')->with('success', __('site.successfully'));
+
+                    return redirect()->route('profile.connect',['id'=>$subscription])->with([
+                        'success' => __('site.successfully'),
+                    ]);
+
 
                 }
             } else {
@@ -149,14 +163,20 @@ class ProfileController extends Controller
         }catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->withErrors(__('site.wrong'));
-
         }
     }
 
 
-    public function connect()
+    public function connect(Request $request)
     {
+
+        if ($request->id  && URL::previous() == route('profile')) {
+            $subscription = Subscription::find($request->id);
+        }
+        else{
+            $subscription = 0;
+        }
         $content = About::where('key','connect')->first();
-        return view('how-to-connect', compact('content'));
+        return view('how-to-connect', compact('content','subscription'));
     }
 }

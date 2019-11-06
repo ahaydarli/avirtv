@@ -104,6 +104,7 @@
                         <th>Tariff id</th>
                         <th>Payment status</th>
                         <th>Status</th>
+                        <th>Deadline</th>
                         <th>Device</th>
                         <th>Account Number</th>
                         <th>Created at</th>
@@ -117,6 +118,7 @@
                         <th>Tariff id</th>
                         <th>Payment status</th>
                         <th>Status</th>
+                        <th>Deadline</th>
                         <th>Device</th>
                         <th>Account Number</th>
                         <th>Created at</th>
@@ -141,6 +143,11 @@
                                     Active
                                 @else
                                     Deactive
+                                @endif
+                            </td>
+                            <td>
+                                @if($sub->deadline)
+                                    {{$sub->deadline}}
                                 @endif
                             </td>
                             <td>
