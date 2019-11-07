@@ -16,6 +16,7 @@ use App\Tariff;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -64,7 +65,6 @@ class ProfileController extends Controller
 
     public function serviceDetail(Request $request)
     {
-
         $subscription = Subscription::findOrFail($request->id);
         return view('frontend.profile.detailsAjax', compact('subscription'))->render();
     }
@@ -150,12 +150,7 @@ class ProfileController extends Controller
                     ];
                     $payment = Payment::create($paymentPayload);
                     DB::commit();
-
-                    return redirect()->route('profile.connect',['id'=>$subscription])->with([
-                        'success' => __('site.successfully'),
-                    ]);
-
-
+                    return redirect()->route('profile.connect_via_sub',['id'=>$subscription])->with('success',__('site.successfully'));
                 }
             } else {
                 return redirect()->back()->withErrors(__('site.notfound'));
@@ -167,16 +162,23 @@ class ProfileController extends Controller
     }
 
 
-    public function connect(Request $request)
+    public function connect()
     {
-
-        if ($request->id  && URL::previous() == route('profile')) {
-            $subscription = Subscription::find($request->id);
-        }
-        else{
-            $subscription = 0;
-        }
         $content = About::where('key','connect')->first();
-        return view('how-to-connect', compact('content','subscription'));
+        return view('how-to-connect', compact('content'));
+    }
+
+    public function connectSubscribe(Request $request)
+    {
+        $subscription = Subscription::findOrFail($request->id);
+        $user = new User();
+        if($user->checkUserSubscribe($subscription->user_id)) {
+            $content = About::where('key', 'connect_via_subscribe')->first();
+            return view('connect-via-subscribe', compact('subscription', 'content'));
+        }
+        else {
+            return redirect()->route('profile.connect');
+        }
+
     }
 }

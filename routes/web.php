@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', 'Frontend\ProfileController@index')->name('profile');
     Route::get('/order/{package_id}', 'Frontend\OrderController@subscribe')->name('order.subscribe');
     Route::get('/how-to-connect','Frontend\ProfileController@connect')->name('profile.connect');
+    Route::get('/how-to-connect-via-subscription/{id}','Frontend\ProfileController@connectSubscribe')->name('profile.connect_via_sub');
     Route::post('/order/{package_id}', 'Frontend\OrderController@order')->name('order.order');
     Route::post('/order/pay/{order_id}', 'Frontend\OrderController@paymentPage')->name('order.payment');
     Route::post('/change-pass', 'Frontend\ProfileController@changepass')->name('change-pass');

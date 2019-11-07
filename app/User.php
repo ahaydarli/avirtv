@@ -6,6 +6,7 @@ use App\Notifications\ResetPassword;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -57,6 +58,17 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));
+    }
+
+
+    public function checkUserSubscribe($user_id)
+    {
+        if (Auth::id() == $user_id){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 }
