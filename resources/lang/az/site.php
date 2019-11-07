@@ -168,7 +168,10 @@ return [
 
     'Successfully' => 'Uğurla başa çatdı',
 
-    'How to connect us' => 'Bizə necə qoşulmaq olar?!'
+    'How to connect us' => 'Bizə necə qoşulmaq olar?!',
+
+    'back' => 'Geri',
+    'not found' => 'Axtardığınız sorğuya uyğun nəticə tapılmadı.'
 
 
 

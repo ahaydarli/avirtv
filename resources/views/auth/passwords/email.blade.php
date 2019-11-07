@@ -26,6 +26,12 @@
                             <label for="email" class="col-md-12 col-form-label text-center">{{ __('site.e-mail address') }}</label>
 
                             <div class="col-md-12">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                          <span class="input-group-text">
+                                            <i class="material-icons">email</i>
+                                          </span>
+                                    </div>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid
                                 @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -34,6 +40,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
                             </div>
                         </div>
                         <div class="card-footer justify-content-center">

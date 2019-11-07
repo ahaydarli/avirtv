@@ -13,22 +13,26 @@
 
                     <div class="tab-content pt-2 pl-1" id="pills-tabContent">
 
-                        <div class="form-group">
-                            <input id="question" type="text" class="form-control @error('license') is-invalid @enderror"
-                                   name="license" value="{{ old('license') }}"
-                                   placeholder="License">
-                            @error('license')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">License</label>
+                            <div class="col-sm-9">
+                                <textarea name="license" placeholder="License" class="form-control @error('license') is-invalid @enderror" id="license" cols="30" rows="10">{{old('license')}}</textarea>
+                                @error('license')
+                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
+
+                            </div>
                         </div>
 
-
-                        <div class="form-group">
+                        <div class="form-group row">
+                            <label  class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
                             <div class="form-check">
                                 <input type="checkbox" checked value="1" name="is_active" class="form-check-input" id="exampleCheck1" {{ old('is_active') ? 'checked' : '' }}>
                                 <label class="form-check-label" for="exampleCheck1">{{ __('Active') }}</label>
+                            </div>
                             </div>
                         </div>
                     </div>

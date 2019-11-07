@@ -43,17 +43,25 @@ class LicenseController extends Controller
         $request->validate([
             'license' => 'required',
         ]);
-        $license = new License();
-        $license->created_by = 'Admin';
-        $license->license =$request->license;
         if($request->is_active){
-            $license->is_active =1;
+            $active =1;
         }
         else{
-            $license->is_active =0;
+            $active =0;
         }
-        $license->save();
-
+        $all = $request->license;
+        $all = trim($all);
+        $all = rtrim($all,',');
+        $all = explode(',',$all);
+        $licenses = [];
+        foreach ($all as $license) {
+            $license = trim($license);
+            $save_license = new License();
+            $save_license->created_by = 'Admin';
+            $save_license->is_active = $active;
+            $save_license->license = $license;
+            $save_license->save();
+        }
         return redirect()->route('license.index')
             ->with('success', 'License added');
     }

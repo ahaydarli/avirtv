@@ -3,11 +3,13 @@
 @section('title', __('site.error'))
 @section('content')
     ​
-    <div class="page-header header-filter header-small" data-parallax="true">
+
+
+    <div class="page-header header-filter header-small" data-parallax="true" style="background-image: url('/img/error.jpeg');">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto text-center">
-
+{{--                    <h1 class="title">@lang('site.error')</h1>--}}
                 </div>
             </div>
         </div>
@@ -18,8 +20,8 @@
                 <div class="row">
                     <div class="col-md-8 ml-auto mr-auto" >
 
-                        <p class="display-3">404 Not Found</p>
-                        <a class="btn btn-danger" href="{{ url()->previous() }}"> Back </a>
+                        <h3 class="description">{{__('site.not found')}}</h3>
+                        <a class="btn btn-danger" href="{{ url()->previous() }}"> {{__('site.back')}} </a>
 
                         ​
                     </div>
