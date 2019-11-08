@@ -54,7 +54,7 @@
                                                                 name="device" data-style="select-with-transition" title="{{ __('Device type') }}" data-size="7">
                                                             <option>{{ __('site.Choose device') }}</option>
                                                             <option value="1">MAG  {{ __('site.devices') }}</option>
-                                                            <option value="0">{{ __('site.other') }}</option>
+                                                            <option value="0" selected>{{ __('site.tv_and_smartphone') }}</option>
                                                         </select>
                                                         @error('device')
                                                             <span class="invalid-feedback" role="alert">

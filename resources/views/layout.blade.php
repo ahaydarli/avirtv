@@ -171,7 +171,7 @@
             ©
             <script>
                 document.write(new Date().getFullYear())
-            </script> Avirnet.az
+            </script> Avirtv.az
         </div>
     </div>
 </footer>

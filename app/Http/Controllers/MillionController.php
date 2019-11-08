@@ -87,6 +87,7 @@ class MillionController extends Controller
 
         if ($request->command == 'status') {
             $payment = Payment::where('payment_details', $request->txn_id)->first();
+
             if ($payment->status) {
                 $status = 1;
             } else {

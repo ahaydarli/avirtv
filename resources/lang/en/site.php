@@ -118,7 +118,7 @@ return [
     'Your packages' => 'Your packages',
     'devices' => 'devices',
     "Tv's, smartphones etc" => "Tv's, smartphones etc",
-    'other' => 'Other',
+    'tv_and_smartphone' => 'TV, Smartphones and more',
     'article' => 'Article',
 
 

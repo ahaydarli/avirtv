@@ -112,7 +112,7 @@ return [
     'Your packages' => 'Ваши пакеты',
     'devices' => 'приборы',
     "Tv's, smartphones etc" => "Телевизоры, смартфоны и т. Д.",
-    'other' => 'Другие',
+    'tv_and_smartphone' => 'Телевизоры, смартфоны и пр.',
     'article' => 'Статья',
 
     'register'=>'Регистр',

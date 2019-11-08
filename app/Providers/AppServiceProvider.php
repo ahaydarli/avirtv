@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Contact;
 use App\Language;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Session;
@@ -33,6 +34,9 @@ class AppServiceProvider extends ServiceProvider
         }
         View::composer(['layout', 'login-layout'], function ($view) {
             $view->with('languages', \session('locales'));
+        });
+        View::composer('admin.layout', function ($view) {
+            $view->with('messages',  Contact::where('read',0)->get());
         });
         Schema::defaultStringLength(191);
     }

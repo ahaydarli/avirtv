@@ -61,8 +61,8 @@ return [
 
 
     //home sehifesi
-    'why_choose' => 'Nə üçün biz',
-    'live' => 'Stream Tv canlı yayım - hər zaman, hər yerdə, bütün kompyuterlərdə',
+    'why_choose' => 'Nə üçün biz?',
+    'live' => 'Avirtv canlı yayım - hər zaman, hər yerdə, bütün kompyuterlərdə',
     'watch' => 'Canlı yayımlanan TV və Sevimli şoularınıza mobil cihazlarınızda  baxın',
     'plan' => 'Sizin üçün ən yaxşısını seçin',
     'unlimited' => 'Hər paketdə pulsuz limitsiz yeniləmələr və mükafatlar var',
@@ -112,7 +112,7 @@ return [
     'Your packages' => 'Paketləriniz',
     'devices' => 'Cihazlar',
     "Tv's, smartphones etc" => "Televizorlar, smartfonlar və s",
-    'other' => 'Digər',
+    'tv_and_smartphone' => 'Tv, Smartfonlar və s.',
     'article' => 'Məqalə',
 
 

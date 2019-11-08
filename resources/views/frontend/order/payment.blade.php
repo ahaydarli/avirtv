@@ -69,7 +69,7 @@
                                             </td>
                                     </tr>
                                     <tr>
-                                        <td>   </td>
+                                        <td> <h4>Account Number - {{ $subscription->account_number }}</h4> </td>
                                         <td>   </td>
                                         <td class="text-right"><h4><strong>{{__("site.total")}}: </strong></h4></td>
                                         <td class="text-center text-danger"><h4><strong>{{ $subscription->amount }} ₼</strong></h4></td>

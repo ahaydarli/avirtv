@@ -34,27 +34,21 @@
                                     </span>
                                     @enderror
                                 </div>
-<<<<<<< HEAD
 
                             </div>
                         @endforeach
 
-                            <div class="form-group">
-                                <input id="key" class="form-control @error('key') is-invalid @enderror"
-                                       name="key"
-                                       placeholder="{{ __('Key')}}" value="{{ old('key') }}">
-                                @error('key')
-                                <span class="invalid-feedback" role="alert">
+                        <div class="form-group">
+                            <input id="key" class="form-control @error('key') is-invalid @enderror"
+                                   name="key"
+                                   placeholder="{{ __('Key')}}" value="{{ old('key') }}">
+                            @error('key')
+                            <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
-                            </div>
+                            @enderror
+                        </div>
 
-=======
-                            </div>
-                        @endforeach
-
->>>>>>> e4127e9e087a418979f19f83d8627a1092b01b6c
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">
                         {{ __('Save') }}
@@ -64,4 +58,4 @@
         </div>
     </div>
 
-    @endsection
+@endsection
