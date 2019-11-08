@@ -25,15 +25,15 @@
                                         </h4>
                                         <ul class="list-group mb-3">
                                             <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                                            <div>
-                                                                <h6 class="my-0">{{ $tariff->name }}</h6>
-                                                                <small class="text-muted">{{ __('Base package') }}</small>
-                                                            </div>
-                                                            <span class="text-muted">{{ $tariff->price }} ₼</span>
+                                                <div>
+                                                    <h6 class="my-0">{{ $tariff->name }}</h6>
+                                                    <small class="text-muted">{{ __('Base package') }}</small>
+                                                </div>
+                                                <span class="text-muted">{{ $tariff->price }} ₼</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between">
-                                                            <span>{{__('site.total')}} (₼)</span>
-                                                            <strong class="total_price">{{ $tariff->price }} ₼</strong>
+                                                <span>{{__('site.total')}} (₼)</span>
+                                                <strong class="total_price">{{ $tariff->price }} ₼</strong>
                                             </li>
                                         </ul>
                                     </div>
@@ -54,10 +54,10 @@
                                                                 name="device" data-style="select-with-transition" title="{{ __('Device type') }}" data-size="7">
                                                             <option>{{ __('site.Choose device') }}</option>
                                                             <option value="1">MAG  {{ __('site.devices') }}</option>
-                                                            <option value="0">{{ __('site.other') }}</option>
+                                                            <option value="0" selected>{{ __('site.tv_and_smartphone') }}</option>
                                                         </select>
                                                         @error('device')
-                                                            <span class="invalid-feedback" role="alert">
+                                                        <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                             </span>
                                                         @enderror

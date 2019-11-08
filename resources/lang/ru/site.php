@@ -148,6 +148,9 @@ return [
     'How to connect us' => 'Bizə necə qoşulmaq olar?!',
 
     'back' => 'Geri',
-    'not found' => 'Axtardığınız sorğuya uyğun nəticə tapılmadı.'
+    'not found' => 'Axtardığınız sorğuya uyğun nəticə tapılmadı.',
+    'tv_and_smartphone' => 'Телевизоры, смартфоны и пр.',
+    'pay million or card' => 'You can pay with account number on million terminals and also via card',
+
 
 ];

@@ -171,7 +171,10 @@ return [
     'How to connect us' => 'Bizə necə qoşulmaq olar?!',
 
     'back' => 'Geri',
-    'not found' => 'Axtardığınız sorğuya uyğun nəticə tapılmadı.'
+    'not found' => 'Axtardığınız sorğuya uyğun nəticə tapılmadı.',
+
+    'tv_and_smartphone' => 'Tv, Smartfonlar və s.',
+    'pay million or card' => 'Hesab nömrənizi miliön terminala daxil edərək və ya ödəniş hissəni klikləyərək kart vasitəsilə ödəniş edə bilərsiniz.',
 
 
 

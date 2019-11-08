@@ -172,8 +172,12 @@ return [
 
     'How to connect us' => 'How to connect us?!',
 
-        'back' => 'Back',
-        'not found' => 'Not found',
+    'back' => 'Back',
+    'not found' => 'Not found',
+
+    'tv_and_smartphone' => 'TV, Smartphones and more',
+    'pay million or card' => 'You can pay with account number on million terminals , if you want to pay via card click pay button.',
+
 
 
 ];
